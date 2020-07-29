@@ -1,0 +1,364 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Jul 27 2020 03:02:32
+gem5 started Jul 28 2020 21:14:04
+gem5 executing on atlas.engr.tamu.edu, pid 40573
+command line: ./build/NULL/gem5.debug --debug-flags=RubyNetwork configs/example/garnet_synth_traffic.py --num-cpus=16 --num-dirs=16 --network=garnet2.0 --topology=Mesh_XY --mesh-rows=4 --sim-cycles=1000 --synthetic=uniform_random --injectionrate=0.02 --num-packets-max=2 --single-sender-id=11 --single-dest-id=1 --smart --smart_hpcmax=8 --smart_dest_bypass
+
+Global frequency set at 1000000000 ticks per second
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967232, (next-(2*max_machines)): 0, src: 0, next: 64, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967233, (next-(2*max_machines)): 1, src: 1, next: 65, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967234, (next-(2*max_machines)): 2, src: 2, next: 66, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967235, (next-(2*max_machines)): 3, src: 3, next: 67, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967236, (next-(2*max_machines)): 4, src: 4, next: 68, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967237, (next-(2*max_machines)): 5, src: 5, next: 69, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967238, (next-(2*max_machines)): 6, src: 6, next: 70, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967239, (next-(2*max_machines)): 7, src: 7, next: 71, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967240, (next-(2*max_machines)): 8, src: 8, next: 72, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967241, (next-(2*max_machines)): 9, src: 9, next: 73, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967242, (next-(2*max_machines)): 10, src: 10, next: 74, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967243, (next-(2*max_machines)): 11, src: 11, next: 75, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967244, (next-(2*max_machines)): 12, src: 12, next: 76, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967245, (next-(2*max_machines)): 13, src: 13, next: 77, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967246, (next-(2*max_machines)): 14, src: 14, next: 78, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967247, (next-(2*max_machines)): 15, src: 15, next: 79, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967248, (next-(2*max_machines)): 0, src: 16, next: 64, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967249, (next-(2*max_machines)): 1, src: 17, next: 65, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967250, (next-(2*max_machines)): 2, src: 18, next: 66, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967251, (next-(2*max_machines)): 3, src: 19, next: 67, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967252, (next-(2*max_machines)): 4, src: 20, next: 68, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967253, (next-(2*max_machines)): 5, src: 21, next: 69, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967254, (next-(2*max_machines)): 6, src: 22, next: 70, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967255, (next-(2*max_machines)): 7, src: 23, next: 71, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967256, (next-(2*max_machines)): 8, src: 24, next: 72, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967257, (next-(2*max_machines)): 9, src: 25, next: 73, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967258, (next-(2*max_machines)): 10, src: 26, next: 74, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967259, (next-(2*max_machines)): 11, src: 27, next: 75, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967260, (next-(2*max_machines)): 12, src: 28, next: 76, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967261, (next-(2*max_machines)): 13, src: 29, next: 77, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967262, (next-(2*max_machines)): 14, src: 30, next: 78, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4294967263, (next-(2*max_machines)): 15, src: 31, next: 79, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 0, (next-(2*max_machines)): 4294967264, src: 64, next: 32, result: [NetDest (17)  - 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 0, (next-(2*max_machines)): 4294967280, src: 64, next: 48, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 0, (next-(2*max_machines)): 1, src: 64, next: 65, result: [NetDest (17)  - 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1  -  -  - 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 0, (next-(2*max_machines)): 4, src: 64, next: 68, result: [NetDest (17)  - 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 1, (next-(2*max_machines)): 4294967265, src: 65, next: 33, result: [NetDest (17)  - 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 1, (next-(2*max_machines)): 4294967281, src: 65, next: 49, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 1, (next-(2*max_machines)): 0, src: 65, next: 64, result: [NetDest (17)  - 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0  -  -  - 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 1, (next-(2*max_machines)): 2, src: 65, next: 66, result: [NetDest (17)  - 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1  -  -  - 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 1, (next-(2*max_machines)): 5, src: 65, next: 69, result: [NetDest (17)  - 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 2, (next-(2*max_machines)): 4294967266, src: 66, next: 34, result: [NetDest (17)  - 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 2, (next-(2*max_machines)): 4294967282, src: 66, next: 50, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 2, (next-(2*max_machines)): 1, src: 66, next: 65, result: [NetDest (17)  - 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0  -  -  - 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 2, (next-(2*max_machines)): 3, src: 66, next: 67, result: [NetDest (17)  - 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1  -  -  - 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 2, (next-(2*max_machines)): 6, src: 66, next: 70, result: [NetDest (17)  - 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 3, (next-(2*max_machines)): 4294967267, src: 67, next: 35, result: [NetDest (17)  - 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 3, (next-(2*max_machines)): 4294967283, src: 67, next: 51, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 3, (next-(2*max_machines)): 2, src: 67, next: 66, result: [NetDest (17)  - 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0  -  -  - 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 3, (next-(2*max_machines)): 7, src: 67, next: 71, result: [NetDest (17)  - 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1  -  -  - 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4, (next-(2*max_machines)): 4294967268, src: 68, next: 36, result: [NetDest (17)  - 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4, (next-(2*max_machines)): 4294967284, src: 68, next: 52, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4, (next-(2*max_machines)): 0, src: 68, next: 64, result: [NetDest (17)  - 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4, (next-(2*max_machines)): 5, src: 68, next: 69, result: [NetDest (17)  - 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1  -  -  - 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 4, (next-(2*max_machines)): 8, src: 68, next: 72, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1  -  -  - 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 5, (next-(2*max_machines)): 4294967269, src: 69, next: 37, result: [NetDest (17)  - 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 5, (next-(2*max_machines)): 4294967285, src: 69, next: 53, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 5, (next-(2*max_machines)): 1, src: 69, next: 65, result: [NetDest (17)  - 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 5, (next-(2*max_machines)): 4, src: 69, next: 68, result: [NetDest (17)  - 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0  -  -  - 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 5, (next-(2*max_machines)): 6, src: 69, next: 70, result: [NetDest (17)  - 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1  -  -  - 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 5, (next-(2*max_machines)): 9, src: 69, next: 73, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1  -  -  - 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 6, (next-(2*max_machines)): 4294967270, src: 70, next: 38, result: [NetDest (17)  - 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 6, (next-(2*max_machines)): 4294967286, src: 70, next: 54, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 6, (next-(2*max_machines)): 2, src: 70, next: 66, result: [NetDest (17)  - 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 6, (next-(2*max_machines)): 5, src: 70, next: 69, result: [NetDest (17)  - 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0  -  -  - 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 6, (next-(2*max_machines)): 7, src: 70, next: 71, result: [NetDest (17)  - 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1  -  -  - 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 6, (next-(2*max_machines)): 10, src: 70, next: 74, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1  -  -  - 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 7, (next-(2*max_machines)): 4294967271, src: 71, next: 39, result: [NetDest (17)  - 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 7, (next-(2*max_machines)): 4294967287, src: 71, next: 55, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 7, (next-(2*max_machines)): 3, src: 71, next: 67, result: [NetDest (17)  - 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 7, (next-(2*max_machines)): 6, src: 71, next: 70, result: [NetDest (17)  - 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0  -  -  - 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 7, (next-(2*max_machines)): 11, src: 71, next: 75, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1  -  -  - 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 8, (next-(2*max_machines)): 4294967272, src: 72, next: 40, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 8, (next-(2*max_machines)): 4294967288, src: 72, next: 56, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 8, (next-(2*max_machines)): 4, src: 72, next: 68, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0  -  -  - 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 8, (next-(2*max_machines)): 9, src: 72, next: 73, result: [NetDest (17)  - 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1  -  -  - 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 8, (next-(2*max_machines)): 12, src: 72, next: 76, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 9, (next-(2*max_machines)): 4294967273, src: 73, next: 41, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 9, (next-(2*max_machines)): 4294967289, src: 73, next: 57, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 9, (next-(2*max_machines)): 5, src: 73, next: 69, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0  -  -  - 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 9, (next-(2*max_machines)): 8, src: 73, next: 72, result: [NetDest (17)  - 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0  -  -  - 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 9, (next-(2*max_machines)): 10, src: 73, next: 74, result: [NetDest (17)  - 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1  -  -  - 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 9, (next-(2*max_machines)): 13, src: 73, next: 77, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 10, (next-(2*max_machines)): 4294967274, src: 74, next: 42, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 10, (next-(2*max_machines)): 4294967290, src: 74, next: 58, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 10, (next-(2*max_machines)): 6, src: 74, next: 70, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0  -  -  - 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 10, (next-(2*max_machines)): 9, src: 74, next: 73, result: [NetDest (17)  - 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0  -  -  - 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 10, (next-(2*max_machines)): 11, src: 74, next: 75, result: [NetDest (17)  - 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1  -  -  - 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 10, (next-(2*max_machines)): 14, src: 74, next: 78, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 11, (next-(2*max_machines)): 4294967275, src: 75, next: 43, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 11, (next-(2*max_machines)): 4294967291, src: 75, next: 59, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 11, (next-(2*max_machines)): 7, src: 75, next: 71, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0  -  -  - 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 11, (next-(2*max_machines)): 10, src: 75, next: 74, result: [NetDest (17)  - 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0  -  -  - 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 11, (next-(2*max_machines)): 15, src: 75, next: 79, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 12, (next-(2*max_machines)): 4294967276, src: 76, next: 44, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 12, (next-(2*max_machines)): 4294967292, src: 76, next: 60, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 12, (next-(2*max_machines)): 8, src: 76, next: 72, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 12, (next-(2*max_machines)): 13, src: 76, next: 77, result: [NetDest (17)  - 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1  -  -  - 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 13, (next-(2*max_machines)): 4294967277, src: 77, next: 45, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 13, (next-(2*max_machines)): 4294967293, src: 77, next: 61, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 13, (next-(2*max_machines)): 9, src: 77, next: 73, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 13, (next-(2*max_machines)): 12, src: 77, next: 76, result: [NetDest (17)  - 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0  -  -  - 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 13, (next-(2*max_machines)): 14, src: 77, next: 78, result: [NetDest (17)  - 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1  -  -  - 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 14, (next-(2*max_machines)): 4294967278, src: 78, next: 46, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 14, (next-(2*max_machines)): 4294967294, src: 78, next: 62, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 14, (next-(2*max_machines)): 10, src: 78, next: 74, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 14, (next-(2*max_machines)): 13, src: 78, next: 77, result: [NetDest (17)  - 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0  -  -  - 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 14, (next-(2*max_machines)): 15, src: 78, next: 79, result: [NetDest (17)  - 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1  -  -  - 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 15, (next-(2*max_machines)): 4294967279, src: 79, next: 47, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 15, (next-(2*max_machines)): 4294967295, src: 79, next: 63, result: [NetDest (17)  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  -  -  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 15, (next-(2*max_machines)): 11, src: 79, next: 75, result: [NetDest (17)  - 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0  -  -  - 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      0: global: Returning shortest path
+(src-(2*max_machines)): 15, (next-(2*max_machines)): 14, src: 79, next: 78, result: [NetDest (17)  - 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0  -  -  - 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0  -  -  -  -  -  -  -  -  -  -  -  -  - ]
+      3: system.ruby.network.netifs11: Network Interface 11 connected to router 11 woke up at time: 3
+      5: system.ruby.network.routers11: Router 11 woke up
+      5: global: Router 11 Inport Local received flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=5 ]
+      5: global: SwitchAllocator at Router 11 granted outvc 4 at outport West to invc 4 at inport Local to flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=5 ] at time: 5
+      5: global: Router 11 OutputUnit 3 decrementing credit for outvc 4 at time: 5
+      5: system.ruby.network.routers11: Router 11 Inport Local received SSR from src_hops 0 for bypass = 0 for Outport West
+      5: global: Router 11 Output port West Sending SSR for hops = 2
+      5: system.ruby.network.routers10: Router 10 Inport East received SSR from src_hops 1 for bypass = 1 for Outport West
+      5: system.ruby.network.routers09: Router 9 Inport East received SSR from src_hops 2 for bypass = 0 for Outport West
+      5: global: CrossbarSwitch at Router 11 woke up at time: 5
+      6: system.ruby.network.routers10: Router 10 woke up
+      6: global: Router 10 Inport East granted SSR for flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=6 ] from src_hops 1 for bypass = 1 for Outport West
+      6: global: CrossbarSwitch at Router 10 woke up at time: 6
+      6: system.ruby.network.routers11: Router 11 woke up
+      6: global: Router 11 Inport Local granted SSR for flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=6 ] from src_hops 0 for bypass = 0 for Outport West
+      6: global: CrossbarSwitch at Router 11 woke up at time: 6
+      6: global: Crossbar Switch at Router 11 sending flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=6 ] from outport West at time: 6
+      7: global: Router 10 Inport East trying to bypass flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=7 ]
+      7: global: Router 10 Inport East Trying SMART Bypass for Flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=7 ]
+      7: global: Router 10 OutputUnit 3 decrementing credit for outvc 4 at time: 7
+      7: system.ruby.network.routers10: Router 10 Inport East and Outport West successful SMART Bypass for Flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=7 ]
+      7: global: Router 9 Inport East trying to bypass flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=7 ]
+      7: system.ruby.network.netifs11: Network Interface 11 connected to router 11 woke up at time: 7
+      8: system.ruby.network.routers09: Router 9 woke up
+      8: global: Router 9 Inport East received flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=8 ]
+      8: global: SwitchAllocator at Router 9 granted outvc 4 at outport South to invc 4 at inport East to flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=8 ] at time: 8
+      8: global: Router 9 OutputUnit 2 decrementing credit for outvc 4 at time: 8
+      8: system.ruby.network.routers09: Router 9 Inport East received SSR from src_hops 0 for bypass = 0 for Outport South
+      8: global: Router 9 Output port South Sending SSR for hops = 2
+      8: system.ruby.network.routers05: Router 5 Inport North received SSR from src_hops 1 for bypass = 1 for Outport South
+      8: global: CrossbarSwitch at Router 9 woke up at time: 8
+      9: system.ruby.network.routers11: Router 11 woke up
+      9: global: Router 11 OutputUnit 3 incrementing credit for outvc 4 at time: 9
+      9: global: CrossbarSwitch at Router 11 woke up at time: 9
+      9: system.ruby.network.routers05: Router 5 woke up
+      9: global: Router 5 Inport North granted SSR for flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=9 ] from src_hops 1 for bypass = 1 for Outport South
+      9: global: CrossbarSwitch at Router 5 woke up at time: 9
+      9: system.ruby.network.routers09: Router 9 woke up
+      9: global: Router 9 Inport East granted SSR for flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=9 ] from src_hops 0 for bypass = 0 for Outport South
+      9: global: CrossbarSwitch at Router 9 woke up at time: 9
+      9: global: Crossbar Switch at Router 9 sending flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=9 ] from outport South at time: 9
+     10: global: Router 5 Inport North trying to bypass flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=10 ]
+     10: global: Router 5 Inport North Trying SMART Bypass for Flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=10 ]
+     10: global: Router 5 OutputUnit 2 decrementing credit for outvc 4 at time: 10
+     10: system.ruby.network.routers05: Router 5 Inport North and Outport South successful SMART Bypass for Flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=10 ]
+     10: global: Router 1 Inport North trying to bypass flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=10 ]
+     10: system.ruby.network.routers10: Router 10 woke up
+     10: global: Router 10 OutputUnit 3 incrementing credit for outvc 4 at time: 10
+     10: global: CrossbarSwitch at Router 10 woke up at time: 10
+     11: system.ruby.network.routers01: Router 1 woke up
+     11: global: Router 1 Inport North received flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=11 ]
+     11: global: SwitchAllocator at Router 1 granted outvc 4 at outport Local to invc 4 at inport North to flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=11 ] at time: 11
+     11: global: Router 1 OutputUnit 1 decrementing credit for outvc 4 at time: 11
+     11: system.ruby.network.routers01: Router 1 Inport North received SSR from src_hops 0 for bypass = 0 for Outport Local
+     11: global: CrossbarSwitch at Router 1 woke up at time: 11
+     12: system.ruby.network.routers09: Router 9 woke up
+     12: global: Router 9 OutputUnit 2 incrementing credit for outvc 4 at time: 12
+     12: global: CrossbarSwitch at Router 9 woke up at time: 12
+     12: system.ruby.network.routers01: Router 1 woke up
+     12: global: Router 1 Inport North granted SSR for flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=12 ] from src_hops 0 for bypass = 0 for Outport Local
+     12: global: CrossbarSwitch at Router 1 woke up at time: 12
+     12: global: Crossbar Switch at Router 1 sending flit [flit:: Id=0 Type=3 Vnet=1 VC=4 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=3 Valid Time=12 ] from outport Local at time: 12
+     13: system.ruby.network.routers05: Router 5 woke up
+     13: global: Router 5 OutputUnit 2 incrementing credit for outvc 4 at time: 13
+     13: global: CrossbarSwitch at Router 5 woke up at time: 13
+     14: system.ruby.network.netifs17: Network Interface 17 connected to router 1 woke up at time: 14
+     16: system.ruby.network.routers01: Router 1 woke up
+     16: global: Router 1 OutputUnit 1 incrementing credit for outvc 4 at time: 16
+     16: global: CrossbarSwitch at Router 1 woke up at time: 16
+     27: system.ruby.network.netifs11: Network Interface 11 connected to router 11 woke up at time: 27
+     28: system.ruby.network.netifs11: Network Interface 11 connected to router 11 woke up at time: 28
+     29: system.ruby.network.routers11: Router 11 woke up
+     29: global: Router 11 Inport Local received flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=29 ]
+     29: global: SwitchAllocator at Router 11 granted outvc 8 at outport West to invc 8 at inport Local to flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=29 ] at time: 29
+     29: global: Router 11 OutputUnit 3 decrementing credit for outvc 8 at time: 29
+     29: system.ruby.network.routers11: Router 11 Inport Local received SSR from src_hops 0 for bypass = 0 for Outport West
+     29: global: Router 11 Output port West Sending SSR for hops = 2
+     29: system.ruby.network.routers10: Router 10 Inport East received SSR from src_hops 1 for bypass = 1 for Outport West
+     29: system.ruby.network.routers09: Router 9 Inport East received SSR from src_hops 2 for bypass = 0 for Outport West
+     29: global: CrossbarSwitch at Router 11 woke up at time: 29
+     29: system.ruby.network.netifs11: Network Interface 11 connected to router 11 woke up at time: 29
+     30: system.ruby.network.netifs11: Network Interface 11 connected to router 11 woke up at time: 30
+     30: system.ruby.network.routers10: Router 10 woke up
+     30: global: Router 10 Inport East granted SSR for flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=30 ] from src_hops 1 for bypass = 1 for Outport West
+     30: global: CrossbarSwitch at Router 10 woke up at time: 30
+     30: system.ruby.network.routers11: Router 11 woke up
+     30: global: Router 11 Inport Local received flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=30 ]
+     30: global: SwitchAllocator at Router 11 granted outvc 8 at outport West to invc 8 at inport Local to flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=30 ] at time: 30
+     30: global: Router 11 OutputUnit 3 decrementing credit for outvc 8 at time: 30
+     30: system.ruby.network.routers11: Router 11 Inport Local received SSR from src_hops 0 for bypass = 0 for Outport West
+     30: global: Router 11 Output port West Sending SSR for hops = 8
+     30: system.ruby.network.routers10: Router 10 Inport East received SSR from src_hops 1 for bypass = 1 for Outport West
+     30: system.ruby.network.routers09: Router 9 Inport East received SSR from src_hops 2 for bypass = 1 for Outport West
+     30: system.ruby.network.routers08: Router 8 Inport East received SSR from src_hops 3 for bypass = 1 for Outport West
+     30: global: Router 11 Inport Local granted SSR for flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=30 ] from src_hops 0 for bypass = 0 for Outport West
+     30: global: CrossbarSwitch at Router 11 woke up at time: 30
+     30: global: Crossbar Switch at Router 11 sending flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=30 ] from outport West at time: 30
+     31: global: Router 10 Inport East trying to bypass flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ]
+     31: global: Router 10 Inport East Trying SMART Bypass for Flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ]
+     31: global: Router 10 OutputUnit 3 decrementing credit for outvc 8 at time: 31
+     31: system.ruby.network.routers10: Router 10 Inport East and Outport West successful SMART Bypass for Flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ]
+     31: global: Router 9 Inport East trying to bypass flit [flit:: Id=0 Type=0 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ]
+     31: system.ruby.network.routers08: Router 8 woke up
+     31: global: Router 8 Inport East granted SSR for flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ] from src_hops 3 for bypass = 1 for Outport West
+     31: global: CrossbarSwitch at Router 8 woke up at time: 31
+     31: system.ruby.network.routers09: Router 9 woke up
+     31: global: Router 9 Inport East granted SSR for flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ] from src_hops 2 for bypass = 1 for Outport West
+     31: global: CrossbarSwitch at Router 9 woke up at time: 31
+     31: system.ruby.network.routers10: Router 10 woke up
+     31: global: Router 10 Inport East granted SSR for flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ] from src_hops 1 for bypass = 1 for Outport West
+     31: global: CrossbarSwitch at Router 10 woke up at time: 31
+     31: system.ruby.network.routers11: Router 11 woke up
+     31: global: Router 11 Inport Local received flit [flit:: Id=2 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ]
+     31: global: SwitchAllocator at Router 11 granted outvc 8 at outport West to invc 8 at inport Local to flit [flit:: Id=2 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ] at time: 31
+     31: global: Router 11 OutputUnit 3 decrementing credit for outvc 8 at time: 31
+     31: system.ruby.network.routers11: Router 11 Inport Local received SSR from src_hops 0 for bypass = 0 for Outport West
+     31: global: Router 11 Output port West Sending SSR for hops = 8
+     31: system.ruby.network.routers10: Router 10 Inport East received SSR from src_hops 1 for bypass = 1 for Outport West
+     31: system.ruby.network.routers09: Router 9 Inport East received SSR from src_hops 2 for bypass = 1 for Outport West
+     31: system.ruby.network.routers08: Router 8 Inport East received SSR from src_hops 3 for bypass = 1 for Outport West
+     31: global: Router 11 Inport Local granted SSR for flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ] from src_hops 0 for bypass = 0 for Outport West
+     31: global: CrossbarSwitch at Router 11 woke up at time: 31
+     31: global: Crossbar Switch at Router 11 sending flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=31 ] from outport West at time: 31
+     31: system.ruby.network.netifs11: Network Interface 11 connected to router 11 woke up at time: 31
+     32: global: Router 10 Inport East trying to bypass flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=32 ]
+     32: global: Router 10 Inport East Trying SMART Bypass for Flit [flit:: Id=1 Type=1 Vnet=2 VC=8 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=32 ]
+     32: global: Router 10 OutputUnit 3 decrementing credit for outvc 9 at time: 32
+     32: system.ruby.network.routers10: Router 10 Inport East and Outport West successful SMART Bypass for Flit [flit:: Id=1 Type=1 Vnet=2 VC=9 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=32 ]
+     32: global: Router 9 Inport East trying to bypass flit [flit:: Id=1 Type=1 Vnet=2 VC=9 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=32 ]
+     32: global: Router 9 Inport East Trying SMART Bypass for Flit [flit:: Id=1 Type=1 Vnet=2 VC=9 Src NI=11 Src Router=11 Dest NI=17 Dest Router=1 Enqueue Time=27 Valid Time=32 ]
+     32: global: Router 9 OutputUnit 3 decrementing credit for outvc 8 at time: 32

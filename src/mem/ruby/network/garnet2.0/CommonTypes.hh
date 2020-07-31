@@ -47,6 +47,8 @@ enum link_type { EXT_IN_, EXT_OUT_, INT_, NUM_LINK_TYPES_ };
 enum RoutingAlgorithm { TABLE_ = 0, XY_ = 1, CUSTOM_ = 2,
                         NUM_ROUTING_ALGORITHM_};
 
+
+/*
 struct RouteInfo
 {
     // destination format for table-based routing
@@ -64,7 +66,39 @@ struct RouteInfo
     PortDirection outport_dirn;
     int smart_hops_traversed;
 };
+*/
 
+class RouteInfo{
+    public:
+        RouteInfo(){
+            vnet = -1;
+            src_ni = -1;
+            src_router = -1;
+            dest_ni = -1;
+            dest_router = -1;
+            hops_traversed = -1;
+            x_hops_remaining = -1;
+            y_hops_remaining = -1;
+            outport_dirn = "Local";
+            smart_hops_traversed = -1;
+
+        }
+
+        int vnet;
+        NetDest net_dest;
+
+        // src and dest format for topology-specific routing
+        int src_ni;
+        int src_router;
+        int dest_ni;
+        int dest_router;
+        int hops_traversed;
+        int x_hops_remaining;
+        int y_hops_remaining;
+        PortDirection outport_dirn;
+        int smart_hops_traversed;
+
+};
 
 #define INFINITE_ 10000
 

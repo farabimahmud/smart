@@ -35,6 +35,7 @@
 #include "mem/ruby/network/garnet2.0/SwitchAllocator.hh"
 
 #include "debug/RubyNetwork.hh"
+#include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/GarnetNetwork.hh"
 #include "mem/ruby/network/garnet2.0/InputUnit.hh"
 #include "mem/ruby/network/garnet2.0/OutputUnit.hh"
@@ -207,7 +208,7 @@ SwitchAllocator::arbitrate_outports()
                         invc,
                         m_router->getPortDirectionName(
                             m_input_unit[inport]->get_direction()),
-                            *t_flit,
+                        *t_flit,
                         m_router->curCycle());
 
 
@@ -216,6 +217,7 @@ SwitchAllocator::arbitrate_outports()
                 // correct outport.
                 // Note: post route compute in InputUnit,
                 // outport is updated in VC, but not in flit
+                DPRINTF(SMART, "[SA] outport %d\n", outport);
                 t_flit->set_outport(outport);
 
                 // set outvc (i.e., invc for next hop) in flit
@@ -256,14 +258,18 @@ SwitchAllocator::arbitrate_outports()
                     // SSRs to neighbors
                     // number of hops to bypass
                     RouteInfo *route = t_flit->get_route();
-
+                    DPRINTF(SMART, "flit %s\n", *t_flit);
                     // XY Routing
                     int hops_remaining = (route->x_hops_remaining > 0) ? 
                                           route->x_hops_remaining :
                                           route->y_hops_remaining;
-
                     int hpc_max = net_ptr->getHPCmax();
                     int req_hops = std::min(hops_remaining, hpc_max);
+
+                    DPRINTF(SMART, "x %d y %d r %d\n",
+                            route->x_hops_remaining,
+                            route->y_hops_remaining,
+                            req_hops);
 
                     if (req_hops > 0) {
                     

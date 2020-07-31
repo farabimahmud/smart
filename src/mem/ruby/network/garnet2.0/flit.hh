@@ -45,7 +45,7 @@ class flit
 {
   public:
     flit() {}
-    flit(int id, int vc, int vnet, RouteInfo route, int size,
+    flit(int id, int vc, int vnet, RouteInfo * route, int size,
          MsgPtr msg_ptr, Cycles curTime);
 
     int get_outport() {return m_outport; }
@@ -56,7 +56,7 @@ class flit
     Cycles get_time() { return m_time; }
     int get_vnet() { return m_vnet; }
     int get_vc() { return m_vc; }
-    RouteInfo* get_route() { return &m_route; }
+    RouteInfo* get_route() { return m_route; }
     MsgPtr& get_msg_ptr() { return m_msg_ptr; }
     flit_type get_type() { return m_type; }
     std::pair<flit_stage, Cycles> get_stage() { return m_stage; }
@@ -65,12 +65,12 @@ class flit
     void set_outport(int port) { m_outport = port; }
     void set_time(Cycles time) { m_time = time; }
     void set_vc(int vc) { m_vc = vc; }
-    void set_route(RouteInfo route) { m_route = route; }
+    void set_route(RouteInfo * route) { m_route = route; }
     void set_src_delay(Cycles delay) { src_delay = delay; }
     void set_dequeue_time(Cycles time) { m_dequeue_time = time; }
 
-    void increment_hops() { m_route.hops_traversed++; }
-    void increment_smart_hops() { m_route.smart_hops_traversed++; }
+    void increment_hops() { m_route->hops_traversed++; }
+    void increment_smart_hops() { m_route->smart_hops_traversed++; }
     void print(std::ostream& out) const;
 
     bool
@@ -104,7 +104,7 @@ class flit
     int m_id;
     int m_vnet;
     int m_vc;
-    RouteInfo m_route;
+    RouteInfo *  m_route;
     int m_size;
     Cycles m_enqueue_time, m_dequeue_time, m_time;
     flit_type m_type;

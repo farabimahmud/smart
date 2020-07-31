@@ -16,7 +16,7 @@
 #	--num-l2caches=16 \
 
 ./build/NULL/gem5.debug \
-        --debug-flags=RubyNetwork \
+        --debug-flags=RubyNetwork,SMART \
         configs/example/garnet_synth_traffic.py  \
         --num-cpus=16\
         --num-dirs=16 \

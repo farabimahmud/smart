@@ -34,7 +34,7 @@
 #include "mem/ruby/network/garnet2.0/flit.hh"
 
 // Constructor for the flit
-flit::flit(int id, int  vc, int vnet, RouteInfo route, int size,
+flit::flit(int id, int  vc, int vnet, RouteInfo * route, int size,
     MsgPtr msg_ptr, Cycles curTime)
 {
     m_size = size;
@@ -70,10 +70,10 @@ flit::print(std::ostream& out) const
     out << "Type=" << m_type << " ";
     out << "Vnet=" << m_vnet << " ";
     out << "VC=" << m_vc << " ";
-    out << "Src NI=" << m_route.src_ni << " ";
-    out << "Src Router=" << m_route.src_router << " ";
-    out << "Dest NI=" << m_route.dest_ni << " ";
-    out << "Dest Router=" << m_route.dest_router << " ";
+    out << "Src NI=" << m_route->src_ni << " ";
+    out << "Src Router=" << m_route->src_router << " ";
+    out << "Dest NI=" << m_route->dest_ni << " ";
+    out << "Dest Router=" << m_route->dest_router << " ";
     out << "Enqueue Time=" << m_enqueue_time << " ";
     out << "Valid Time=" << m_time << " ";
     out << "]";

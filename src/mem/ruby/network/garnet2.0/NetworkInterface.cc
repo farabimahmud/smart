@@ -377,20 +377,20 @@ NetworkInterface::flitisizeMessage(MsgPtr msg_ptr, int vnet)
         // Embed Route into the flits
         // NetDest format is used by the routing table
         // Custom routing algorithms just need destID
-        RouteInfo route;
-        route.vnet = vnet;
-        route.net_dest = new_net_msg_ptr->getDestination();
-        route.src_ni = m_id;
-        route.src_router = m_router_id;
-        route.dest_ni = destID;
-        route.dest_router = m_net_ptr->get_router_id(destID);
+        RouteInfo * route = new RouteInfo();
+        route->vnet = vnet;
+        route->net_dest = new_net_msg_ptr->getDestination();
+        route->src_ni = m_id;
+        route->src_router = m_router_id;
+        route->dest_ni = destID;
+        route->dest_router = m_net_ptr->get_router_id(destID);
 
         // initialize hops_traversed to 0
-        route.hops_traversed = 0;
+        route->hops_traversed = 0;
 
         // initialize smart_hops_traversed to 0
         // Incremented by crossbar (i.e., start of a smart hop)
-        route.smart_hops_traversed = 0;
+        route->smart_hops_traversed = 0;
 
         m_net_ptr->increment_injected_packets(vnet);
         for (int i = 0; i < num_flits; i++) {

@@ -241,7 +241,7 @@ Router::smart_vc_select(int inport, int outport, flit *t_flit)
 
     // Send credit for VCid flit came with
     m_input_unit[inport]->increment_credit(invc, true, curCycle());
-
+    DPRINTF(RubyNetwork, "[Router] Smart VC Select is returned\n");
     return true;
 }
 
@@ -250,8 +250,12 @@ Router::smart_route_update(int inport, int outport, flit* t_flit)
 {
     // Update route in flit
     // Call route_compute so that x_hops/y_hops decremented
+    DPRINTF(RubyNetwork, "[Router] flit %s at Inport %d %s\n" ,
+            *t_flit, inport, m_input_unit[inport]->get_direction());
     int check_outport = route_compute(t_flit->get_route(),
         inport, m_input_unit[inport]->get_direction());
+    DPRINTF(RubyNetwork, "check_outport %d outport %d\n",
+            check_outport, outport);
     assert(check_outport == outport);
     t_flit->set_outport(outport);
 }

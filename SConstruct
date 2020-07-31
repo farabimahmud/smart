@@ -371,7 +371,10 @@ if main['GCC'] or main['CLANG']:
     main.Append(CCFLAGS=['-Wall', '-Wundef', '-Wextra',
                          '-Wno-sign-compare', '-Wno-unused-parameter'])
     # We always compile using C++11
-    main.Append(CXXFLAGS=['-std=c++11'])
+    main.Append(CXXFLAGS=['-std=c++11',
+                        '-I/home/grads/f/farabi/boost_1_66_0',
+                        ])
+
     if sys.platform.startswith('freebsd'):
         main.Append(CCFLAGS=['-I/usr/local/include'])
         main.Append(CXXFLAGS=['-I/usr/local/include'])
@@ -390,6 +393,9 @@ if main['GCC'] or main['CLANG']:
     main.Append(CCFLAGS=['-Werror',
                          '-Wno-error=deprecated-declarations',
                          '-Wno-error=deprecated',
+                         '-Wno-error=address-of-packed-member',
+                         '-Wno-error=pessimizing-move',
+                         '-Wno-error=redundant-move',
                         ])
 else:
     print(termcap.Yellow + termcap.Bold + 'Error' + termcap.Normal, end=' ')

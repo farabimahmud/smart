@@ -70,6 +70,7 @@ OutputUnit::decrement_credit(int out_vc)
             m_router->get_id(), m_id, out_vc, m_router->curCycle());
 
     m_outvc_state[out_vc]->decrement_credit();
+    DPRINTF(RubyNetwork, "decrement completed\n");
 }
 
 void

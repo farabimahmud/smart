@@ -2,8 +2,8 @@
 SST_VERSION=SST-trunk
 GEM5_LIB=gem5_opt
 
-LDFLAGS=-shared -fno-common ${shell pkg-config ${SST_VERSION} --libs} -L../../build/ARM
-CXXFLAGS=-std=c++0x -g -O2 -fPIC ${shell pkg-config ${SST_VERSION} --cflags} ${shell python-config --includes} -I../../build/ARM
+LDFLAGS=-shared -fno-common ${shell pkg-config ${SST_VERSION} --libs} -L../../build/ARM -L/home/grads/f/farabi/boost_1_66_0/stage/lib
+CXXFLAGS=-std=c++0x -g -O2 -fPIC ${shell pkg-config ${SST_VERSION} --cflags} ${shell python-config --includes} -I../../build/ARM -I/home/grads/f/farabi/boost_1_66_0
 CPPFLAGS+=-MMD -MP
 SRC=$(wildcard *.cc)
 

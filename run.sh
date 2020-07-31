@@ -26,7 +26,7 @@
         --sim-cycles=1000 \
         --synthetic=uniform_random \
         --injectionrate=0.02 \
-        --num-packets-max=2 \
+        --num-packets-max=100 \
         --single-sender-id=11 \
         --single-dest-id=1 \
         --smart \

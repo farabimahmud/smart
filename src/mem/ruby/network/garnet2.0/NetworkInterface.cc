@@ -39,6 +39,7 @@
 #include "base/cast.hh"
 #include "base/stl_helpers.hh"
 #include "debug/RubyNetwork.hh"
+#include "debug/SMART.hh"
 #include "mem/ruby/network/MessageBuffer.hh"
 #include "mem/ruby/network/garnet2.0/Credit.hh"
 #include "mem/ruby/network/garnet2.0/flitBuffer.hh"
@@ -226,6 +227,7 @@ NetworkInterface::wakeup()
                 // Simply send a credit back since we are not buffering
                 // this flit in the NI
                 sendCredit(t_flit, true);
+                DPRINTF(SMART, "[NI] Credit Sent tail fleet\n");
 
                 // Update stats and delete flit pointer
                 incrementStats(t_flit);
@@ -243,6 +245,7 @@ NetworkInterface::wakeup()
         } else {
             // Non-tail flit. Send back a credit but not VC free signal.
             sendCredit(t_flit, false);
+            DPRINTF(SMART, "[NI] Credit sent for Non-tail fleet");
 
             // Update stats and delete flit pointer.
             incrementStats(t_flit);

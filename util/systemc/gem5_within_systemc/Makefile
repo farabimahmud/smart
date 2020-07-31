@@ -42,9 +42,11 @@ SYSTEMC_INC = ./systemc/include
 SYSTEMC_LIB = ./systemc/lib-linux64
 
 CXXFLAGS = -I../../../build/$(ARCH) -L../../../build/$(ARCH)
+CXXFLAGS += -I/home/grads/f/farabi/boost_1_66_0 -L/home/grads/f/farabi/boost_1_66_0/stage/lib
 CXXFLAGS += -I$(SYSTEMC_INC) -L$(SYSTEMC_LIB)
 CXXFLAGS += -std=c++0x
 CXXFLAGS += -g
+
 LIBS = -lgem5_$(VARIANT) -lsystemc
 
 ALL = gem5.$(VARIANT).sc

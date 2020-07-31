@@ -40,6 +40,9 @@ VARIANT = opt
 
 CXXFLAGS = -I../../build/$(ARCH) -L../../build/$(ARCH)
 CXXFLAGS += -std=c++0x
+CXXFLAGS += -I/home/grads/f/farabi/boost_1_66_0 -L/home/grads/f/farabi/boost_1_66_0/stage/lib
+
+
 LIBS = -lgem5_$(VARIANT)
 
 ## You may also need protobuf flags

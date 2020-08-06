@@ -52,6 +52,7 @@ class flitBuffer;
 class NetworkInterface : public ClockedObject, public Consumer
 {
   public:
+    static int pid;
     typedef GarnetNetworkInterfaceParams Params;
     NetworkInterface(const Params *p);
     ~NetworkInterface();
@@ -75,6 +76,7 @@ class NetworkInterface : public ClockedObject, public Consumer
     uint32_t functionalWrite(Packet *);
 
   private:
+
     GarnetNetwork *m_net_ptr;
     const NodeID m_id;
     const int m_virtual_networks, m_vc_per_vnet, m_num_vcs;

@@ -34,6 +34,7 @@
 #ifndef __MEM_RUBY_NETWORK_GARNET2_0_OUTVCSTATE_HH__
 #define __MEM_RUBY_NETWORK_GARNET2_0_OUTVCSTATE_HH__
 
+#include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/CommonTypes.hh"
 #include "mem/ruby/network/garnet2.0/GarnetNetwork.hh"
 
@@ -50,13 +51,18 @@ class OutVcState
     inline bool
     isInState(VC_state_type state, Cycles request_time)
     {
-        return ((m_vc_state == state) && (request_time >= m_time) );
+        DPRINTF(SMART, "[OutVcState] VC %d state %d m_vc_state %d"
+                " request_time %d m_time %d\n",
+                m_id, state, m_vc_state, request_time, m_time);
+        return ((m_vc_state == state) && (request_time >= m_time));
     }
     inline void
     setState(VC_state_type state, Cycles time)
     {
         m_vc_state = state;
         m_time = time;
+        DPRINTF(SMART, "[OutVcState] id %d state %d time %d\n",
+                m_id, state, time);
     }
 
   private:

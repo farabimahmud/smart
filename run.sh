@@ -23,13 +23,13 @@
         --network=garnet2.0 \
         --topology=Mesh_XY \
         --mesh-rows=4  \
-        --sim-cycles=1000 \
         --synthetic=uniform_random \
         --injectionrate=0.02 \
-        --num-packets-max=100 \
-        --single-sender-id=11 \
-        --single-dest-id=1 \
+        --num-packets-max=10 \
         --smart \
         --smart_hpcmax=8 \
         --smart_dest_bypass \
+        --single-sender-id=11 \
+        --single-dest-id=1 \
+
         #--smart 

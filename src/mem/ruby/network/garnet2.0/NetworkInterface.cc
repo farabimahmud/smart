@@ -48,6 +48,8 @@
 using namespace std;
 using m5::stl_helpers::deletePointers;
 
+int NetworkInterface::pid = 0;
+
 NetworkInterface::NetworkInterface(const Params *p)
     : ClockedObject(p), Consumer(this), m_id(p->id),
       m_virtual_networks(p->virt_nets), m_vc_per_vnet(p->vcs_per_vnet),
@@ -259,6 +261,8 @@ NetworkInterface::wakeup()
         Credit *t_credit = (Credit*) inCreditLink->consumeLink();
         m_out_vc_state[t_credit->get_vc()]->increment_credit();
         if (t_credit->is_free_signal()) {
+            DPRINTF(SMART, "[NI] setting VC %d IDLE\n",
+                    t_credit->get_vc());
             m_out_vc_state[t_credit->get_vc()]->setState(IDLE_, curCycle());
         }
         delete t_credit;
@@ -338,9 +342,9 @@ NetworkInterface::flitisizeMessage(MsgPtr msg_ptr, int vnet)
 
     // Number of flits is dependent on the link bandwidth available.
     // This is expressed in terms of bytes/cycle or the flit size
-    int num_flits = (int) ceil((double) m_net_ptr->MessageSizeType_to_int(
-        net_msg_ptr->getMessageSize())/m_net_ptr->getNiFlitSize());
-
+   int num_flits = (int) ceil((double) m_net_ptr->MessageSizeType_to_int(
+       net_msg_ptr->getMessageSize())/m_net_ptr->getNiFlitSize());
+    // int num_flits = 1;
     // loop to convert all multicast messages into unicast messages
     for (int ctr = 0; ctr < dest_nodes.size(); ctr++) {
 
@@ -395,12 +399,15 @@ NetworkInterface::flitisizeMessage(MsgPtr msg_ptr, int vnet)
         m_net_ptr->increment_injected_packets(vnet);
         for (int i = 0; i < num_flits; i++) {
             m_net_ptr->increment_injected_flits(vnet);
+            DPRINTF(SMART, "[SA] At creation time VC %d\n", vc);
             flit *fl = new flit(i, vc, vnet, route, num_flits, new_msg_ptr,
                 curCycle());
+            fl->m_pid = NetworkInterface::pid;
 
             fl->set_src_delay(curCycle() - ticksToCycles(msg_ptr->getTime()));
             m_ni_out_vcs[vc]->insert(fl);
         }
+        NetworkInterface::pid++;
 
         m_ni_out_vcs_enqueue_time[vc] = curCycle();
         m_out_vc_state[vc]->setState(ACTIVE_, curCycle());

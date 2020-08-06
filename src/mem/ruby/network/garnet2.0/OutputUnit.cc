@@ -35,6 +35,7 @@
 
 #include "base/stl_helpers.hh"
 #include "debug/RubyNetwork.hh"
+#include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/Credit.hh"
 #include "mem/ruby/network/garnet2.0/Router.hh"
 
@@ -54,6 +55,7 @@ OutputUnit::OutputUnit(int id, PortDirection direction, Router *router)
     for (int i = 0; i < m_num_vcs; i++) {
         m_outvc_state.push_back(new OutVcState(i, m_router->get_net_ptr()));
     }
+    DPRINTF(SMART, "[OutputUnit] %s is created\n", *this);
 }
 
 OutputUnit::~OutputUnit()
@@ -68,9 +70,11 @@ OutputUnit::decrement_credit(int out_vc)
     DPRINTF(RubyNetwork, "Router %d OutputUnit %d decrementing credit for "
             "outvc %d at time: %lld\n",
             m_router->get_id(), m_id, out_vc, m_router->curCycle());
-
+    DPRINTF(SMART, "[OutputUnit] current state of VC %d is active %d\n ",
+            out_vc,
+            m_outvc_state[out_vc]->isInState(ACTIVE_, m_router->curCycle()));
+    assert(m_outvc_state[out_vc]->isInState(ACTIVE_, m_router->curCycle()));
     m_outvc_state[out_vc]->decrement_credit();
-    DPRINTF(RubyNetwork, "decrement completed\n");
 }
 
 void
@@ -98,13 +102,17 @@ OutputUnit::has_credit(int out_vc)
 bool
 OutputUnit::has_free_vc(int vnet)
 {
+//    DPRINTF(SMART, "[OutputUnit] has_free_vc %d Router ID: %d\n",
+//            m_id, m_router->get_id());
     int vc_base = vnet*m_vc_per_vnet;
     for (int vc = vc_base; vc < vc_base + m_vc_per_vnet; vc++) {
-        if (is_vc_idle(vc, m_router->curCycle()))
+        if (is_vc_idle(vc, m_router->curCycle())){
+            DPRINTF(SMART, "[OutputUnit] has free vc %d\n", vc);
             return true;
+        }
     }
-
     return false;
+
 }
 
 // Assign a free output VC to the winner of Switch Allocation
@@ -115,6 +123,7 @@ OutputUnit::select_free_vc(int vnet)
     for (int vc = vc_base; vc < vc_base + m_vc_per_vnet; vc++) {
         if (is_vc_idle(vc, m_router->curCycle())) {
             m_outvc_state[vc]->setState(ACTIVE_, m_router->curCycle());
+            DPRINTF(SMART, "[OutputUnit] VC %d is selected\n", vc);
             return vc;
         }
     }
@@ -142,8 +151,13 @@ OutputUnit::wakeup()
         Credit *t_credit = (Credit*) m_credit_link->consumeLink();
         increment_credit(t_credit->get_vc());
 
-        if (t_credit->is_free_signal())
+        if (t_credit->is_free_signal()){
+            DPRINTF(SMART, "[OutputUnit] Router %d is setting VC %d IDLE"
+                    " at Time %d \n",
+                    m_router->get_id(), t_credit->get_vc(),
+                    m_router->curCycle());
             set_vc_state(IDLE_, t_credit->get_vc(), m_router->curCycle());
+        }
 
         delete t_credit;
 
@@ -242,3 +256,16 @@ OutputUnit::functionalWrite(Packet *pkt)
 {
     return m_out_buffer->functionalWrite(pkt);
 }
+
+void
+OutputUnit::print(std::ostream& out) const
+{
+    out << "[OutputUnit:: ";
+    out << "Id=" << m_id << " ";
+    out << "Dirn=" << m_direction << " ";
+    out << "No VCs=" << m_num_vcs <<  " ";
+    out << "VC per vnet=" << m_vc_per_vnet << " ";
+    out << "Router ID=" << m_router->get_id() << " ";
+    out << "]";
+}
+

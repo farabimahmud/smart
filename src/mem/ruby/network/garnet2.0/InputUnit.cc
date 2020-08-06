@@ -35,6 +35,7 @@
 
 #include "base/stl_helpers.hh"
 #include "debug/RubyNetwork.hh"
+#include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/Credit.hh"
 #include "mem/ruby/network/garnet2.0/Router.hh"
 
@@ -84,7 +85,7 @@ InputUnit::~InputUnit()
 void
 InputUnit::wakeup()
 {
-    flit *t_flit;
+    flit *t_flit = new flit();
     if (m_in_link->isReady(m_router->curCycle())) {
 
         t_flit = m_in_link->consumeLink();
@@ -95,8 +96,8 @@ InputUnit::wakeup()
         // Not counting hops from/to NI
         //t_flit->increment_hops(); // for stats
 
-    DPRINTF(RubyNetwork, "Router %d Inport %s received flit %s\n",
-        m_router->get_id(), m_direction, *t_flit);
+    DPRINTF(RubyNetwork, "Router %d Inport %s received flit %s at link %d\n",
+        m_router->get_id(), m_direction, *t_flit, m_in_link->get_id());
 
 
         if ((t_flit->get_type() == HEAD_) ||
@@ -115,6 +116,20 @@ InputUnit::wakeup()
             grant_outport(vc, outport);
 
         } else {
+            DPRINTF(SMART, "[InputUnit] Body/Tail flit %s\n", *t_flit);
+            int state = m_vcs[vc]->get_state();
+            switch(state){
+                case 0: DPRINTF(SMART, "[InputUnit] IDLE\n"); break;
+                case 1: DPRINTF(SMART, "[InputUnit] VC_AB\n");
+                        break;
+                case 2: DPRINTF(SMART, "[InputUnit] ACTIVE\n");
+                        break;
+                default: DPRINTF(SMART, "[InputUnit] UNKNOWN\n");
+                        break;
+            }
+            // IDLE_, VC_AB_, ACTIVE_, NUM_VC_STATE_TYPE_
+            // m_vcs[vc]->set_state(ACTIVE_, m_router->curCycle());
+            // set_vc_active(vc, m_router->curCycle());
             assert(m_vcs[vc]->get_state() == ACTIVE_);
         }
 
@@ -133,6 +148,7 @@ InputUnit::wakeup()
             // 1-cycle router
             // Flit goes for SA directly
             t_flit->advance_stage(SA_, m_router->curCycle());
+            DPRINTF(SMART, "[InputUnit] One Cycle Router\n");
         } else {
             assert(pipe_stages > 1);
             // Router delay is modeled by making flit wait in buffer for
@@ -144,6 +160,8 @@ InputUnit::wakeup()
             // Wakeup the router in that cycle to perform SA
             m_router->schedule_wakeup(Cycles(wait_time));
         }
+     DPRINTF(SMART, "[InputUnit] Returned from wakeup\n");
+
     }
 }
 
@@ -218,7 +236,6 @@ InputUnit::try_smart_bypass(flit *t_flit)
 
                 ssr_grant.pop();
                 delete t_ssr;
-
                 return smart_bypass;
             }
         } else {

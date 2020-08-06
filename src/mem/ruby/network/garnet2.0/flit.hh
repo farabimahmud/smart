@@ -44,6 +44,8 @@
 class flit
 {
   public:
+    int m_pid;
+
     flit() {}
     flit(int id, int vc, int vnet, RouteInfo * route, int size,
          MsgPtr msg_ptr, Cycles curTime);

@@ -66,8 +66,21 @@ void
 flit::print(std::ostream& out) const
 {
     out << "[flit:: ";
+    out << "PID=" << m_pid << " ";
     out << "Id=" << m_id << " ";
-    out << "Type=" << m_type << " ";
+
+ //   out << "Type=" << m_type << " ";
+ // HEAD_, BODY_, TAIL_, HEAD_TAIL_, NUM_FLIT_TYPE_
+
+    out << "Type=";
+    switch(m_type){
+        case 0: out << " HEAD_ "; break;
+        case 1: out << " BODY_ "; break;
+        case 2: out << " TAIL_ "; break;
+        case 3: out << " HEAD_TAIL_ "; break;
+        case 4: out << " NUM_FLIT_TYPE_ "; break;
+        default: out << " UNKNOWN "; break;
+    }
     out << "Vnet=" << m_vnet << " ";
     out << "VC=" << m_vc << " ";
     out << "Src NI=" << m_route->src_ni << " ";

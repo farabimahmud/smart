@@ -55,7 +55,7 @@ class OutputUnit : public Consumer
     void set_credit_link(CreditLink *credit_link);
     void wakeup();
     flitBuffer* getOutQueue();
-    void print(std::ostream& out) const {};
+    void print(std::ostream& out) const;
     void decrement_credit(int out_vc);
     void increment_credit(int out_vc);
     bool has_credit(int out_vc);
@@ -79,6 +79,8 @@ class OutputUnit : public Consumer
     inline void
     set_vc_state(VC_state_type state, int vc, Cycles curTime)
     {
+      DPRINTF(SMART, "[OutputUnit] Setting VC %d to state %d at time %d\n",
+              vc, state, curTime);
       m_outvc_state[vc]->setState(state, curTime);
     }
 
@@ -103,6 +105,7 @@ class OutputUnit : public Consumer
     SSR* getTopSSR();
     void clearSSRreqs();
     void smart_bypass(flit *t_flit);
+
 
   private:
     int m_id;
@@ -132,5 +135,15 @@ class OutputUnit : public Consumer
     std::priority_queue<SSR*, std::vector<SSR*>, SSR_prio_local> ssr_reqs;
     //std::priority_queue<SSR*, std::vector<SSR*>, SSR_prio_local> ssr_grant;
 };
+
+    inline std::ostream&
+    operator<<(std::ostream& out, const OutputUnit& obj)
+    {
+        obj.print(out);
+        out << std::flush;
+        return out;
+    }
+
+
 
 #endif // __MEM_RUBY_NETWORK_GARNET2_0_OUTPUTUNIT_HH__

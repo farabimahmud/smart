@@ -35,6 +35,7 @@
 
 #include "base/stl_helpers.hh"
 #include "debug/RubyNetwork.hh"
+#include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/CreditLink.hh"
 #include "mem/ruby/network/garnet2.0/CrossbarSwitch.hh"
 #include "mem/ruby/network/garnet2.0/GarnetNetwork.hh"
@@ -223,6 +224,8 @@ bool
 Router::smart_vc_select(int inport, int outport, flit *t_flit)
 {
     // VC Selection
+    DPRINTF(SMART, "[Router] smart_vc_select(%d, %d, %s\n",
+            inport, outport, *t_flit);
     int vnet = t_flit->get_vnet();
     bool has_free_vc = m_output_unit[outport]->has_free_vc(vnet);
     if (!has_free_vc)
@@ -230,8 +233,15 @@ Router::smart_vc_select(int inport, int outport, flit *t_flit)
 
     // Update VC in flit
     int invc = t_flit->get_vc();
-    int outvc = m_output_unit[outport]->select_free_vc(vnet);
-    t_flit->set_vc(outvc);
+    int outvc = invc;
+
+    if ((t_flit->get_type() == HEAD_) ||
+            (t_flit->get_type() == HEAD_TAIL_)) {
+        outvc = m_output_unit[outport]->select_free_vc(vnet);
+        t_flit->set_vc(outvc);
+    }
+
+    DPRINTF(SMART, "[Router] Out VC %d In VC %d %s\n", outvc, invc, *t_flit);
     m_output_unit[outport]->decrement_credit(outvc);
 
     // Send credit for VCid flit came with
@@ -240,7 +250,12 @@ Router::smart_vc_select(int inport, int outport, flit *t_flit)
     assert(m_input_unit[inport]->is_vc_idle(invc));
 
     // Send credit for VCid flit came with
-    m_input_unit[inport]->increment_credit(invc, true, curCycle());
+    if ((t_flit->get_type() == HEAD_TAIL_ ) ||
+            (t_flit->get_type() == TAIL_))
+        m_input_unit[inport]->increment_credit(invc, true, curCycle());
+    else
+        m_input_unit[inport]->increment_credit(invc, false, curCycle());
+
     DPRINTF(RubyNetwork, "[Router] Smart VC Select is returned\n");
     return true;
 }
@@ -275,7 +290,7 @@ Router::try_smart_bypass(int inport, PortDirection outport_dirn, flit *t_flit)
 
     DPRINTF(RubyNetwork, "Router %d Inport %s and Outport %d successful SMART Bypass for Flit %s\n",
             get_id(), getPortDirectionName(m_input_unit[inport]->get_direction()), outport_dirn, *t_flit);
-
+    DPRINTF(SMART, "[Router] try_smart_bypass VC= %d\n", t_flit->get_vc());
     // Add flit to output link
     m_output_unit[outport]->smart_bypass(t_flit);
     t_flit->increment_hops(); // for stats

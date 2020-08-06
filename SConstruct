@@ -373,6 +373,7 @@ if main['GCC'] or main['CLANG']:
     # We always compile using C++11
     main.Append(CXXFLAGS=['-std=c++11',
                         '-I/home/grads/f/farabi/boost_1_66_0',
+                        '-I/home/grads/f/farabi/valgrind-build/include'
                         ])
 
     if sys.platform.startswith('freebsd'):

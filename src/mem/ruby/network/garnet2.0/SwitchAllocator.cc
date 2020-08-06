@@ -258,7 +258,7 @@ SwitchAllocator::arbitrate_outports()
                     // SSRs to neighbors
                     // number of hops to bypass
                     RouteInfo *route = t_flit->get_route();
-                    DPRINTF(SMART, "flit %s\n", *t_flit);
+                    DPRINTF(SMART, "[SA] flit %s\n", *t_flit);
                     // XY Routing
                     int hops_remaining = (route->x_hops_remaining > 0) ? 
                                           route->x_hops_remaining :
@@ -266,7 +266,7 @@ SwitchAllocator::arbitrate_outports()
                     int hpc_max = net_ptr->getHPCmax();
                     int req_hops = std::min(hops_remaining, hpc_max);
 
-                    DPRINTF(SMART, "x %d y %d r %d\n",
+                    DPRINTF(SMART, "[SA] x %d y %d r %d\n",
                             route->x_hops_remaining,
                             route->y_hops_remaining,
                             req_hops);
@@ -307,7 +307,10 @@ SwitchAllocator::arbitrate_outports()
                     // This Input VC should now be empty
                     assert(!(m_input_unit[inport]->isReady(invc,
                         m_router->curCycle())));
-
+                    DPRINTF(SMART, "[SA] Router %d setting the VC %d "
+                            "at Inport %d IDLE at Time %d\n",
+                            m_router->get_id(),
+                            invc, inport, m_router->curCycle());
                     // Free this VC
                     m_input_unit[inport]->set_vc_idle(invc,
                         m_router->curCycle());
@@ -370,8 +373,10 @@ SwitchAllocator::send_allowed(int inport, int invc, int outport, int outvc)
 
         // needs outvc
         // this is only true for HEAD and HEAD_TAIL flits.
+ //       assert(m_output_unit[outport]!= NULL);
 
         if (m_output_unit[outport]->has_free_vc(vnet)) {
+            DPRINTF(SMART, "[SA] send_allowed outport %d \n", outport);
 
             has_outvc = true;
 

@@ -32,6 +32,8 @@
 
 
 #include "mem/ruby/network/garnet2.0/NetworkLink.hh"
+
+#include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/CreditLink.hh"
 #include "mem/ruby/network/garnet2.0/InputUnit.hh"
 
@@ -98,7 +100,12 @@ NetworkLink::wakeup()
             linkBuffer->insert(t_flit);
             link_consumer->scheduleEventAbsolute(clockEdge(m_latency));
         }
+
+    DPRINTF(SMART,"[NetworkLink] wakup bypass %d\n", router_bypass);
+    DPRINTF(SMART,"[NetworkLink] flit %s\n", *t_flit);
+
     }
+
 
     // Two flits cannot be ready for LT at the same time
     // Assertion added to make sure SMART not getting

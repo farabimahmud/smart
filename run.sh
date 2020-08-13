@@ -16,7 +16,7 @@
 #	--num-l2caches=16 \
 
 ./build/NULL/gem5.debug \
-        --debug-flags=RubyNetwork,SMART \
+        --debug-flags=FlitOrder \
         configs/example/garnet_synth_traffic.py  \
         --num-cpus=16\
         --num-dirs=16 \
@@ -28,7 +28,6 @@
         --num-packets-max=10 \
         --smart \
         --smart_hpcmax=8 \
-        --smart_dest_bypass \
         --single-sender-id=11 \
         --single-dest-id=1 \
 

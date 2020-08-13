@@ -34,6 +34,7 @@
 #include "mem/ruby/network/garnet2.0/OutputUnit.hh"
 
 #include "base/stl_helpers.hh"
+#include "debug/FlitOrder.hh"
 #include "debug/RubyNetwork.hh"
 #include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/Credit.hh"
@@ -56,6 +57,7 @@ OutputUnit::OutputUnit(int id, PortDirection direction, Router *router)
         m_outvc_state.push_back(new OutVcState(i, m_router->get_net_ptr()));
     }
     DPRINTF(SMART, "[OutputUnit] %s is created\n", *this);
+    lastflit = NULL;
 }
 
 OutputUnit::~OutputUnit()
@@ -247,6 +249,41 @@ OutputUnit::clearSSRreqs()
 void
 OutputUnit::smart_bypass(flit *t_flit)
 {
+
+    if (t_flit->get_type()== HEAD_ ||
+            t_flit->get_type() == HEAD_TAIL_){
+        DPRINTF(FlitOrder, "OU flit %d-%d arrived "
+                    "at Router %d\n",
+                    t_flit->get_pid(),
+                    t_flit->get_id(),
+                    m_router->get_id());
+        if (lastflit == NULL){
+           lastflit = t_flit;
+        }
+        else{
+            assert(0);
+        }
+    }else{
+        if ((t_flit->get_id() == lastflit->get_id()) ||
+                (t_flit->get_id() == lastflit->get_id() + 1)){
+            lastflit = t_flit;
+
+        }
+        else{
+            DPRINTF(FlitOrder, "OU flit %d-%d arrived out of order"
+                    "at Router %d\n",
+                    t_flit->get_pid(),
+                    t_flit->get_id(),
+                    m_router->get_id());
+
+            assert(0);
+        }
+    }
+    if ((t_flit->get_type() == TAIL_) || (t_flit->get_type() == HEAD_TAIL_)){
+        lastflit = NULL;
+    }
+
+
     m_out_buffer->insert(t_flit);
     m_out_link->wakeup(); // wakeup this cycle
 }

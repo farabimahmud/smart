@@ -34,7 +34,9 @@
 #include "mem/ruby/network/garnet2.0/CrossbarSwitch.hh"
 
 #include "base/stl_helpers.hh"
+#include "debug/FlitOrder.hh"
 #include "debug/RubyNetwork.hh"
+#include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/OutputUnit.hh"
 #include "mem/ruby/network/garnet2.0/Router.hh"
 
@@ -83,6 +85,8 @@ CrossbarSwitch::wakeup()
             continue;
 
         flit *t_flit = m_switch_buffer[inport]->peekTopFlit();
+        DPRINTF(FlitOrder, "[CB] flit %d-%d entered at Router %d\n",
+                t_flit->get_pid(), t_flit->get_id(), m_router->get_id());
         if (t_flit->is_stage(ST_, m_router->curCycle())) {
             int outport = t_flit->get_outport();
 

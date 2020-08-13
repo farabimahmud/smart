@@ -134,6 +134,7 @@ class Router : public BasicRouter, public Consumer
     }
 
     uint32_t functionalWrite(Packet *);
+    flit * lastflit;
 
   private:
     Cycles m_latency;

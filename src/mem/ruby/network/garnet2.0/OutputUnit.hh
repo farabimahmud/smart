@@ -106,6 +106,8 @@ class OutputUnit : public Consumer
     void clearSSRreqs();
     void smart_bypass(flit *t_flit);
 
+    flit* lastflit;
+
 
   private:
     int m_id;

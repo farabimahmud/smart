@@ -58,6 +58,7 @@ class flit
     Cycles get_time() { return m_time; }
     int get_vnet() { return m_vnet; }
     int get_vc() { return m_vc; }
+    int get_pid() {return m_pid;}
     RouteInfo* get_route() { return m_route; }
     MsgPtr& get_msg_ptr() { return m_msg_ptr; }
     flit_type get_type() { return m_type; }
@@ -70,7 +71,8 @@ class flit
     void set_route(RouteInfo * route) { m_route = route; }
     void set_src_delay(Cycles delay) { src_delay = delay; }
     void set_dequeue_time(Cycles time) { m_dequeue_time = time; }
-
+    void set_pid(int x){ m_pid = x;}
+    void set_id(int i) {m_id = i;}
     void increment_hops() { m_route->hops_traversed++; }
     void increment_smart_hops() { m_route->smart_hops_traversed++; }
     void print(std::ostream& out) const;
@@ -113,6 +115,7 @@ class flit
     MsgPtr m_msg_ptr;
     int m_outport;
     Cycles src_delay;
+    int injection_router;
     std::pair<flit_stage, Cycles> m_stage;
 };
 

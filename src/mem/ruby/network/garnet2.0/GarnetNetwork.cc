@@ -37,6 +37,7 @@
 
 #include "base/cast.hh"
 #include "base/stl_helpers.hh"
+#include "debug/FlitOrder.hh"
 #include "mem/ruby/common/NetDest.hh"
 #include "mem/ruby/network/MessageBuffer.hh"
 #include "mem/ruby/network/garnet2.0/CommonTypes.hh"
@@ -527,6 +528,7 @@ void
 GarnetNetwork::insertSSR(int dst, PortDirection inport_dirn, 
                          int src_hops, bool bypass_req, SSR* orig_ssr)
 {
+ //   DPRINTF(FlitOrder, "[GN]SSR %s is sent\n", *orig_ssr->get_ref_flit());
     SSR *t_ssr = new SSR(orig_ssr->get_vnet(),
                          src_hops,
                          bypass_req,

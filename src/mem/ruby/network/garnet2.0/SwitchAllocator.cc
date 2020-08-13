@@ -30,10 +30,11 @@
  *          Tushar Krishna
  */
 
-#include <algorithm>
-
 #include "mem/ruby/network/garnet2.0/SwitchAllocator.hh"
 
+#include <algorithm>
+
+#include "debug/FlitOrder.hh"
 #include "debug/RubyNetwork.hh"
 #include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/GarnetNetwork.hh"
@@ -136,7 +137,23 @@ SwitchAllocator::arbitrate_inports()
                 bool make_request =
                     send_allowed(inport, invc, outport, outvc);
 
-                if (make_request) {
+                flit * t_flit = m_input_unit[inport]->peekTopFlit(invc);
+                if (make_request){
+                DPRINTF(FlitOrder, "SA flit %d-%d send_allowed"
+                        " at Router %d\n",
+                        t_flit->get_pid(),
+                        t_flit->get_id(),
+                        m_router->get_id());
+
+                }else{
+                DPRINTF(FlitOrder, "SA flit %d-%d send not allowed"
+                        " at Router %d\n",
+                        t_flit->get_pid(),
+                        t_flit->get_id(),
+                        m_router->get_id());
+
+                }
+               if (make_request) {
                     m_input_arbiter_activity++;
                     m_port_requests[outport][inport] = true;
                     m_vc_winners[outport][inport]= invc;
@@ -217,7 +234,10 @@ SwitchAllocator::arbitrate_outports()
                 // correct outport.
                 // Note: post route compute in InputUnit,
                 // outport is updated in VC, but not in flit
-                DPRINTF(SMART, "[SA] outport %d\n", outport);
+                DPRINTF(FlitOrder, "SA outport set to %d for "
+                        "flit %d-%d at Router %d\n",
+                        outport, t_flit->get_pid(), t_flit->get_id(),
+                        m_router->get_id());
                 t_flit->set_outport(outport);
 
                 // set outvc (i.e., invc for next hop) in flit
@@ -258,7 +278,7 @@ SwitchAllocator::arbitrate_outports()
                     // SSRs to neighbors
                     // number of hops to bypass
                     RouteInfo *route = t_flit->get_route();
-                    DPRINTF(SMART, "[SA] flit %s\n", *t_flit);
+                    // DPRINTF(SMART, "[SA] flit %s\n", *t_flit);
                     // XY Routing
                     int hops_remaining = (route->x_hops_remaining > 0) ? 
                                           route->x_hops_remaining :

@@ -34,6 +34,7 @@
 #include "mem/ruby/network/garnet2.0/Router.hh"
 
 #include "base/stl_helpers.hh"
+#include "debug/FlitOrder.hh"
 #include "debug/RubyNetwork.hh"
 #include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/CreditLink.hh"
@@ -62,6 +63,7 @@ Router::Router(const Params *p)
 
     m_input_unit.clear();
     m_output_unit.clear();
+    lastflit = NULL;
 }
 
 Router::~Router()
@@ -292,6 +294,25 @@ Router::try_smart_bypass(int inport, PortDirection outport_dirn, flit *t_flit)
             get_id(), getPortDirectionName(m_input_unit[inport]->get_direction()), outport_dirn, *t_flit);
     DPRINTF(SMART, "[Router] try_smart_bypass VC= %d\n", t_flit->get_vc());
     // Add flit to output link
+    if (t_flit->get_type() == HEAD_ || t_flit->get_type() == HEAD_TAIL_){
+        if (lastflit != NULL) return false;
+        lastflit = t_flit;
+    }
+    else{
+        if (t_flit->get_id() == lastflit->get_id() ||
+                t_flit->get_id() == lastflit->get_id() + 1){
+            lastflit = t_flit;
+        }
+        else return false;
+
+    }
+    if (t_flit->get_type() == TAIL_ ||
+            t_flit->get_type() == HEAD_TAIL_){
+        lastflit = NULL;
+    }
+    DPRINTF(FlitOrder, "flit %d-%d is being sent to Router %d\n",
+            t_flit->get_pid(), t_flit->get_id(),
+            get_id());
     m_output_unit[outport]->smart_bypass(t_flit);
     t_flit->increment_hops(); // for stats
 

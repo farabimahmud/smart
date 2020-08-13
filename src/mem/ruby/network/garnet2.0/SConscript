@@ -55,3 +55,4 @@ Source('Credit.cc')
 Source('SSR.cc')
 
 DebugFlag('SMART')
+DebugFlag('FlitOrder')

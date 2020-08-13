@@ -101,8 +101,11 @@ NetworkLink::wakeup()
             link_consumer->scheduleEventAbsolute(clockEdge(m_latency));
         }
 
-    DPRINTF(SMART,"[NetworkLink] wakup bypass %d\n", router_bypass);
-    DPRINTF(SMART,"[NetworkLink] flit %s\n", *t_flit);
+        if (router_bypass){
+            DPRINTF(SMART,"[NL] SMART bypass success for %s\n", *t_flit);
+        } else{
+            DPRINTF(SMART,"[NL] SMART bypass failed for %s\n", *t_flit);
+        }
 
     }
 

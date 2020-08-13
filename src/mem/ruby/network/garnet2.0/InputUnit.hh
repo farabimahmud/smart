@@ -54,6 +54,9 @@ class InputUnit : public Consumer
     InputUnit(int id, PortDirection direction, Router *router);
     ~InputUnit();
 
+    void set_id(int i){ m_id = i;}
+    int get_id(){ return m_id;}
+
     void wakeup();
     void print(std::ostream& out) const {};
 
@@ -173,6 +176,8 @@ class InputUnit : public Consumer
     NetworkLink *m_in_link;
     CreditLink *m_credit_link;
     flitBuffer *creditQueue;
+    int currentPacket;
+    flit* lastflit;
 
     // Input Virtual channels
     std::vector<VirtualChannel *> m_vcs;

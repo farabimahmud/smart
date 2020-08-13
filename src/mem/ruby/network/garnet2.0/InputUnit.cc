@@ -34,6 +34,7 @@
 #include "mem/ruby/network/garnet2.0/InputUnit.hh"
 
 #include "base/stl_helpers.hh"
+#include "debug/FlitOrder.hh"
 #include "debug/RubyNetwork.hh"
 #include "debug/SMART.hh"
 #include "mem/ruby/network/garnet2.0/Credit.hh"
@@ -64,6 +65,8 @@ InputUnit::InputUnit(int id, PortDirection direction, Router *router)
     for (int i=0; i < m_num_vcs; i++) {
         m_vcs[i] = new VirtualChannel(i);
     }
+    currentPacket = -1;
+    lastflit = NULL;
 }
 
 InputUnit::~InputUnit()
@@ -88,7 +91,10 @@ InputUnit::wakeup()
     flit *t_flit = new flit();
     if (m_in_link->isReady(m_router->curCycle())) {
 
-        t_flit = m_in_link->consumeLink();
+        t_flit = m_in_link->peekLink();
+
+ //       t_flit = m_in_link->consumeLink();
+
         int vc = t_flit->get_vc();
 
         // Moved to crossbar
@@ -99,6 +105,10 @@ InputUnit::wakeup()
     DPRINTF(RubyNetwork, "Router %d Inport %s received flit %s at link %d\n",
         m_router->get_id(), m_direction, *t_flit, m_in_link->get_id());
 
+        DPRINTF(FlitOrder, "[IU] flit %d-%d entering port %d at router %d\n",
+                t_flit->get_pid(), t_flit->get_id(),
+                this->get_id(),
+                m_router->get_id());
 
         if ((t_flit->get_type() == HEAD_) ||
             (t_flit->get_type() == HEAD_TAIL_)) {
@@ -115,8 +125,47 @@ InputUnit::wakeup()
             // The output port field in the flit is updated after it wins SA
             grant_outport(vc, outport);
 
+            if (t_flit->get_type() == HEAD_){
+                assert(currentPacket == -1);
+                currentPacket = t_flit->get_pid();
+                lastflit = t_flit;
+                DPRINTF(FlitOrder, "[IU] flit %d-%d\n",
+                        t_flit->get_pid(), t_flit->get_id());
+            } else{
+                currentPacket = -1;
+            }
+
+           m_in_link->consumeLink();
+
         } else {
             DPRINTF(SMART, "[InputUnit] Body/Tail flit %s\n", *t_flit);
+
+//            DPRINTF(FlitOrder, "[InputUnit] currentPacket %d flit PID %d\n",
+//                    currentPacket, t_flit->get_pid());
+
+            // This is not a HEAD flit
+            // lastflit must not be null
+            if (lastflit == NULL){
+                DPRINTF(FlitOrder, "IU flit %d-%d caused fault at Router %d\n",
+                        t_flit->get_pid(),
+                        t_flit->get_id(),
+                        m_router->get_id());
+                assert(0);
+            }
+
+            if ( ! ((t_flit->get_id() == lastflit->get_id()) ||
+                    (t_flit->get_id() == lastflit->get_id() + 1))){
+                DPRINTF(FlitOrder, "flit %d-%d lastflit %d-%d stalled\n",
+                        t_flit->get_pid(), t_flit->get_id(),
+                        lastflit->get_pid(), lastflit->get_id());
+                return;
+            }
+            lastflit = t_flit;
+            assert(currentPacket == t_flit->get_pid());
+            if (t_flit->get_type() == TAIL_){
+                currentPacket = -1;
+            }
+            m_in_link->consumeLink();
             int state = m_vcs[vc]->get_state();
             switch(state){
                 case 0: DPRINTF(SMART, "[InputUnit] IDLE\n"); break;
@@ -161,6 +210,10 @@ InputUnit::wakeup()
             m_router->schedule_wakeup(Cycles(wait_time));
         }
      DPRINTF(SMART, "[InputUnit] Returned from wakeup\n");
+     DPRINTF(FlitOrder, "[IU] flit %d-%d leaving port %d at router %d\n",
+                t_flit->get_pid(), t_flit->get_id(),
+                this->get_id(),
+                m_router->get_id());
 
     }
 }
@@ -201,7 +254,8 @@ bool
 InputUnit::try_smart_bypass(flit *t_flit)
 {
     // Check if router is setup for SMART bypass this cycle
-    DPRINTF(RubyNetwork, "Router %d Inport %s trying to bypass flit %s\n",
+    DPRINTF(RubyNetwork, "[InputUnit] Router %d Inport %s"
+            " trying to bypass flit %s\n",
                  m_router->get_id(), m_direction, *t_flit);
 
 //    PortDirection outport_dirn = t_flit->get_route()->outport_dirn;

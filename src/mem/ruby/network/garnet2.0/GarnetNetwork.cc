@@ -46,8 +46,8 @@
 #include "mem/ruby/network/garnet2.0/NetworkInterface.hh"
 #include "mem/ruby/network/garnet2.0/NetworkLink.hh"
 #include "mem/ruby/network/garnet2.0/Router.hh"
-#include "mem/ruby/system/RubySystem.hh"
 #include "mem/ruby/network/garnet2.0/SSR.hh"
+#include "mem/ruby/system/RubySystem.hh"
 
 using namespace std;
 using m5::stl_helpers::deletePointers;
@@ -517,15 +517,15 @@ GarnetNetwork::sendSSR(int src, PortDirection outport_dirn, int req_hops,
             }
         } else {
             assert(0);
-        }   
+        }
     }
 
     // insertSSR makes a copy of the SSR for every dest
     delete t_ssr;
 }
 
-void        
-GarnetNetwork::insertSSR(int dst, PortDirection inport_dirn, 
+void
+GarnetNetwork::insertSSR(int dst, PortDirection inport_dirn,
                          int src_hops, bool bypass_req, SSR* orig_ssr)
 {
  //   DPRINTF(FlitOrder, "[GN]SSR %s is sent\n", *orig_ssr->get_ref_flit());

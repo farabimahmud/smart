@@ -34,6 +34,7 @@
 #include "mem/ruby/network/garnet2.0/NetworkLink.hh"
 
 #include "debug/SMART.hh"
+#include "debug/VC.hh"
 #include "mem/ruby/network/garnet2.0/CreditLink.hh"
 #include "mem/ruby/network/garnet2.0/InputUnit.hh"
 
@@ -76,6 +77,7 @@ NetworkLink::wakeup()
 {
     if (link_srcQueue->isReady(curCycle())) {
         flit *t_flit = link_srcQueue->getTopFlit();
+
         t_flit->set_time(curCycle() + m_latency);
         m_link_utilized++;
         m_vc_load[t_flit->get_vc()]++;
@@ -89,10 +91,15 @@ NetworkLink::wakeup()
                 // If it is, then flit will bypass and go to next link
                 t_flit->set_time(curCycle());
                 router_bypass = link_consumer_inport->try_smart_bypass(t_flit);
+
             }
         }
 
         if (!router_bypass) {
+            if (t_flit->get_pid()==4)
+                DPRINTF(VC, "[NL] flit %s inserted in linkbuffer"
+                        "set_time: %d, conumser: %#x\n",
+                        *t_flit, curCycle() + m_latency, link_consumer);
             // Baseline, or
             // SMART where flit has to be buffered at next router 
             // because it is turning/dest router, or SSR lost

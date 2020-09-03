@@ -35,8 +35,8 @@
 #define __MEM_RUBY_NETWORK_GARNET2_0_OUTPUTUNIT_HH__
 
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 
 #include "mem/ruby/common/Consumer.hh"
 #include "mem/ruby/network/garnet2.0/CommonTypes.hh"

@@ -38,8 +38,11 @@
 
 #include "base/cast.hh"
 #include "base/stl_helpers.hh"
+#include "debug/Credit.hh"
+#include "debug/FlitOrder.hh"
 #include "debug/RubyNetwork.hh"
 #include "debug/SMART.hh"
+#include "debug/VC.hh"
 #include "mem/ruby/network/MessageBuffer.hh"
 #include "mem/ruby/network/garnet2.0/Credit.hh"
 #include "mem/ruby/network/garnet2.0/flitBuffer.hh"
@@ -166,7 +169,8 @@ NetworkInterface::incrementStats(flit *t_flit)
 
     // Hops
     m_net_ptr->increment_total_hops(t_flit->get_route()->hops_traversed);
-    m_net_ptr->increment_total_smart_hops(t_flit->get_route()->smart_hops_traversed);
+    m_net_ptr->increment_total_smart_hops(
+            t_flit->get_route()->smart_hops_traversed);
 }
 
 /*
@@ -195,7 +199,6 @@ NetworkInterface::wakeup()
         if (b == nullptr) {
             continue;
         }
-
         if (b->isReady(curTime)) { // Is there a message waiting
             msg_ptr = b->peekMsgPtr();
             if (flitisizeMessage(msg_ptr, vnet)) {
@@ -214,6 +217,7 @@ NetworkInterface::wakeup()
     /*********** Check the incoming flit link **********/
     if (inNetLink->isReady(curCycle())) {
         flit *t_flit = inNetLink->consumeLink();
+        DPRINTF(VC, "At Router %d, %s\n", m_router_id, *t_flit);
         int vnet = t_flit->get_vnet();
         t_flit->set_dequeue_time(curCycle());
 
@@ -233,11 +237,15 @@ NetworkInterface::wakeup()
 
                 // Update stats and delete flit pointer
                 incrementStats(t_flit);
+                DPRINTF(VC, "flit %s is deleted at Router %d\n",
+                        *t_flit, m_router_id);
                 delete t_flit;
             } else {
                 // No space available- Place tail flit in stall queue and set
                 // up a callback for when protocol buffer is dequeued. Stat
                 // update and flit pointer deletion will occur upon unstall.
+                //
+                DPRINTF(VC," %s is stalled\n", *t_flit);
                 m_stall_queue.push_back(t_flit);
                 m_stall_count[vnet]++;
 
@@ -247,10 +255,12 @@ NetworkInterface::wakeup()
         } else {
             // Non-tail flit. Send back a credit but not VC free signal.
             sendCredit(t_flit, false);
-            DPRINTF(SMART, "[NI] Credit sent for Non-tail fleet");
 
             // Update stats and delete flit pointer.
             incrementStats(t_flit);
+            DPRINTF(VC, "flit %s is deleted at Router %d\n",
+                    *t_flit, m_router_id);
+
             delete t_flit;
         }
     }
@@ -259,7 +269,15 @@ NetworkInterface::wakeup()
 
     if (inCreditLink->isReady(curCycle())) {
         Credit *t_credit = (Credit*) inCreditLink->consumeLink();
+
         m_out_vc_state[t_credit->get_vc()]->increment_credit();
+        int vc = t_credit->get_vc();
+        if (t_credit->m_pid == 4)
+            DPRINTF(VC, "[OU wakeup] %s received credit at %d credit = %d\n",
+                    t_credit->ToString().c_str(),
+                    vc, m_out_vc_state[vc]->m_credit_count);
+
+
         if (t_credit->is_free_signal()) {
             DPRINTF(SMART, "[NI] setting VC %d IDLE\n",
                     t_credit->get_vc());
@@ -281,7 +299,9 @@ NetworkInterface::wakeup()
 void
 NetworkInterface::sendCredit(flit *t_flit, bool is_free)
 {
-    Credit *credit_flit = new Credit(t_flit->get_vc(), is_free, curCycle());
+    DPRINTF(VC, "Credit send for %s at Router %d\n", *t_flit, m_router_id);
+    Credit *credit_flit = new Credit(t_flit->get_vc(), is_free, curCycle(),
+            t_flit->get_pid(), t_flit->get_id());
     outCreditQueue->insert(credit_flit);
 }
 
@@ -406,6 +426,7 @@ NetworkInterface::flitisizeMessage(MsgPtr msg_ptr, int vnet)
 
             fl->set_src_delay(curCycle() - ticksToCycles(msg_ptr->getTime()));
             m_ni_out_vcs[vc]->insert(fl);
+
         }
         NetworkInterface::pid++;
 
@@ -432,6 +453,14 @@ NetworkInterface::calculateVC(int vnet)
         }
     }
 
+    if (vc_busy_counter[vnet] >= m_deadlock_threshold){
+       int vc = (vnet*m_vc_per_vnet) + m_vc_allocator[vnet];
+       flit * f = m_ni_out_vcs[vc]->peekTopFlit();
+       DPRINTF(VC, "[NI:calculateVC] flit"
+               "%s credit = %d \n", *f, m_out_vc_state[vc]->m_credit_count);
+    }
+
+
     vc_busy_counter[vnet] += 1;
     panic_if(vc_busy_counter[vnet] > m_deadlock_threshold,
         "%s: Possible network deadlock in vnet: %d at time: %llu \n",
@@ -456,10 +485,12 @@ NetworkInterface::scheduleOutputLink()
         vc++;
         if (vc == m_num_vcs)
             vc = 0;
-
-        // model buffer backpressure
+//        DPRINTF(VC, "[NI ScheduleOutputLink] VC %d has credit=%d\n",
+//                vc, m_out_vc_state[vc]->m_credit_count);
+       // model buffer backpressure
         if (m_ni_out_vcs[vc]->isReady(curCycle()) &&
             m_out_vc_state[vc]->has_credit()) {
+
 
             bool is_candidate_vc = true;
             int t_vnet = get_vnet(vc);
@@ -484,9 +515,15 @@ NetworkInterface::scheduleOutputLink()
             m_vc_round_robin = vc;
 
             m_out_vc_state[vc]->decrement_credit();
+
             // Just removing the flit
             flit *t_flit = m_ni_out_vcs[vc]->getTopFlit();
             t_flit->set_time(curCycle() + Cycles(1));
+
+            if (t_flit->m_pid == 4)
+                DPRINTF(VC, "%s is inserted into vc %d credit = %d\n",
+                    *t_flit, vc, m_out_vc_state[vc]->m_credit_count);
+
             outFlitQueue->insert(t_flit);
             // schedule the out link
             outNetLink->scheduleEventAbsolute(clockEdge(Cycles(1)));

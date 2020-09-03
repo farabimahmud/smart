@@ -37,6 +37,7 @@
 #include "debug/FlitOrder.hh"
 #include "debug/RubyNetwork.hh"
 #include "debug/SMART.hh"
+#include "debug/VC.hh"
 #include "mem/ruby/network/garnet2.0/Credit.hh"
 #include "mem/ruby/network/garnet2.0/Router.hh"
 
@@ -88,10 +89,14 @@ InputUnit::~InputUnit()
 void
 InputUnit::wakeup()
 {
+    // dangling pointer
     flit *t_flit = new flit();
+    DPRINTF(VC, "[IU] Calling wakeup %#x\n", this);
     if (m_in_link->isReady(m_router->curCycle())) {
 
         t_flit = m_in_link->peekLink();
+        if ( t_flit->get_pid() == 4) DPRINTF(VC, "[IU] we peek %s,"
+                " current packet %d\n", *t_flit, currentPacket);
 
  //       t_flit = m_in_link->consumeLink();
 
@@ -114,6 +119,11 @@ InputUnit::wakeup()
             (t_flit->get_type() == HEAD_TAIL_)) {
 
             assert(m_vcs[vc]->get_state() == IDLE_);
+            if (currentPacket != -1){
+                if ( t_flit->get_pid() == 4)
+                    DPRINTF(VC, "Return w/o consuming %s\n", *t_flit);
+                return;
+            }
             set_vc_active(vc, m_router->curCycle());
 
             // Route computation for this vc
@@ -126,7 +136,6 @@ InputUnit::wakeup()
             grant_outport(vc, outport);
 
             if (t_flit->get_type() == HEAD_){
-                assert(currentPacket == -1);
                 currentPacket = t_flit->get_pid();
                 lastflit = t_flit;
                 DPRINTF(FlitOrder, "[IU] flit %d-%d\n",
@@ -158,6 +167,7 @@ InputUnit::wakeup()
                 DPRINTF(FlitOrder, "flit %d-%d lastflit %d-%d stalled\n",
                         t_flit->get_pid(), t_flit->get_id(),
                         lastflit->get_pid(), lastflit->get_id());
+                DPRINTF(VC, "returing w/o consuming lastflit %s\n", *lastflit);
                 return;
             }
             lastflit = t_flit;
@@ -215,15 +225,20 @@ InputUnit::wakeup()
                 this->get_id(),
                 m_router->get_id());
 
+    } else {
+        DPRINTF(VC, "[IU] Not ready to wakeup %#x\n", this);
     }
 }
 
 // Send a credit back to upstream router for this VC.
 // Called by SwitchAllocator when the flit in this VC wins the Switch.
 void
-InputUnit::increment_credit(int in_vc, bool free_signal, Cycles curTime)
+InputUnit::increment_credit(int in_vc, bool free_signal,
+        Cycles curTime, flit * t_flit)
 {
-    Credit *t_credit = new Credit(in_vc, free_signal, curTime + Cycles(1));
+    Credit *t_credit = new Credit(in_vc,
+            free_signal, curTime + Cycles(1), t_flit->get_pid(),
+            t_flit->get_id());
     creditQueue->insert(t_credit);
     m_credit_link->scheduleEventAbsolute(m_router->clockEdge(Cycles(1)));
 }
@@ -257,28 +272,39 @@ InputUnit::try_smart_bypass(flit *t_flit)
     DPRINTF(RubyNetwork, "[InputUnit] Router %d Inport %s"
             " trying to bypass flit %s\n",
                  m_router->get_id(), m_direction, *t_flit);
-
-//    PortDirection outport_dirn = t_flit->get_route()->outport_dirn;
-//    return m_router->try_smart_bypass(m_id, outport_dirn, t_flit);            
-
+   DPRINTF(FlitOrder, "IU flit %d-%d arrived at IU::try_smart_bypass"
+           " at Router %d\n",
+           t_flit->get_pid(),
+           t_flit->get_id(),
+           m_router->get_id());
     // Check SSR Grant for this cycle
-
+    if (ssr_grant.empty()){
+        DPRINTF(FlitOrder,"IU SSR grant is empty for flit %d-%d\n",
+                t_flit->get_pid(), t_flit->get_id());
+    }
     while (!ssr_grant.empty()) {
         SSR *t_ssr = ssr_grant.top();
-        if (t_ssr->get_time() < m_router->curCycle()) {
+        /*if (t_ssr->get_time() < m_router->curCycle()) {
             ssr_grant.pop();
             delete t_ssr;
-        } else if (t_ssr->get_time() == m_router->curCycle()) {
+        } else */
+        if (t_ssr->get_time() <= m_router->curCycle()) {
             if (t_ssr->get_ref_flit() != t_flit) {
                 // (i) this flit lost arbitration to a local flit, or
                 // (ii) wanted to stop, and hence its SSR was not sent to 
                 //      this router, and some other SSR won.
 
+                DPRINTF(FlitOrder, "IU flit %d-%d lost"
+                        " arbitration at Router %d\n",
+                        t_flit->get_pid(),
+                        t_flit->get_id(),
+                        m_router->get_id());
+
                 return false;
             } else {
 
-                DPRINTF(RubyNetwork, "Router %d Inport %s Trying SMART Bypass for Flit %s\n",
-                        m_router->get_id(), m_direction, *t_flit);
+                DPRINTF(FlitOrder, "IU flit %d-%d trying try_smart_bypass \n",
+                        t_flit->get_pid(), t_flit->get_id());
 
                 // SSR for this flit won arbitration last cycle
                 // and wants to bypass this router
@@ -296,6 +322,11 @@ InputUnit::try_smart_bypass(flit *t_flit)
             break;
         }
     }
+    DPRINTF(FlitOrder, "IU flit %d-%d failed at try_smart_bypass"
+            " at Router %d\n",
+            t_flit->get_pid(),
+            t_flit->get_id(),
+            m_router->get_id());
 
     return false;
 }
@@ -303,8 +334,12 @@ InputUnit::try_smart_bypass(flit *t_flit)
 void    
 InputUnit::grantSSR(SSR *t_ssr)
 {           
-    DPRINTF(RubyNetwork, "Router %d Inport %s granted SSR for flit %d from src_hops %d for bypass = %d for Outport %s\n",
-            m_router->get_id(), m_direction, *(t_ssr->get_ref_flit()), t_ssr->get_src_hops(), t_ssr->get_bypass_req(), t_ssr->get_outport_dirn());
+    DPRINTF(RubyNetwork, "Router %d Inport %s granted SSR"
+            "for flit %d from src_hops %d for bypass = %d for Outport %s\n",
+            m_router->get_id(), m_direction, *(t_ssr->get_ref_flit()),
+            t_ssr->get_src_hops(),
+            t_ssr->get_bypass_req(), t_ssr->get_outport_dirn());
+
 
     // Update valid time to next cycle
     t_ssr->set_time(m_router->curCycle() + Cycles(1));        

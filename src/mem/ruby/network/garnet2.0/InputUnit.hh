@@ -110,7 +110,8 @@ class InputUnit : public Consumer
         return m_vcs[invc]->get_enqueue_time();
     }
 
-    void increment_credit(int in_vc, bool free_signal, Cycles curTime);
+    void increment_credit(int in_vc, bool free_signal,
+            Cycles curTime, flit * t);
 
     inline flit*
     peekTopFlit(int vc)

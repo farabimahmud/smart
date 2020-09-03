@@ -31,8 +31,9 @@
  */
 
 
-#include "mem/ruby/network/garnet2.0/NetworkLink.hh"
 #include "mem/ruby/network/garnet2.0/CreditLink.hh"
+
+#include "mem/ruby/network/garnet2.0/NetworkLink.hh"
 
 /*
 CreditLink::CreditLink(const Params *p)

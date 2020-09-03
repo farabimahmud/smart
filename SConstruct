@@ -373,8 +373,10 @@ if main['GCC'] or main['CLANG']:
     # We always compile using C++11
     main.Append(CXXFLAGS=['-std=c++11',
                         '-I/home/grads/f/farabi/boost_1_66_0',
-                        '-I/home/grads/f/farabi/valgrind-build/include'
-                        ])
+                        '-I/home/grads/f/farabi/valgrind-build/include',
+                        '-I/usr/include/',
+                        '-I/home/grads/f/farabi/rpm/usr/include'
+                         ])
 
     if sys.platform.startswith('freebsd'):
         main.Append(CCFLAGS=['-I/usr/local/include'])
@@ -397,6 +399,7 @@ if main['GCC'] or main['CLANG']:
                          '-Wno-error=address-of-packed-member',
                          '-Wno-error=pessimizing-move',
                          '-Wno-error=redundant-move',
+                         '-Wno-error=deprecated-copy',
                         ])
 else:
     print(termcap.Yellow + termcap.Bold + 'Error' + termcap.Normal, end=' ')

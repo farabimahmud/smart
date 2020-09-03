@@ -56,3 +56,5 @@ Source('SSR.cc')
 
 DebugFlag('SMART')
 DebugFlag('FlitOrder')
+DebugFlag('Credit')
+DebugFlag('VC')

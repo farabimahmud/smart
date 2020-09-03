@@ -37,10 +37,46 @@
 // Carries m_vc (inherits from flit.hh)
 // and m_is_free_signal (whether VC is free or not)
 
-Credit::Credit(int vc, bool is_free_signal, Cycles curTime)
+Credit::Credit(int vc, bool is_free_signal, Cycles curTime, int pid, int id)
 {
-    m_id = 0;
+    m_pid = pid;
+    m_id = id;
     m_vc = vc;
     m_is_free_signal = is_free_signal;
     m_time = curTime;
 }
+
+std::string
+Credit::ToString()
+{
+    std::stringstream out;
+    out << "[credit:: ";
+    out << "PID=" << m_pid << " ";
+    out << "Id=" << m_id << " ";
+
+ //   out << "Type=" << m_type << " ";
+ // HEAD_, BODY_, TAIL_, HEAD_TAIL_, NUM_FLIT_TYPE_
+
+    /*out << "Type=";
+    switch(m_type){
+        case 0: out << " HEAD_ "; break;
+        case 1: out << " BODY_ "; break;
+        case 2: out << " TAIL_ "; break;
+        case 3: out << " HEAD_TAIL_ "; break;
+        case 4: out << " NUM_FLIT_TYPE_ "; break;
+        default: out << " UNKNOWN "; break;
+    }
+    out << "Vnet=" << m_vnet << " ";
+    out << "VC=" << m_vc << " ";
+    //out << "Src NI=" << m_route->src_ni << " ";
+    //out << "Src Router=" << m_route->src_router << " ";
+    //out << "Dest NI=" << m_route->dest_ni << " ";
+    //out << "Dest Router=" << m_route->dest_router << " ";
+    out << "Enqueue Time=" << m_enqueue_time << " ";
+    out << "Valid Time=" << m_time << " ";
+    */
+    out << "]";
+
+    return out.str();
+}
+

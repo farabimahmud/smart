@@ -338,12 +338,12 @@ SwitchAllocator::arbitrate_outports()
                     // Send a credit back
                     // along with the information that this VC is now idle
                     m_input_unit[inport]->increment_credit(invc, true,
-                        m_router->curCycle());
+                        m_router->curCycle(), t_flit);
                 } else {
                     // Send a credit back
                     // but do not indicate that the VC is idle
                     m_input_unit[inport]->increment_credit(invc, false,
-                        m_router->curCycle());
+                        m_router->curCycle(), t_flit);
                 }
 
                 // remove this request
@@ -385,6 +385,7 @@ SwitchAllocator::send_allowed(int inport, int invc, int outport, int outvc)
     // Check if credit needed (for multi-flit packet)
     // Check if ordering violated (in ordered vnet)
 
+    DPRINTF(FlitOrder, "In send_alowed functio\n");
     int vnet = get_vnet(invc);
     bool has_outvc = (outvc != -1);
     bool has_credit = false;
@@ -409,12 +410,15 @@ SwitchAllocator::send_allowed(int inport, int invc, int outport, int outvc)
     }
 
     // cannot send if no outvc or no credit.
-    if (!has_outvc || !has_credit)
+    if (!has_outvc || !has_credit){
+        if (!has_outvc) DPRINTF(FlitOrder, "No Outvc\n");
+        else  DPRINTF(FlitOrder, "No Credit\n");
         return false;
-
+    }
 
     // protocol ordering check
     if ((m_router->get_net_ptr())->isVNetOrdered(vnet)) {
+        DPRINTF(FlitOrder, "ordered\n");
 
         // enqueue time of this flit
         Cycles t_enqueue_time = m_input_unit[inport]->get_enqueue_time(invc);
@@ -429,6 +433,8 @@ SwitchAllocator::send_allowed(int inport, int invc, int outport, int outvc)
                (m_input_unit[inport]->get_outport(temp_vc) == outport) &&
                (m_input_unit[inport]->get_enqueue_time(temp_vc) <
                     t_enqueue_time)) {
+
+                DPRINTF(FlitOrder, "Order Failure\n");
                 return false;
             }
         }

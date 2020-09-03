@@ -90,8 +90,11 @@ CrossbarSwitch::wakeup()
         if (t_flit->is_stage(ST_, m_router->curCycle())) {
             int outport = t_flit->get_outport();
 
-        DPRINTF(RubyNetwork, "Crossbar Switch at Router %d sending flit %s from outport %d at time: %lld\n",
-                m_router->get_id(), *t_flit, m_router->getPortDirectionName(m_output_unit[outport]->get_direction()),
+        DPRINTF(RubyNetwork, "Crossbar Switch at Router %d "
+                "sending flit %s from outport %d at time: %lld\n",
+                m_router->get_id(), *t_flit,
+                m_router->getPortDirectionName(
+                    m_output_unit[outport]->get_direction()),
                 m_router->curCycle());
 
             // flit performs LT_ in the next cycle

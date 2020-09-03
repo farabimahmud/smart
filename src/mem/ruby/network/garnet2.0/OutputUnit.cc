@@ -37,6 +37,7 @@
 #include "debug/FlitOrder.hh"
 #include "debug/RubyNetwork.hh"
 #include "debug/SMART.hh"
+#include "debug/VC.hh"
 #include "mem/ruby/network/garnet2.0/Credit.hh"
 #include "mem/ruby/network/garnet2.0/Router.hh"
 
@@ -82,8 +83,8 @@ OutputUnit::decrement_credit(int out_vc)
 void
 OutputUnit::increment_credit(int out_vc)
 {
-    DPRINTF(RubyNetwork, "Router %d OutputUnit %d incrementing credit for "
-            "outvc %d at time: %lld\n",
+    DPRINTF(SMART, "Router %d OutputUnit %d incrementing credit for "
+            "outvc %d at time: %lld \n",
             m_router->get_id(), m_id, out_vc, m_router->curCycle());
 
     m_outvc_state[out_vc]->increment_credit();
@@ -153,8 +154,13 @@ OutputUnit::wakeup()
         Credit *t_credit = (Credit*) m_credit_link->consumeLink();
         increment_credit(t_credit->get_vc());
 
+        DPRINTF(VC, "[NI wakeup] Increment Credit for flit %s credit=%d\n",
+                t_credit->ToString().c_str(),
+                m_outvc_state[t_credit->get_vc()]->m_credit_count);
+
+
         if (t_credit->is_free_signal()){
-            DPRINTF(SMART, "[OutputUnit] Router %d is setting VC %d IDLE"
+            DPRINTF(SMART, "Router %d is setting VC %d IDLE"
                     " at Time %d \n",
                     m_router->get_id(), t_credit->get_vc(),
                     m_router->curCycle());

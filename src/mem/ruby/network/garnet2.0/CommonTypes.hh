@@ -47,7 +47,7 @@ enum link_type { EXT_IN_, EXT_OUT_, INT_, NUM_LINK_TYPES_ };
 enum RoutingAlgorithm { TABLE_ = 0, XY_ = 1, CUSTOM_ = 2,
                         NUM_ROUTING_ALGORITHM_};
 
-
+// :std::string* portname = new string[4]{"North", "South", "East", "West"};
 /*
 struct RouteInfo
 {

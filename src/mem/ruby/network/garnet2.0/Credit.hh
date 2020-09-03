@@ -49,12 +49,22 @@ class Credit : public flit
 {
   public:
     Credit() {};
-    Credit(int vc, bool is_free_signal, Cycles curTime);
-
+    Credit(int vc, bool is_free_signal, Cycles curTime, int pid, int id);
+    // void print(std::ostream& out) const;
+    std::string ToString();
     bool is_free_signal() { return m_is_free_signal; }
 
   private:
     bool m_is_free_signal;
 };
+
+inline std::ostream&
+operator<<(std::ostream& out, const Credit& obj)
+{
+    obj.print(out);
+    out << std::flush;
+    return out;
+}
+
 
 #endif // __MEM_RUBY_NETWORK_GARNET2_0_CREDIT_HH__

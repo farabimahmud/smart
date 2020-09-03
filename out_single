@@ -1,0 +1,898 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Aug 14 2020 11:50:36
+gem5 started Aug 17 2020 16:53:19
+gem5 executing on atlas.engr.tamu.edu, pid 48604
+command line: ./build/NULL/gem5.debug --debug-flags=FlitOrder configs/example/garnet_synth_traffic.py --num-cpus=16 --num-dirs=16 --network=garnet2.0 --topology=Mesh_XY --mesh-rows=4 --synthetic=uniform_random --injectionrate=0.02 --num-packets-max=10 --smart --smart_hpcmax=8 --single-sender-id=1 --single-dest-id=11
+
+Global frequency set at 1000000000 ticks per second
+     36: global: [IU] flit 0-0 entering port 0 at router 1
+     36: global: [IU] flit 0-0 leaving port 0 at router 1
+     36: global: SA flit 0-0 send_allowed at Router 1
+     36: global: SA outport set to 3 for flit 0-0 at Router 1
+     37: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=34 Valid Time=37 ] from src_hops 1 for bypass = 1 for Outport East
+     37: global: [IU] flit 1-0 entering port 0 at router 1
+     37: global: [IU] flit 1-0 leaving port 0 at router 1
+     37: global: SA flit 1-0 send_allowed at Router 1
+     37: global: SA outport set to 3 for flit 1-0 at Router 1
+     37: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=34 Valid Time=37 ] from src_hops 0 for bypass = 0 for Outport East
+     37: global: [CB] flit 0-0 entered at Router 1
+     38: global: IU flit 0-0 arrived at IU::try_smart_bypass at Router 2
+     38: global: IU flit 0-0 failed at try_smart_bypass at Router 2
+     38: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=35 Valid Time=38 ] from src_hops 1 for bypass = 1 for Outport East
+     38: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=35 Valid Time=38 ] from src_hops 0 for bypass = 0 for Outport East
+     38: global: [CB] flit 1-0 entered at Router 1
+     39: global: IU flit 1-0 arrived at IU::try_smart_bypass at Router 2
+     39: global: IU flit 1-0 failed at try_smart_bypass at Router 2
+     39: global: [IU] flit 0-0 entering port 2 at router 2
+     39: global: [IU] flit 0-0 leaving port 2 at router 2
+     39: global: SA flit 0-0 send_allowed at Router 2
+     39: global: SA outport set to 3 for flit 0-0 at Router 2
+     40: global: [IU] flit 1-0 entering port 2 at router 2
+     40: global: [IU] flit 1-0 leaving port 2 at router 2
+     40: global: SA flit 1-0 send_allowed at Router 2
+     40: global: SA outport set to 3 for flit 1-0 at Router 2
+     40: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=34 Valid Time=40 ] from src_hops 0 for bypass = 0 for Outport East
+     40: global: [CB] flit 0-0 entered at Router 2
+     41: global: IU flit 0-0 arrived at IU::try_smart_bypass at Router 3
+     41: global: IU SSR grant is empty for flit 0-0
+     41: global: IU flit 0-0 failed at try_smart_bypass at Router 3
+     41: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=35 Valid Time=41 ] from src_hops 0 for bypass = 0 for Outport East
+     41: global: [CB] flit 1-0 entered at Router 2
+     42: global: IU flit 1-0 arrived at IU::try_smart_bypass at Router 3
+     42: global: IU SSR grant is empty for flit 1-0
+     42: global: IU flit 1-0 failed at try_smart_bypass at Router 3
+     42: global: [IU] flit 0-0 entering port 2 at router 3
+     42: global: [IU] flit 0-0 leaving port 2 at router 3
+     42: global: SA flit 0-0 send_allowed at Router 3
+     42: global: SA outport set to 3 for flit 0-0 at Router 3
+     43: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=34 Valid Time=43 ] from src_hops 1 for bypass = 1 for Outport North
+     43: global: [IU] flit 1-0 entering port 2 at router 3
+     43: global: [IU] flit 1-0 leaving port 2 at router 3
+     43: global: SA flit 1-0 send_allowed at Router 3
+     43: global: SA outport set to 3 for flit 1-0 at Router 3
+     43: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=34 Valid Time=43 ] from src_hops 0 for bypass = 0 for Outport North
+     43: global: [CB] flit 0-0 entered at Router 3
+     44: global: IU flit 0-0 arrived at IU::try_smart_bypass at Router 7
+     44: global: IU flit 0-0 failed at try_smart_bypass at Router 7
+     44: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=35 Valid Time=44 ] from src_hops 1 for bypass = 1 for Outport North
+     44: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=35 Valid Time=44 ] from src_hops 0 for bypass = 0 for Outport North
+     44: global: [CB] flit 1-0 entered at Router 3
+     45: global: IU flit 1-0 arrived at IU::try_smart_bypass at Router 7
+     45: global: IU flit 1-0 failed at try_smart_bypass at Router 7
+     45: global: [IU] flit 0-0 entering port 2 at router 7
+     45: global: [IU] flit 0-0 leaving port 2 at router 7
+     45: global: SA flit 0-0 send_allowed at Router 7
+     45: global: SA outport set to 4 for flit 0-0 at Router 7
+     46: global: [IU] flit 1-0 entering port 2 at router 7
+     46: global: [IU] flit 1-0 leaving port 2 at router 7
+     46: global: SA flit 1-0 send_allowed at Router 7
+     46: global: SA outport set to 4 for flit 1-0 at Router 7
+     46: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=34 Valid Time=46 ] from src_hops 0 for bypass = 0 for Outport North
+     46: global: [CB] flit 0-0 entered at Router 7
+     47: global: IU flit 0-0 arrived at IU::try_smart_bypass at Router 11
+     47: global: IU SSR grant is empty for flit 0-0
+     47: global: IU flit 0-0 failed at try_smart_bypass at Router 11
+     47: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=35 Valid Time=47 ] from src_hops 0 for bypass = 0 for Outport North
+     47: global: [CB] flit 1-0 entered at Router 7
+     48: global: IU flit 1-0 arrived at IU::try_smart_bypass at Router 11
+     48: global: IU SSR grant is empty for flit 1-0
+     48: global: IU flit 1-0 failed at try_smart_bypass at Router 11
+     48: global: [IU] flit 0-0 entering port 2 at router 11
+     48: global: [IU] flit 0-0 leaving port 2 at router 11
+     48: global: SA flit 0-0 send_allowed at Router 11
+     48: global: SA outport set to 1 for flit 0-0 at Router 11
+     49: global: [IU] flit 1-0 entering port 2 at router 11
+     49: global: [IU] flit 1-0 leaving port 2 at router 11
+     49: global: SA flit 1-0 send_allowed at Router 11
+     49: global: SA outport set to 1 for flit 1-0 at Router 11
+     49: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=34 Valid Time=49 ] from src_hops 0 for bypass = 0 for Outport Local
+     49: global: [CB] flit 0-0 entered at Router 11
+     50: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=35 Valid Time=50 ] from src_hops 0 for bypass = 0 for Outport Local
+     50: global: [CB] flit 1-0 entered at Router 11
+     50: global: [IU] flit 2-0 entering port 0 at router 1
+     50: global: [IU] flit 2-0
+     50: global: [IU] flit 2-0 leaving port 0 at router 1
+     50: global: SA flit 2-0 send_allowed at Router 1
+     50: global: SA outport set to 3 for flit 2-0 at Router 1
+     51: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=51 ] from src_hops 1 for bypass = 1 for Outport East
+     51: global: [IU] flit 2-1 entering port 0 at router 1
+     51: global: [IU] flit 2-1 leaving port 0 at router 1
+     51: global: SA flit 2-1 send_allowed at Router 1
+     51: global: SA outport set to 3 for flit 2-1 at Router 1
+     51: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=51 ] from src_hops 0 for bypass = 0 for Outport East
+     51: global: [CB] flit 2-0 entered at Router 1
+     52: global: IU flit 2-0 arrived at IU::try_smart_bypass at Router 2
+     52: global: IU flit 2-0 failed at try_smart_bypass at Router 2
+     52: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=52 ] from src_hops 1 for bypass = 1 for Outport East
+     52: global: [IU] flit 2-2 entering port 0 at router 1
+     52: global: [IU] flit 2-2 leaving port 0 at router 1
+     52: global: SA flit 2-2 send_allowed at Router 1
+     52: global: SA outport set to 3 for flit 2-2 at Router 1
+     52: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=52 ] from src_hops 0 for bypass = 0 for Outport East
+     52: global: [CB] flit 2-1 entered at Router 1
+     53: global: IU flit 2-1 arrived at IU::try_smart_bypass at Router 2
+     53: global: IU flit 2-1 failed at try_smart_bypass at Router 2
+     53: global: [IU] flit 2-3 entering port 0 at router 1
+     53: global: [IU] flit 2-3 leaving port 0 at router 1
+     53: global: SA flit 2-3 send_allowed at Router 1
+     53: global: SA outport set to 3 for flit 2-3 at Router 1
+     53: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=53 ] from src_hops 0 for bypass = 0 for Outport East
+     53: global: [CB] flit 2-2 entered at Router 1
+     53: global: [IU] flit 2-0 entering port 2 at router 2
+     53: global: [IU] flit 2-0
+     53: global: [IU] flit 2-0 leaving port 2 at router 2
+     53: global: SA flit 2-0 send_allowed at Router 2
+     53: global: SA outport set to 3 for flit 2-0 at Router 2
+     53: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=54 ] from src_hops 1 for bypass = 1 for Outport East
+     54: global: IU flit 2-2 arrived at IU::try_smart_bypass at Router 2
+     54: global: IU flit 2-2 failed at try_smart_bypass at Router 2
+     54: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=2 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=54 ] from src_hops 0 for bypass = 0 for Outport East
+     54: global: [CB] flit 2-3 entered at Router 1
+     54: global: [IU] flit 2-1 entering port 2 at router 2
+     54: global: [IU] flit 2-1 leaving port 2 at router 2
+     54: global: SA flit 2-1 send_allowed at Router 2
+     54: global: SA outport set to 3 for flit 2-1 at Router 2
+     54: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=54 ] from src_hops 0 for bypass = 0 for Outport East
+     54: global: [CB] flit 2-0 entered at Router 2
+     55: global: IU flit 2-0 arrived at IU::try_smart_bypass at Router 3
+     55: global: IU flit 2-0 failed at try_smart_bypass at Router 3
+     55: global: IU flit 2-3 arrived at IU::try_smart_bypass at Router 2
+     55: global: IU flit 2-3 failed at try_smart_bypass at Router 2
+     55: global: [IU] flit 2-2 entering port 2 at router 2
+     55: global: [IU] flit 2-2 leaving port 2 at router 2
+     55: global: SA flit 2-2 send_allowed at Router 2
+     55: global: SA outport set to 3 for flit 2-2 at Router 2
+     55: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=55 ] from src_hops 0 for bypass = 0 for Outport East
+     55: global: [CB] flit 2-1 entered at Router 2
+     55: global: [IU] flit 2-4 entering port 0 at router 1
+     55: global: [IU] flit 2-4 leaving port 0 at router 1
+     55: global: SA flit 2-4 send_allowed at Router 1
+     55: global: SA outport set to 3 for flit 2-4 at Router 1
+     56: global: IU flit 2-1 arrived at IU::try_smart_bypass at Router 3
+     56: global: IU flit 2-1 failed at try_smart_bypass at Router 3
+     56: global: [IU] flit 2-3 entering port 2 at router 2
+     56: global: [IU] flit 2-3 leaving port 2 at router 2
+     56: global: SA flit 2-3 send_allowed at Router 2
+     56: global: SA outport set to 3 for flit 2-3 at Router 2
+     56: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=56 ] from src_hops 0 for bypass = 0 for Outport East
+     56: global: [CB] flit 2-2 entered at Router 2
+     56: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=56 ] from src_hops 0 for bypass = 0 for Outport East
+     56: global: [CB] flit 2-4 entered at Router 1
+     56: global: [IU] flit 2-0 entering port 2 at router 3
+     56: global: [IU] flit 2-0
+     56: global: [IU] flit 2-0 leaving port 2 at router 3
+     56: global: SA flit 2-0 send_allowed at Router 3
+     56: global: SA outport set to 3 for flit 2-0 at Router 3
+     57: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=57 ] from src_hops 1 for bypass = 1 for Outport North
+     57: global: IU flit 2-4 arrived at IU::try_smart_bypass at Router 2
+     57: global: IU flit 2-4 failed at try_smart_bypass at Router 2
+     57: global: IU flit 2-2 arrived at IU::try_smart_bypass at Router 3
+     57: global: IU flit 2-2 failed at try_smart_bypass at Router 3
+     57: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=2 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=57 ] from src_hops 0 for bypass = 0 for Outport East
+     57: global: [CB] flit 2-3 entered at Router 2
+     57: global: [IU] flit 2-1 entering port 2 at router 3
+     57: global: [IU] flit 2-1 leaving port 2 at router 3
+     57: global: SA flit 2-1 send_allowed at Router 3
+     57: global: SA outport set to 3 for flit 2-1 at Router 3
+     57: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=57 ] from src_hops 0 for bypass = 0 for Outport North
+     57: global: [CB] flit 2-0 entered at Router 3
+     57: global: [IU] flit 3-0 entering port 0 at router 1
+     57: global: [IU] flit 3-0
+     57: global: [IU] flit 3-0 leaving port 0 at router 1
+     57: global: SA flit 3-0 send_allowed at Router 1
+     57: global: SA outport set to 3 for flit 3-0 at Router 1
+     58: global: IU flit 2-0 arrived at IU::try_smart_bypass at Router 7
+     58: global: IU flit 2-0 failed at try_smart_bypass at Router 7
+     58: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=58 ] from src_hops 1 for bypass = 1 for Outport North
+     58: global: IU flit 2-3 arrived at IU::try_smart_bypass at Router 3
+     58: global: IU flit 2-3 failed at try_smart_bypass at Router 3
+     58: global: [IU] flit 3-1 entering port 0 at router 1
+     58: global: [IU] flit 3-1 leaving port 0 at router 1
+     58: global: SA flit 3-1 send_allowed at Router 1
+     58: global: SA outport set to 3 for flit 3-1 at Router 1
+     58: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=3 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=58 ] from src_hops 0 for bypass = 0 for Outport East
+     58: global: [CB] flit 3-0 entered at Router 1
+     58: global: [IU] flit 2-2 entering port 2 at router 3
+     58: global: [IU] flit 2-2 leaving port 2 at router 3
+     58: global: SA flit 2-2 send_allowed at Router 3
+     58: global: SA outport set to 3 for flit 2-2 at Router 3
+     58: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=58 ] from src_hops 0 for bypass = 0 for Outport North
+     58: global: [CB] flit 2-1 entered at Router 3
+     58: global: [IU] flit 2-4 entering port 2 at router 2
+     58: global: [IU] flit 2-4 leaving port 2 at router 2
+     58: global: SA flit 2-4 send_allowed at Router 2
+     58: global: SA outport set to 3 for flit 2-4 at Router 2
+     58: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=3 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=59 ] from src_hops 1 for bypass = 1 for Outport East
+     59: global: IU flit 2-1 arrived at IU::try_smart_bypass at Router 7
+     59: global: IU flit 2-1 failed at try_smart_bypass at Router 7
+     59: global: IU flit 3-0 arrived at IU::try_smart_bypass at Router 2
+     59: global: IU flit 3-0 failed at try_smart_bypass at Router 2
+     59: global: [IU] flit 2-3 entering port 2 at router 3
+     59: global: [IU] flit 2-3 leaving port 2 at router 3
+     59: global: SA flit 2-3 send_allowed at Router 3
+     59: global: SA outport set to 3 for flit 2-3 at Router 3
+     59: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=59 ] from src_hops 1 for bypass = 1 for Outport East
+     59: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=59 ] from src_hops 0 for bypass = 0 for Outport North
+     59: global: [CB] flit 2-2 entered at Router 3
+     59: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=59 ] from src_hops 0 for bypass = 0 for Outport East
+     59: global: [CB] flit 2-4 entered at Router 2
+     59: global: [IU] flit 2-0 entering port 2 at router 7
+     59: global: [IU] flit 2-0
+     59: global: [IU] flit 2-0 leaving port 2 at router 7
+     59: global: SA flit 2-0 send_allowed at Router 7
+     59: global: SA outport set to 4 for flit 2-0 at Router 7
+     59: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=60 ] from src_hops 1 for bypass = 1 for Outport North
+     59: global: [IU] flit 3-2 entering port 0 at router 1
+     59: global: [IU] flit 3-2 leaving port 0 at router 1
+     59: global: SA flit 3-2 send_allowed at Router 1
+     59: global: SA outport set to 3 for flit 3-2 at Router 1
+     59: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=3 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=59 ] from src_hops 0 for bypass = 0 for Outport East
+     59: global: [CB] flit 3-1 entered at Router 1
+     60: global: IU flit 3-1 arrived at IU::try_smart_bypass at Router 2
+     60: global: IU flit 3-1 failed at try_smart_bypass at Router 2
+     60: global: IU flit 2-4 arrived at IU::try_smart_bypass at Router 3
+     60: global: IU flit 2-4 failed at try_smart_bypass at Router 3
+     60: global: IU flit 2-2 arrived at IU::try_smart_bypass at Router 7
+     60: global: IU flit 2-2 failed at try_smart_bypass at Router 7
+     60: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=2 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=60 ] from src_hops 0 for bypass = 0 for Outport North
+     60: global: [CB] flit 2-3 entered at Router 3
+     60: global: [IU] flit 3-0 entering port 2 at router 2
+     60: global: [IU] flit 3-0
+     60: global: [IU] flit 3-0 leaving port 2 at router 2
+     60: global: SA flit 3-0 send_allowed at Router 2
+     60: global: SA outport set to 3 for flit 3-0 at Router 2
+     60: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=3 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=60 ] from src_hops 1 for bypass = 1 for Outport East
+     60: global: [IU] flit 2-1 entering port 2 at router 7
+     60: global: [IU] flit 2-1 leaving port 2 at router 7
+     60: global: SA flit 2-1 send_allowed at Router 7
+     60: global: SA outport set to 4 for flit 2-1 at Router 7
+     60: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=60 ] from src_hops 0 for bypass = 0 for Outport North
+     60: global: [CB] flit 2-0 entered at Router 7
+     60: global: [IU] flit 3-3 entering port 0 at router 1
+     60: global: [IU] flit 3-3 leaving port 0 at router 1
+     60: global: SA flit 3-3 send_allowed at Router 1
+     60: global: SA outport set to 3 for flit 3-3 at Router 1
+     60: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=3 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=60 ] from src_hops 0 for bypass = 0 for Outport East
+     60: global: [CB] flit 3-2 entered at Router 1
+     61: global: IU flit 3-2 arrived at IU::try_smart_bypass at Router 2
+     61: global: IU flit 3-2 failed at try_smart_bypass at Router 2
+     61: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=3 Id=3 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=61 ] from src_hops 0 for bypass = 0 for Outport East
+     61: global: [CB] flit 3-3 entered at Router 1
+     61: global: IU flit 2-0 arrived at IU::try_smart_bypass at Router 11
+     61: global: IU flit 2-0 failed at try_smart_bypass at Router 11
+     61: global: IU flit 2-3 arrived at IU::try_smart_bypass at Router 7
+     61: global: IU flit 2-3 failed at try_smart_bypass at Router 7
+     61: global: [IU] flit 2-2 entering port 2 at router 7
+     61: global: [IU] flit 2-2 leaving port 2 at router 7
+     61: global: SA flit 2-2 send_allowed at Router 7
+     61: global: SA outport set to 4 for flit 2-2 at Router 7
+     61: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=61 ] from src_hops 0 for bypass = 0 for Outport North
+     61: global: [CB] flit 2-1 entered at Router 7
+     61: global: [IU] flit 2-4 entering port 2 at router 3
+     61: global: [IU] flit 2-4 leaving port 2 at router 3
+     61: global: SA flit 2-4 send_allowed at Router 3
+     61: global: SA outport set to 3 for flit 2-4 at Router 3
+     61: global: [IU] flit 3-1 entering port 2 at router 2
+     61: global: [IU] flit 3-1 leaving port 2 at router 2
+     61: global: SA flit 3-1 send_allowed at Router 2
+     61: global: SA outport set to 3 for flit 3-1 at Router 2
+     61: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=3 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=61 ] from src_hops 0 for bypass = 0 for Outport East
+     61: global: [CB] flit 3-0 entered at Router 2
+     62: global: IU flit 3-0 arrived at IU::try_smart_bypass at Router 3
+     62: global: IU flit 3-0 failed at try_smart_bypass at Router 3
+     62: global: IU flit 2-1 arrived at IU::try_smart_bypass at Router 11
+     62: global: IU flit 2-1 failed at try_smart_bypass at Router 11
+     62: global: [IU] flit 2-3 entering port 2 at router 7
+     62: global: [IU] flit 2-3 leaving port 2 at router 7
+     62: global: SA flit 2-3 send_allowed at Router 7
+     62: global: SA outport set to 4 for flit 2-3 at Router 7
+     62: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=62 ] from src_hops 0 for bypass = 0 for Outport North
+     62: global: [CB] flit 2-2 entered at Router 7
+     62: global: [IU] flit 3-4 entering port 0 at router 1
+     62: global: [IU] flit 3-4 leaving port 0 at router 1
+     62: global: SA flit 3-4 send_allowed at Router 1
+     62: global: SA outport set to 3 for flit 3-4 at Router 1
+     62: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=62 ] from src_hops 0 for bypass = 0 for Outport North
+     62: global: [CB] flit 2-4 entered at Router 3
+     62: global: [IU] flit 2-0 entering port 2 at router 11
+     62: global: [IU] flit 2-0
+     62: global: [IU] flit 2-0 leaving port 2 at router 11
+     62: global: SA flit 2-0 send_allowed at Router 11
+     62: global: SA outport set to 1 for flit 2-0 at Router 11
+     62: global: IU flit 3-3 arrived at IU::try_smart_bypass at Router 2
+     62: global: IU flit 3-3 failed at try_smart_bypass at Router 2
+     62: global: [IU] flit 3-2 entering port 2 at router 2
+     62: global: [IU] flit 3-2 leaving port 2 at router 2
+     62: global: SA flit 3-2 send_allowed at Router 2
+     62: global: SA outport set to 3 for flit 3-2 at Router 2
+     62: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=3 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=62 ] from src_hops 0 for bypass = 0 for Outport East
+     62: global: [CB] flit 3-1 entered at Router 2
+     63: global: IU flit 3-1 arrived at IU::try_smart_bypass at Router 3
+     63: global: IU flit 3-1 failed at try_smart_bypass at Router 3
+     63: global: IU flit 2-4 arrived at IU::try_smart_bypass at Router 7
+     63: global: IU flit 2-4 failed at try_smart_bypass at Router 7
+     63: global: IU flit 2-2 arrived at IU::try_smart_bypass at Router 11
+     63: global: IU flit 2-2 failed at try_smart_bypass at Router 11
+     63: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=2 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=63 ] from src_hops 0 for bypass = 0 for Outport North
+     63: global: [CB] flit 2-3 entered at Router 7
+     63: global: [IU] flit 2-1 entering port 2 at router 11
+     63: global: [IU] flit 2-1 leaving port 2 at router 11
+     63: global: SA flit 2-1 send_allowed at Router 11
+     63: global: SA outport set to 1 for flit 2-1 at Router 11
+     63: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=63 ] from src_hops 0 for bypass = 0 for Outport Local
+     63: global: [CB] flit 2-0 entered at Router 11
+     63: global: [IU] flit 3-3 entering port 2 at router 2
+     63: global: [IU] flit 3-3 leaving port 2 at router 2
+     63: global: SA flit 3-3 send_allowed at Router 2
+     63: global: SA outport set to 3 for flit 3-3 at Router 2
+     63: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=3 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=63 ] from src_hops 0 for bypass = 0 for Outport East
+     63: global: [CB] flit 3-2 entered at Router 2
+     63: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=3 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=63 ] from src_hops 0 for bypass = 0 for Outport East
+     63: global: [CB] flit 3-4 entered at Router 1
+     63: global: [IU] flit 3-0 entering port 2 at router 3
+     63: global: [IU] flit 3-0
+     63: global: [IU] flit 3-0 leaving port 2 at router 3
+     63: global: SA flit 3-0 send_allowed at Router 3
+     63: global: SA outport set to 3 for flit 3-0 at Router 3
+     64: global: IU flit 3-4 arrived at IU::try_smart_bypass at Router 2
+     64: global: IU flit 3-4 failed at try_smart_bypass at Router 2
+     64: global: IU flit 3-2 arrived at IU::try_smart_bypass at Router 3
+     64: global: IU flit 3-2 failed at try_smart_bypass at Router 3
+     64: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=3 Id=3 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=64 ] from src_hops 0 for bypass = 0 for Outport East
+     64: global: [CB] flit 3-3 entered at Router 2
+     64: global: IU flit 2-3 arrived at IU::try_smart_bypass at Router 11
+     64: global: IU flit 2-3 failed at try_smart_bypass at Router 11
+     64: global: [IU] flit 2-2 entering port 2 at router 11
+     64: global: [IU] flit 2-2 leaving port 2 at router 11
+     64: global: SA flit 2-2 send_allowed at Router 11
+     64: global: SA outport set to 1 for flit 2-2 at Router 11
+     64: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=64 ] from src_hops 0 for bypass = 0 for Outport Local
+     64: global: [CB] flit 2-1 entered at Router 11
+     64: global: [IU] flit 2-4 entering port 2 at router 7
+     64: global: [IU] flit 2-4 leaving port 2 at router 7
+     64: global: SA flit 2-4 send_allowed at Router 7
+     64: global: SA outport set to 4 for flit 2-4 at Router 7
+     64: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=3 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=64 ] from src_hops 1 for bypass = 1 for Outport North
+     64: global: [IU] flit 3-1 entering port 2 at router 3
+     64: global: [IU] flit 3-1 leaving port 2 at router 3
+     64: global: SA flit 3-1 send_allowed at Router 3
+     64: global: SA outport set to 3 for flit 3-1 at Router 3
+     64: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=3 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=64 ] from src_hops 0 for bypass = 0 for Outport North
+     64: global: [CB] flit 3-0 entered at Router 3
+     65: global: IU flit 3-0 arrived at IU::try_smart_bypass at Router 7
+     65: global: IU flit 3-0 failed at try_smart_bypass at Router 7
+     65: global: [IU] flit 2-3 entering port 2 at router 11
+     65: global: [IU] flit 2-3 leaving port 2 at router 11
+     65: global: SA flit 2-3 send_allowed at Router 11
+     65: global: SA outport set to 1 for flit 2-3 at Router 11
+     65: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=65 ] from src_hops 0 for bypass = 0 for Outport Local
+     65: global: [CB] flit 2-2 entered at Router 11
+     65: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=65 ] from src_hops 0 for bypass = 0 for Outport North
+     65: global: [CB] flit 2-4 entered at Router 7
+     65: global: IU flit 3-3 arrived at IU::try_smart_bypass at Router 3
+     65: global: IU flit 3-3 failed at try_smart_bypass at Router 3
+     65: global: [IU] flit 3-2 entering port 2 at router 3
+     65: global: [IU] flit 3-2 leaving port 2 at router 3
+     65: global: SA flit 3-2 send_allowed at Router 3
+     65: global: SA outport set to 3 for flit 3-2 at Router 3
+     65: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=3 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=65 ] from src_hops 0 for bypass = 0 for Outport North
+     65: global: [CB] flit 3-1 entered at Router 3
+     65: global: [IU] flit 3-4 entering port 2 at router 2
+     65: global: [IU] flit 3-4 leaving port 2 at router 2
+     65: global: SA flit 3-4 send_allowed at Router 2
+     65: global: SA outport set to 3 for flit 3-4 at Router 2
+     66: global: IU flit 3-1 arrived at IU::try_smart_bypass at Router 7
+     66: global: IU flit 3-1 failed at try_smart_bypass at Router 7
+     66: global: IU flit 2-4 arrived at IU::try_smart_bypass at Router 11
+     66: global: IU flit 2-4 failed at try_smart_bypass at Router 11
+     66: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=2 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=66 ] from src_hops 0 for bypass = 0 for Outport Local
+     66: global: [CB] flit 2-3 entered at Router 11
+     66: global: [IU] flit 3-3 entering port 2 at router 3
+     66: global: [IU] flit 3-3 leaving port 2 at router 3
+     66: global: SA flit 3-3 send_allowed at Router 3
+     66: global: SA outport set to 3 for flit 3-3 at Router 3
+     66: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=3 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=66 ] from src_hops 1 for bypass = 1 for Outport East
+     66: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=3 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=66 ] from src_hops 0 for bypass = 0 for Outport North
+     66: global: [CB] flit 3-2 entered at Router 3
+     66: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=3 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=66 ] from src_hops 0 for bypass = 0 for Outport East
+     66: global: [CB] flit 3-4 entered at Router 2
+     66: global: [IU] flit 3-0 entering port 2 at router 7
+     66: global: [IU] flit 3-0
+     66: global: [IU] flit 3-0 leaving port 2 at router 7
+     66: global: SA flit 3-0 send_allowed at Router 7
+     66: global: SA outport set to 4 for flit 3-0 at Router 7
+     66: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=3 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=67 ] from src_hops 1 for bypass = 1 for Outport North
+     67: global: IU flit 3-4 arrived at IU::try_smart_bypass at Router 3
+     67: global: IU flit 3-4 failed at try_smart_bypass at Router 3
+     67: global: IU flit 3-2 arrived at IU::try_smart_bypass at Router 7
+     67: global: IU flit 3-2 failed at try_smart_bypass at Router 7
+     67: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=3 Id=3 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=67 ] from src_hops 0 for bypass = 0 for Outport North
+     67: global: [CB] flit 3-3 entered at Router 3
+     67: global: [IU] flit 2-4 entering port 2 at router 11
+     67: global: [IU] flit 2-4 leaving port 2 at router 11
+     67: global: SA flit 2-4 send_allowed at Router 11
+     67: global: SA outport set to 1 for flit 2-4 at Router 11
+     67: global: [IU] flit 3-1 entering port 2 at router 7
+     67: global: [IU] flit 3-1 leaving port 2 at router 7
+     67: global: SA flit 3-1 send_allowed at Router 7
+     67: global: SA outport set to 4 for flit 3-1 at Router 7
+     67: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=3 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=67 ] from src_hops 0 for bypass = 0 for Outport North
+     67: global: [CB] flit 3-0 entered at Router 7
+     68: global: IU flit 3-0 arrived at IU::try_smart_bypass at Router 11
+     68: global: IU flit 3-0 failed at try_smart_bypass at Router 11
+     68: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=48 Valid Time=68 ] from src_hops 0 for bypass = 0 for Outport Local
+     68: global: [CB] flit 2-4 entered at Router 11
+     68: global: IU flit 3-3 arrived at IU::try_smart_bypass at Router 7
+     68: global: IU flit 3-3 failed at try_smart_bypass at Router 7
+     68: global: [IU] flit 3-2 entering port 2 at router 7
+     68: global: [IU] flit 3-2 leaving port 2 at router 7
+     68: global: SA flit 3-2 send_allowed at Router 7
+     68: global: SA outport set to 4 for flit 3-2 at Router 7
+     68: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=3 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=68 ] from src_hops 0 for bypass = 0 for Outport North
+     68: global: [CB] flit 3-1 entered at Router 7
+     68: global: [IU] flit 3-4 entering port 2 at router 3
+     68: global: [IU] flit 3-4 leaving port 2 at router 3
+     68: global: SA flit 3-4 send_allowed at Router 3
+     68: global: SA outport set to 3 for flit 3-4 at Router 3
+     69: global: IU flit 3-1 arrived at IU::try_smart_bypass at Router 11
+     69: global: IU flit 3-1 failed at try_smart_bypass at Router 11
+     69: global: [IU] flit 3-3 entering port 2 at router 7
+     69: global: [IU] flit 3-3 leaving port 2 at router 7
+     69: global: SA flit 3-3 send_allowed at Router 7
+     69: global: SA outport set to 4 for flit 3-3 at Router 7
+     69: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=3 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=69 ] from src_hops 0 for bypass = 0 for Outport North
+     69: global: [CB] flit 3-2 entered at Router 7
+     69: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=3 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=69 ] from src_hops 0 for bypass = 0 for Outport North
+     69: global: [CB] flit 3-4 entered at Router 3
+     69: global: [IU] flit 3-0 entering port 2 at router 11
+     69: global: [IU] flit 3-0
+     69: global: [IU] flit 3-0 leaving port 2 at router 11
+     69: global: SA flit 3-0 send_allowed at Router 11
+     69: global: SA outport set to 1 for flit 3-0 at Router 11
+     70: global: IU flit 3-4 arrived at IU::try_smart_bypass at Router 7
+     70: global: IU flit 3-4 failed at try_smart_bypass at Router 7
+     70: global: IU flit 3-2 arrived at IU::try_smart_bypass at Router 11
+     70: global: IU flit 3-2 failed at try_smart_bypass at Router 11
+     70: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=3 Id=3 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=70 ] from src_hops 0 for bypass = 0 for Outport North
+     70: global: [CB] flit 3-3 entered at Router 7
+     70: global: [IU] flit 3-1 entering port 2 at router 11
+     70: global: [IU] flit 3-1 leaving port 2 at router 11
+     70: global: SA flit 3-1 send_allowed at Router 11
+     70: global: SA outport set to 1 for flit 3-1 at Router 11
+     70: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=3 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=70 ] from src_hops 0 for bypass = 0 for Outport Local
+     70: global: [CB] flit 3-0 entered at Router 11
+     71: global: IU flit 3-3 arrived at IU::try_smart_bypass at Router 11
+     71: global: IU flit 3-3 failed at try_smart_bypass at Router 11
+     71: global: [IU] flit 3-2 entering port 2 at router 11
+     71: global: [IU] flit 3-2 leaving port 2 at router 11
+     71: global: SA flit 3-2 send_allowed at Router 11
+     71: global: SA outport set to 1 for flit 3-2 at Router 11
+     71: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=3 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=71 ] from src_hops 0 for bypass = 0 for Outport Local
+     71: global: [CB] flit 3-1 entered at Router 11
+     71: global: [IU] flit 3-4 entering port 2 at router 7
+     71: global: [IU] flit 3-4 leaving port 2 at router 7
+     71: global: SA flit 3-4 send_allowed at Router 7
+     71: global: SA outport set to 4 for flit 3-4 at Router 7
+     72: global: [IU] flit 3-3 entering port 2 at router 11
+     72: global: [IU] flit 3-3 leaving port 2 at router 11
+     72: global: SA flit 3-3 send_allowed at Router 11
+     72: global: SA outport set to 1 for flit 3-3 at Router 11
+     72: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=3 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=72 ] from src_hops 0 for bypass = 0 for Outport Local
+     72: global: [CB] flit 3-2 entered at Router 11
+     72: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=3 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=72 ] from src_hops 0 for bypass = 0 for Outport North
+     72: global: [CB] flit 3-4 entered at Router 7
+     73: global: IU flit 3-4 arrived at IU::try_smart_bypass at Router 11
+     73: global: IU flit 3-4 failed at try_smart_bypass at Router 11
+     73: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=3 Id=3 Type= BODY_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=73 ] from src_hops 0 for bypass = 0 for Outport Local
+     73: global: [CB] flit 3-3 entered at Router 11
+     74: global: [IU] flit 3-4 entering port 2 at router 11
+     74: global: [IU] flit 3-4 leaving port 2 at router 11
+     74: global: SA flit 3-4 send_allowed at Router 11
+     74: global: SA outport set to 1 for flit 3-4 at Router 11
+     74: global: [IU] flit 4-0 entering port 0 at router 1
+     74: global: [IU] flit 4-0
+     74: global: [IU] flit 4-0 leaving port 0 at router 1
+     74: global: SA flit 4-0 send_allowed at Router 1
+     74: global: SA outport set to 3 for flit 4-0 at Router 1
+     75: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=75 ] from src_hops 1 for bypass = 1 for Outport East
+     75: global: [IU] flit 4-1 entering port 0 at router 1
+     75: global: [IU] flit 4-1 leaving port 0 at router 1
+     75: global: SA flit 4-1 send_allowed at Router 1
+     75: global: SA outport set to 3 for flit 4-1 at Router 1
+     75: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=75 ] from src_hops 0 for bypass = 0 for Outport East
+     75: global: [CB] flit 4-0 entered at Router 1
+     75: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=3 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=55 Valid Time=75 ] from src_hops 0 for bypass = 0 for Outport Local
+     75: global: [CB] flit 3-4 entered at Router 11
+     76: global: IU flit 4-0 arrived at IU::try_smart_bypass at Router 2
+     76: global: IU flit 4-0 failed at try_smart_bypass at Router 2
+     76: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=76 ] from src_hops 1 for bypass = 1 for Outport East
+     76: global: [IU] flit 4-2 entering port 0 at router 1
+     76: global: [IU] flit 4-2 leaving port 0 at router 1
+     76: global: SA flit 4-2 send_allowed at Router 1
+     76: global: SA outport set to 3 for flit 4-2 at Router 1
+     76: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=76 ] from src_hops 0 for bypass = 0 for Outport East
+     76: global: [CB] flit 4-1 entered at Router 1
+     77: global: IU flit 4-1 arrived at IU::try_smart_bypass at Router 2
+     77: global: IU flit 4-1 failed at try_smart_bypass at Router 2
+     77: global: [IU] flit 4-3 entering port 0 at router 1
+     77: global: [IU] flit 4-3 leaving port 0 at router 1
+     77: global: SA flit 4-3 send_allowed at Router 1
+     77: global: SA outport set to 3 for flit 4-3 at Router 1
+     77: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=77 ] from src_hops 0 for bypass = 0 for Outport East
+     77: global: [CB] flit 4-2 entered at Router 1
+     77: global: [IU] flit 4-0 entering port 2 at router 2
+     77: global: [IU] flit 4-0
+     77: global: [IU] flit 4-0 leaving port 2 at router 2
+     77: global: SA flit 4-0 send_allowed at Router 2
+     77: global: SA outport set to 3 for flit 4-0 at Router 2
+     77: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=78 ] from src_hops 1 for bypass = 1 for Outport East
+     78: global: IU flit 4-2 arrived at IU::try_smart_bypass at Router 2
+     78: global: IU flit 4-2 failed at try_smart_bypass at Router 2
+     78: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=4 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=78 ] from src_hops 0 for bypass = 0 for Outport East
+     78: global: [CB] flit 4-3 entered at Router 1
+     78: global: [IU] flit 4-1 entering port 2 at router 2
+     78: global: [IU] flit 4-1 leaving port 2 at router 2
+     78: global: SA flit 4-1 send_allowed at Router 2
+     78: global: SA outport set to 3 for flit 4-1 at Router 2
+     78: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=78 ] from src_hops 0 for bypass = 0 for Outport East
+     78: global: [CB] flit 4-0 entered at Router 2
+     79: global: IU flit 4-0 arrived at IU::try_smart_bypass at Router 3
+     79: global: IU flit 4-0 failed at try_smart_bypass at Router 3
+     79: global: IU flit 4-3 arrived at IU::try_smart_bypass at Router 2
+     79: global: IU flit 4-3 failed at try_smart_bypass at Router 2
+     79: global: [IU] flit 4-2 entering port 2 at router 2
+     79: global: [IU] flit 4-2 leaving port 2 at router 2
+     79: global: SA flit 4-2 send_allowed at Router 2
+     79: global: SA outport set to 3 for flit 4-2 at Router 2
+     79: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=79 ] from src_hops 0 for bypass = 0 for Outport East
+     79: global: [CB] flit 4-1 entered at Router 2
+     79: global: [IU] flit 4-4 entering port 0 at router 1
+     79: global: [IU] flit 4-4 leaving port 0 at router 1
+     79: global: SA flit 4-4 send_allowed at Router 1
+     79: global: SA outport set to 3 for flit 4-4 at Router 1
+     80: global: IU flit 4-1 arrived at IU::try_smart_bypass at Router 3
+     80: global: IU flit 4-1 failed at try_smart_bypass at Router 3
+     80: global: [IU] flit 4-3 entering port 2 at router 2
+     80: global: [IU] flit 4-3 leaving port 2 at router 2
+     80: global: SA flit 4-3 send_allowed at Router 2
+     80: global: SA outport set to 3 for flit 4-3 at Router 2
+     80: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=80 ] from src_hops 0 for bypass = 0 for Outport East
+     80: global: [CB] flit 4-2 entered at Router 2
+     80: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=80 ] from src_hops 0 for bypass = 0 for Outport East
+     80: global: [CB] flit 4-4 entered at Router 1
+     80: global: [IU] flit 4-0 entering port 2 at router 3
+     80: global: [IU] flit 4-0
+     80: global: [IU] flit 4-0 leaving port 2 at router 3
+     80: global: SA flit 4-0 send_allowed at Router 3
+     80: global: SA outport set to 3 for flit 4-0 at Router 3
+     81: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=81 ] from src_hops 1 for bypass = 1 for Outport North
+     81: global: IU flit 4-4 arrived at IU::try_smart_bypass at Router 2
+     81: global: IU flit 4-4 failed at try_smart_bypass at Router 2
+     81: global: IU flit 4-2 arrived at IU::try_smart_bypass at Router 3
+     81: global: IU flit 4-2 failed at try_smart_bypass at Router 3
+     81: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=4 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=81 ] from src_hops 0 for bypass = 0 for Outport East
+     81: global: [CB] flit 4-3 entered at Router 2
+     81: global: [IU] flit 4-1 entering port 2 at router 3
+     81: global: [IU] flit 4-1 leaving port 2 at router 3
+     81: global: SA flit 4-1 send_allowed at Router 3
+     81: global: SA outport set to 3 for flit 4-1 at Router 3
+     81: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=81 ] from src_hops 0 for bypass = 0 for Outport North
+     81: global: [CB] flit 4-0 entered at Router 3
+     82: global: IU flit 4-0 arrived at IU::try_smart_bypass at Router 7
+     82: global: IU flit 4-0 failed at try_smart_bypass at Router 7
+     82: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=82 ] from src_hops 1 for bypass = 1 for Outport North
+     82: global: IU flit 4-3 arrived at IU::try_smart_bypass at Router 3
+     82: global: IU flit 4-3 failed at try_smart_bypass at Router 3
+     82: global: [IU] flit 4-2 entering port 2 at router 3
+     82: global: [IU] flit 4-2 leaving port 2 at router 3
+     82: global: SA flit 4-2 send_allowed at Router 3
+     82: global: SA outport set to 3 for flit 4-2 at Router 3
+     82: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=82 ] from src_hops 0 for bypass = 0 for Outport North
+     82: global: [CB] flit 4-1 entered at Router 3
+     82: global: [IU] flit 4-4 entering port 2 at router 2
+     82: global: [IU] flit 4-4 leaving port 2 at router 2
+     82: global: SA flit 4-4 send_allowed at Router 2
+     82: global: SA outport set to 3 for flit 4-4 at Router 2
+     83: global: IU flit 4-1 arrived at IU::try_smart_bypass at Router 7
+     83: global: IU flit 4-1 failed at try_smart_bypass at Router 7
+     83: global: [IU] flit 4-3 entering port 2 at router 3
+     83: global: [IU] flit 4-3 leaving port 2 at router 3
+     83: global: SA flit 4-3 send_allowed at Router 3
+     83: global: SA outport set to 3 for flit 4-3 at Router 3
+     83: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=83 ] from src_hops 1 for bypass = 1 for Outport East
+     83: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=83 ] from src_hops 0 for bypass = 0 for Outport North
+     83: global: [CB] flit 4-2 entered at Router 3
+     83: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=83 ] from src_hops 0 for bypass = 0 for Outport East
+     83: global: [CB] flit 4-4 entered at Router 2
+     83: global: [IU] flit 4-0 entering port 2 at router 7
+     83: global: [IU] flit 4-0
+     83: global: [IU] flit 4-0 leaving port 2 at router 7
+     83: global: SA flit 4-0 send_allowed at Router 7
+     83: global: SA outport set to 4 for flit 4-0 at Router 7
+     83: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=84 ] from src_hops 1 for bypass = 1 for Outport North
+     84: global: IU flit 4-4 arrived at IU::try_smart_bypass at Router 3
+     84: global: IU flit 4-4 failed at try_smart_bypass at Router 3
+     84: global: IU flit 4-2 arrived at IU::try_smart_bypass at Router 7
+     84: global: IU flit 4-2 failed at try_smart_bypass at Router 7
+     84: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=4 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=84 ] from src_hops 0 for bypass = 0 for Outport North
+     84: global: [CB] flit 4-3 entered at Router 3
+     84: global: [IU] flit 4-1 entering port 2 at router 7
+     84: global: [IU] flit 4-1 leaving port 2 at router 7
+     84: global: SA flit 4-1 send_allowed at Router 7
+     84: global: SA outport set to 4 for flit 4-1 at Router 7
+     84: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=84 ] from src_hops 0 for bypass = 0 for Outport North
+     84: global: [CB] flit 4-0 entered at Router 7
+     85: global: IU flit 4-0 arrived at IU::try_smart_bypass at Router 11
+     85: global: IU flit 4-0 failed at try_smart_bypass at Router 11
+     85: global: IU flit 4-3 arrived at IU::try_smart_bypass at Router 7
+     85: global: IU flit 4-3 failed at try_smart_bypass at Router 7
+     85: global: [IU] flit 4-2 entering port 2 at router 7
+     85: global: [IU] flit 4-2 leaving port 2 at router 7
+     85: global: SA flit 4-2 send_allowed at Router 7
+     85: global: SA outport set to 4 for flit 4-2 at Router 7
+     85: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=85 ] from src_hops 0 for bypass = 0 for Outport North
+     85: global: [CB] flit 4-1 entered at Router 7
+     85: global: [IU] flit 4-4 entering port 2 at router 3
+     85: global: [IU] flit 4-4 leaving port 2 at router 3
+     85: global: SA flit 4-4 send_allowed at Router 3
+     85: global: SA outport set to 3 for flit 4-4 at Router 3
+     86: global: IU flit 4-1 arrived at IU::try_smart_bypass at Router 11
+     86: global: IU flit 4-1 failed at try_smart_bypass at Router 11
+     86: global: [IU] flit 4-3 entering port 2 at router 7
+     86: global: [IU] flit 4-3 leaving port 2 at router 7
+     86: global: SA flit 4-3 send_allowed at Router 7
+     86: global: SA outport set to 4 for flit 4-3 at Router 7
+     86: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=86 ] from src_hops 0 for bypass = 0 for Outport North
+     86: global: [CB] flit 4-2 entered at Router 7
+     86: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=86 ] from src_hops 0 for bypass = 0 for Outport North
+     86: global: [CB] flit 4-4 entered at Router 3
+     86: global: [IU] flit 4-0 entering port 2 at router 11
+     86: global: [IU] flit 4-0
+     86: global: [IU] flit 4-0 leaving port 2 at router 11
+     86: global: SA flit 4-0 send_allowed at Router 11
+     86: global: SA outport set to 1 for flit 4-0 at Router 11
+     87: global: IU flit 4-4 arrived at IU::try_smart_bypass at Router 7
+     87: global: IU flit 4-4 failed at try_smart_bypass at Router 7
+     87: global: IU flit 4-2 arrived at IU::try_smart_bypass at Router 11
+     87: global: IU flit 4-2 failed at try_smart_bypass at Router 11
+     87: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=4 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=87 ] from src_hops 0 for bypass = 0 for Outport North
+     87: global: [CB] flit 4-3 entered at Router 7
+     87: global: [IU] flit 4-1 entering port 2 at router 11
+     87: global: [IU] flit 4-1 leaving port 2 at router 11
+     87: global: SA flit 4-1 send_allowed at Router 11
+     87: global: SA outport set to 1 for flit 4-1 at Router 11
+     87: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=87 ] from src_hops 0 for bypass = 0 for Outport Local
+     87: global: [CB] flit 4-0 entered at Router 11
+     88: global: IU flit 4-3 arrived at IU::try_smart_bypass at Router 11
+     88: global: IU flit 4-3 failed at try_smart_bypass at Router 11
+     88: global: [IU] flit 4-2 entering port 2 at router 11
+     88: global: [IU] flit 4-2 leaving port 2 at router 11
+     88: global: SA flit 4-2 send_allowed at Router 11
+     88: global: SA outport set to 1 for flit 4-2 at Router 11
+     88: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=88 ] from src_hops 0 for bypass = 0 for Outport Local
+     88: global: [CB] flit 4-1 entered at Router 11
+     88: global: [IU] flit 4-4 entering port 2 at router 7
+     88: global: [IU] flit 4-4 leaving port 2 at router 7
+     88: global: SA flit 4-4 send_allowed at Router 7
+     88: global: SA outport set to 4 for flit 4-4 at Router 7
+     89: global: [IU] flit 4-3 entering port 2 at router 11
+     89: global: [IU] flit 4-3 leaving port 2 at router 11
+     89: global: SA flit 4-3 send_allowed at Router 11
+     89: global: SA outport set to 1 for flit 4-3 at Router 11
+     89: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=89 ] from src_hops 0 for bypass = 0 for Outport Local
+     89: global: [CB] flit 4-2 entered at Router 11
+     89: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=89 ] from src_hops 0 for bypass = 0 for Outport North
+     89: global: [CB] flit 4-4 entered at Router 7
+     90: global: IU flit 4-4 arrived at IU::try_smart_bypass at Router 11
+     90: global: IU flit 4-4 failed at try_smart_bypass at Router 11
+     90: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=4 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=90 ] from src_hops 0 for bypass = 0 for Outport Local
+     90: global: [CB] flit 4-3 entered at Router 11
+     91: global: [IU] flit 4-4 entering port 2 at router 11
+     91: global: [IU] flit 4-4 leaving port 2 at router 11
+     91: global: SA flit 4-4 send_allowed at Router 11
+     91: global: SA outport set to 1 for flit 4-4 at Router 11
+     91: global: [IU] flit 5-0 entering port 0 at router 1
+     91: global: [IU] flit 5-0 leaving port 0 at router 1
+     91: global: SA flit 5-0 send_allowed at Router 1
+     91: global: SA outport set to 3 for flit 5-0 at Router 1
+     92: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=5 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=89 Valid Time=92 ] from src_hops 1 for bypass = 1 for Outport East
+     92: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=5 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=89 Valid Time=92 ] from src_hops 0 for bypass = 0 for Outport East
+     92: global: [CB] flit 5-0 entered at Router 1
+     92: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=72 Valid Time=92 ] from src_hops 0 for bypass = 0 for Outport Local
+     92: global: [CB] flit 4-4 entered at Router 11
+     93: global: IU flit 5-0 arrived at IU::try_smart_bypass at Router 2
+     93: global: IU flit 5-0 failed at try_smart_bypass at Router 2
+     94: global: [IU] flit 5-0 entering port 2 at router 2
+     94: global: [IU] flit 5-0 leaving port 2 at router 2
+     94: global: SA flit 5-0 send_allowed at Router 2
+     94: global: SA outport set to 3 for flit 5-0 at Router 2
+     95: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=5 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=89 Valid Time=95 ] from src_hops 0 for bypass = 0 for Outport East
+     95: global: [CB] flit 5-0 entered at Router 2
+     95: global: [IU] flit 6-0 entering port 0 at router 1
+     95: global: [IU] flit 6-0 leaving port 0 at router 1
+     95: global: SA flit 6-0 send_allowed at Router 1
+     95: global: SA outport set to 3 for flit 6-0 at Router 1
+     96: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=6 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=1 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=93 Valid Time=96 ] from src_hops 1 for bypass = 1 for Outport East
+     96: global: IU flit 5-0 arrived at IU::try_smart_bypass at Router 3
+     96: global: IU flit 5-0 failed at try_smart_bypass at Router 3
+     96: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=6 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=1 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=93 Valid Time=96 ] from src_hops 0 for bypass = 0 for Outport East
+     96: global: [CB] flit 6-0 entered at Router 1
+     97: global: IU flit 6-0 arrived at IU::try_smart_bypass at Router 2
+     97: global: IU flit 6-0 failed at try_smart_bypass at Router 2
+     97: global: [IU] flit 5-0 entering port 2 at router 3
+     97: global: [IU] flit 5-0 leaving port 2 at router 3
+     97: global: SA flit 5-0 send_allowed at Router 3
+     97: global: SA outport set to 3 for flit 5-0 at Router 3
+     98: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=5 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=89 Valid Time=98 ] from src_hops 1 for bypass = 1 for Outport North
+     98: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=5 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=89 Valid Time=98 ] from src_hops 0 for bypass = 0 for Outport North
+     98: global: [CB] flit 5-0 entered at Router 3
+     98: global: [IU] flit 6-0 entering port 2 at router 2
+     98: global: [IU] flit 6-0 leaving port 2 at router 2
+     98: global: SA flit 6-0 send_allowed at Router 2
+     98: global: SA outport set to 3 for flit 6-0 at Router 2
+     99: global: IU flit 5-0 arrived at IU::try_smart_bypass at Router 7
+     99: global: IU flit 5-0 failed at try_smart_bypass at Router 7
+     99: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=6 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=1 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=93 Valid Time=99 ] from src_hops 0 for bypass = 0 for Outport East
+     99: global: [CB] flit 6-0 entered at Router 2
+    100: global: IU flit 6-0 arrived at IU::try_smart_bypass at Router 3
+    100: global: IU flit 6-0 failed at try_smart_bypass at Router 3
+    100: global: [IU] flit 5-0 entering port 2 at router 7
+    100: global: [IU] flit 5-0 leaving port 2 at router 7
+    100: global: SA flit 5-0 send_allowed at Router 7
+    100: global: SA outport set to 4 for flit 5-0 at Router 7
+    101: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=5 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=89 Valid Time=101 ] from src_hops 0 for bypass = 0 for Outport North
+    101: global: [CB] flit 5-0 entered at Router 7
+    101: global: [IU] flit 6-0 entering port 2 at router 3
+    101: global: [IU] flit 6-0 leaving port 2 at router 3
+    101: global: SA flit 6-0 send_allowed at Router 3
+    101: global: SA outport set to 3 for flit 6-0 at Router 3
+    102: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=6 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=1 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=93 Valid Time=102 ] from src_hops 1 for bypass = 1 for Outport North
+    102: global: IU flit 5-0 arrived at IU::try_smart_bypass at Router 11
+    102: global: IU flit 5-0 failed at try_smart_bypass at Router 11
+    102: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=6 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=1 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=93 Valid Time=102 ] from src_hops 0 for bypass = 0 for Outport North
+    102: global: [CB] flit 6-0 entered at Router 3
+    103: global: IU flit 6-0 arrived at IU::try_smart_bypass at Router 7
+    103: global: IU flit 6-0 failed at try_smart_bypass at Router 7
+    103: global: [IU] flit 5-0 entering port 2 at router 11
+    103: global: [IU] flit 5-0 leaving port 2 at router 11
+    103: global: SA flit 5-0 send_allowed at Router 11
+    103: global: SA outport set to 1 for flit 5-0 at Router 11
+    104: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=5 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=89 Valid Time=104 ] from src_hops 0 for bypass = 0 for Outport Local
+    104: global: [CB] flit 5-0 entered at Router 11
+    104: global: [IU] flit 6-0 entering port 2 at router 7
+    104: global: [IU] flit 6-0 leaving port 2 at router 7
+    104: global: SA flit 6-0 send_allowed at Router 7
+    104: global: SA outport set to 4 for flit 6-0 at Router 7
+    105: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=6 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=1 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=93 Valid Time=105 ] from src_hops 0 for bypass = 0 for Outport North
+    105: global: [CB] flit 6-0 entered at Router 7
+    106: global: IU flit 6-0 arrived at IU::try_smart_bypass at Router 11
+    106: global: IU flit 6-0 failed at try_smart_bypass at Router 11
+    107: global: [IU] flit 6-0 entering port 2 at router 11
+    107: global: [IU] flit 6-0 leaving port 2 at router 11
+    107: global: SA flit 6-0 send_allowed at Router 11
+    107: global: SA outport set to 1 for flit 6-0 at Router 11
+    108: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=6 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=1 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=93 Valid Time=108 ] from src_hops 0 for bypass = 0 for Outport Local
+    108: global: [CB] flit 6-0 entered at Router 11
+    224: global: [IU] flit 7-0 entering port 0 at router 1
+    224: global: [IU] flit 7-0 leaving port 0 at router 1
+    224: global: SA flit 7-0 send_allowed at Router 1
+    224: global: SA outport set to 3 for flit 7-0 at Router 1
+    225: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=7 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=222 Valid Time=225 ] from src_hops 1 for bypass = 1 for Outport East
+    225: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=7 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=222 Valid Time=225 ] from src_hops 0 for bypass = 0 for Outport East
+    225: global: [CB] flit 7-0 entered at Router 1
+    226: global: IU flit 7-0 arrived at IU::try_smart_bypass at Router 2
+    226: global: IU flit 7-0 lost arbitration at Router 2
+    227: global: [IU] flit 7-0 entering port 2 at router 2
+    227: global: [IU] flit 7-0 leaving port 2 at router 2
+    227: global: SA flit 7-0 send_allowed at Router 2
+    227: global: SA outport set to 3 for flit 7-0 at Router 2
+    228: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=7 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=222 Valid Time=228 ] from src_hops 0 for bypass = 0 for Outport East
+    228: global: [CB] flit 7-0 entered at Router 2
+    229: global: IU flit 7-0 arrived at IU::try_smart_bypass at Router 3
+    229: global: IU flit 7-0 lost arbitration at Router 3
+    230: global: [IU] flit 7-0 entering port 2 at router 3
+    230: global: [IU] flit 7-0 leaving port 2 at router 3
+    230: global: SA flit 7-0 send_allowed at Router 3
+    230: global: SA outport set to 3 for flit 7-0 at Router 3
+    231: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=7 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=222 Valid Time=231 ] from src_hops 1 for bypass = 1 for Outport North
+    231: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=7 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=222 Valid Time=231 ] from src_hops 0 for bypass = 0 for Outport North
+    231: global: [CB] flit 7-0 entered at Router 3
+    232: global: IU flit 7-0 arrived at IU::try_smart_bypass at Router 7
+    232: global: IU flit 7-0 lost arbitration at Router 7
+    233: global: [IU] flit 7-0 entering port 2 at router 7
+    233: global: [IU] flit 7-0 leaving port 2 at router 7
+    233: global: SA flit 7-0 send_allowed at Router 7
+    233: global: SA outport set to 4 for flit 7-0 at Router 7
+    234: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=7 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=222 Valid Time=234 ] from src_hops 0 for bypass = 0 for Outport North
+    234: global: [CB] flit 7-0 entered at Router 7
+    235: global: IU flit 7-0 arrived at IU::try_smart_bypass at Router 11
+    235: global: IU flit 7-0 lost arbitration at Router 11
+    236: global: [IU] flit 7-0 entering port 2 at router 11
+    236: global: [IU] flit 7-0 leaving port 2 at router 11
+    236: global: SA flit 7-0 send_allowed at Router 11
+    236: global: SA outport set to 1 for flit 7-0 at Router 11
+    237: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=7 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=222 Valid Time=237 ] from src_hops 0 for bypass = 0 for Outport Local
+    237: global: [CB] flit 7-0 entered at Router 11
+    310: global: [IU] flit 8-0 entering port 0 at router 1
+    310: global: [IU] flit 8-0 leaving port 0 at router 1
+    310: global: SA flit 8-0 send_allowed at Router 1
+    310: global: SA outport set to 3 for flit 8-0 at Router 1
+    311: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=8 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=308 Valid Time=311 ] from src_hops 1 for bypass = 1 for Outport East
+    311: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=8 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=308 Valid Time=311 ] from src_hops 0 for bypass = 0 for Outport East
+    311: global: [CB] flit 8-0 entered at Router 1
+    312: global: IU flit 8-0 arrived at IU::try_smart_bypass at Router 2
+    312: global: IU flit 8-0 lost arbitration at Router 2
+    313: global: [IU] flit 8-0 entering port 2 at router 2
+    313: global: [IU] flit 8-0 leaving port 2 at router 2
+    313: global: SA flit 8-0 send_allowed at Router 2
+    313: global: SA outport set to 3 for flit 8-0 at Router 2
+    314: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=8 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=308 Valid Time=314 ] from src_hops 0 for bypass = 0 for Outport East
+    314: global: [CB] flit 8-0 entered at Router 2
+    315: global: IU flit 8-0 arrived at IU::try_smart_bypass at Router 3
+    315: global: IU flit 8-0 lost arbitration at Router 3
+    316: global: [IU] flit 8-0 entering port 2 at router 3
+    316: global: [IU] flit 8-0 leaving port 2 at router 3
+    316: global: SA flit 8-0 send_allowed at Router 3
+    316: global: SA outport set to 3 for flit 8-0 at Router 3
+    317: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=8 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=308 Valid Time=317 ] from src_hops 1 for bypass = 1 for Outport North
+    317: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=8 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=308 Valid Time=317 ] from src_hops 0 for bypass = 0 for Outport North
+    317: global: [CB] flit 8-0 entered at Router 3
+    318: global: IU flit 8-0 arrived at IU::try_smart_bypass at Router 7
+    318: global: IU flit 8-0 lost arbitration at Router 7
+    319: global: [IU] flit 8-0 entering port 2 at router 7
+    319: global: [IU] flit 8-0 leaving port 2 at router 7
+    319: global: SA flit 8-0 send_allowed at Router 7
+    319: global: SA outport set to 4 for flit 8-0 at Router 7
+    320: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=8 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=308 Valid Time=320 ] from src_hops 0 for bypass = 0 for Outport North
+    320: global: [CB] flit 8-0 entered at Router 7
+    321: global: IU flit 8-0 arrived at IU::try_smart_bypass at Router 11
+    321: global: IU flit 8-0 lost arbitration at Router 11
+    322: global: [IU] flit 8-0 entering port 2 at router 11
+    322: global: [IU] flit 8-0 leaving port 2 at router 11
+    322: global: SA flit 8-0 send_allowed at Router 11
+    322: global: SA outport set to 1 for flit 8-0 at Router 11
+    323: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=8 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=308 Valid Time=323 ] from src_hops 0 for bypass = 0 for Outport Local
+    323: global: [CB] flit 8-0 entered at Router 11
+    400: global: [IU] flit 9-0 entering port 0 at router 1
+    400: global: [IU] flit 9-0 leaving port 0 at router 1
+    400: global: SA flit 9-0 send_allowed at Router 1
+    400: global: SA outport set to 3 for flit 9-0 at Router 1
+    401: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=9 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=398 Valid Time=401 ] from src_hops 1 for bypass = 1 for Outport East
+    401: global: IU Router 1 Inport Local granted SSR for flit [flit:: PID=9 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=398 Valid Time=401 ] from src_hops 0 for bypass = 0 for Outport East
+    401: global: [CB] flit 9-0 entered at Router 1
+    402: global: IU flit 9-0 arrived at IU::try_smart_bypass at Router 2
+    402: global: IU flit 9-0 lost arbitration at Router 2
+    403: global: [IU] flit 9-0 entering port 2 at router 2
+    403: global: [IU] flit 9-0 leaving port 2 at router 2
+    403: global: SA flit 9-0 send_allowed at Router 2
+    403: global: SA outport set to 3 for flit 9-0 at Router 2
+    404: global: IU Router 2 Inport West granted SSR for flit [flit:: PID=9 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=398 Valid Time=404 ] from src_hops 0 for bypass = 0 for Outport East
+    404: global: [CB] flit 9-0 entered at Router 2
+    405: global: IU flit 9-0 arrived at IU::try_smart_bypass at Router 3
+    405: global: IU flit 9-0 lost arbitration at Router 3
+    406: global: [IU] flit 9-0 entering port 2 at router 3
+    406: global: [IU] flit 9-0 leaving port 2 at router 3
+    406: global: SA flit 9-0 send_allowed at Router 3
+    406: global: SA outport set to 3 for flit 9-0 at Router 3
+    407: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=9 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=398 Valid Time=407 ] from src_hops 1 for bypass = 1 for Outport North
+    407: global: IU Router 3 Inport West granted SSR for flit [flit:: PID=9 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=398 Valid Time=407 ] from src_hops 0 for bypass = 0 for Outport North
+    407: global: [CB] flit 9-0 entered at Router 3
+    408: global: IU flit 9-0 arrived at IU::try_smart_bypass at Router 7
+    408: global: IU flit 9-0 lost arbitration at Router 7
+    409: global: [IU] flit 9-0 entering port 2 at router 7
+    409: global: [IU] flit 9-0 leaving port 2 at router 7
+    409: global: SA flit 9-0 send_allowed at Router 7
+    409: global: SA outport set to 4 for flit 9-0 at Router 7
+    410: global: IU Router 7 Inport South granted SSR for flit [flit:: PID=9 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=398 Valid Time=410 ] from src_hops 0 for bypass = 0 for Outport North
+    410: global: [CB] flit 9-0 entered at Router 7
+    411: global: IU flit 9-0 arrived at IU::try_smart_bypass at Router 11
+    411: global: IU flit 9-0 lost arbitration at Router 11
+    412: global: [IU] flit 9-0 entering port 2 at router 11
+    412: global: [IU] flit 9-0 leaving port 2 at router 11
+    412: global: SA flit 9-0 send_allowed at Router 11
+    412: global: SA outport set to 1 for flit 9-0 at Router 11
+    413: global: IU Router 11 Inport South granted SSR for flit [flit:: PID=9 Id=0 Type= HEAD_TAIL_ Vnet=0 VC=0 Src NI=1 Src Router=1 Dest NI=27 Dest Router=11 Enqueue Time=398 Valid Time=413 ] from src_hops 0 for bypass = 0 for Outport Local
+    413: global: [CB] flit 9-0 entered at Router 11
+Exiting @ tick 1000 because Network Tester completed simCycles

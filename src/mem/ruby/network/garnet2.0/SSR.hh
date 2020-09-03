@@ -37,10 +37,10 @@
 
 #include "base/types.hh"
 #include "mem/ruby/network/garnet2.0/CommonTypes.hh"
-#include "mem/ruby/network/garnet2.0/flit.hh"
 #include "mem/ruby/network/garnet2.0/GarnetNetwork.hh"
+#include "mem/ruby/network/garnet2.0/flit.hh"
 
-// SSR Signal 
+// SSR Signal
 // Carries m_bypass_req,
 // m_src_hops,
 // m_vnet,

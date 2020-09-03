@@ -1,71 +1,563 @@
 gem5 Simulator System.  http://gem5.org
 gem5 is copyrighted software; use the --copyright option for details.
 
-gem5 compiled Aug 12 2020 15:49:55
-gem5 started Aug 12 2020 15:50:15
-gem5 executing on atlas.engr.tamu.edu, pid 2187
-command line: ./build/NULL/gem5.debug --debug-flags=FlitOrder configs/example/garnet_synth_traffic.py --num-cpus=16 --num-dirs=16 --network=garnet2.0 --topology=Mesh_XY --mesh-rows=4 --synthetic=uniform_random --injectionrate=0.02 --num-packets-max=10 --smart --smart_hpcmax=8 --single-sender-id=11 --single-dest-id=1
+gem5 compiled Sep  2 2020 21:24:35
+gem5 started Sep  2 2020 21:25:12
+gem5 executing on atlas.engr.tamu.edu, pid 16472
+command line: ./build/X86/gem5.debug --debug-flags=VC configs/example/se.py -c a.out --cpu-type=DerivO3CPU --ruby --caches --l2cache --num-cpus=16 --num-dirs=16 --smart --network=garnet2.0 --topology=Mesh_XY --mesh-rows=4 --smart_hpcmax=8
 
-Global frequency set at 1000000000 ticks per second
-      5: global: [IU] flit 0-0 entering port 0 at router 11
-      5: global: [IU] flit 0-0 leaving port 0 at router 11
-      5: global: SA flit 0-0 send_allowed at Router 11
-      5: global: SA outport set to 3 for flit 0-0 at Router 11
-      6: global: [CB] flit 0-0 entered at Router 11
-      7: system.ruby.network.routers10: flit 0-0 is being sent to Router 10
-      7: global: OU flit 0-0 arrived at Router 10
-      8: global: [IU] flit 0-0 entering port 4 at router 9
-      8: global: [IU] flit 0-0 leaving port 4 at router 9
-      8: global: SA flit 0-0 send_allowed at Router 9
-      8: global: SA outport set to 2 for flit 0-0 at Router 9
-      9: global: [CB] flit 0-0 entered at Router 9
-     10: system.ruby.network.routers05: flit 0-0 is being sent to Router 5
-     10: global: OU flit 0-0 arrived at Router 5
-     11: global: [IU] flit 0-0 entering port 4 at router 1
-     11: global: [IU] flit 0-0 leaving port 4 at router 1
-     11: global: SA flit 0-0 send_allowed at Router 1
-     11: global: SA outport set to 1 for flit 0-0 at Router 1
-     12: global: [CB] flit 0-0 entered at Router 1
-     29: global: [IU] flit 1-0 entering port 0 at router 11
-     29: global: [IU] flit 1-0
-     29: global: [IU] flit 1-0 leaving port 0 at router 11
-     29: global: SA flit 1-0 send_allowed at Router 11
-     29: global: SA outport set to 3 for flit 1-0 at Router 11
-     30: global: [IU] flit 1-1 entering port 0 at router 11
-     30: global: [IU] flit 1-1 leaving port 0 at router 11
-     30: global: SA flit 1-1 send_allowed at Router 11
-     30: global: SA outport set to 3 for flit 1-1 at Router 11
-     30: global: [CB] flit 1-0 entered at Router 11
-     31: system.ruby.network.routers10: flit 1-0 is being sent to Router 10
-     31: global: OU flit 1-0 arrived at Router 10
-     31: global: [IU] flit 1-2 entering port 0 at router 11
-     31: global: [IU] flit 1-2 leaving port 0 at router 11
-     31: global: SA flit 1-2 send_allowed at Router 11
-     31: global: SA outport set to 3 for flit 1-2 at Router 11
-     31: global: [CB] flit 1-1 entered at Router 11
-     32: system.ruby.network.routers10: flit 1-1 is being sent to Router 10
-     32: global: [IU] flit 1-3 entering port 0 at router 11
-     32: global: [IU] flit 1-3 leaving port 0 at router 11
-     32: global: SA flit 1-3 send_allowed at Router 11
-     32: global: SA outport set to 3 for flit 1-3 at Router 11
-     32: global: [CB] flit 1-2 entered at Router 11
-     32: global: [IU] flit 1-0 entering port 4 at router 9
-     32: global: [IU] flit 1-0
-     32: global: [IU] flit 1-0 leaving port 4 at router 9
-     32: global: SA flit 1-0 send_allowed at Router 9
-     32: global: SA outport set to 2 for flit 1-0 at Router 9
-     33: global: [CB] flit 1-3 entered at Router 11
-     33: global: [IU] flit 1-1 entering port 4 at router 9
-     33: global: [IU] flit 1-1 leaving port 4 at router 9
-     33: global: SA flit 1-1 send_allowed at Router 9
-     33: global: SA outport set to 2 for flit 1-1 at Router 9
-     33: global: [CB] flit 1-0 entered at Router 9
-     34: system.ruby.network.routers05: flit 1-0 is being sent to Router 5
-     34: global: OU flit 1-0 arrived at Router 5
-     34: global: [CB] flit 1-1 entered at Router 9
-     34: global: [IU] flit 1-4 entering port 0 at router 11
-     34: global: [IU] flit 1-4 leaving port 0 at router 11
-     34: global: SA flit 1-4 send_allowed at Router 11
-     34: global: SA outport set to 3 for flit 1-4 at Router 11
-     34: global: [IU] flit 1-2 entering port 4 at router 10
-     34: global: IU flit 1-2 caused fault at Router 10
+Global frequency set at 1000000000000 ticks per second
+**** REAL SIMULATION ****
+   2500: global: [IU] Calling wakeup 0x56270cf13f20
+   2500: global: [IU] Calling wakeup 0x56270cf18010
+   2500: global: [IU] Not ready to wakeup 0x56270cf18010
+   2500: global: [IU] Calling wakeup 0x56270cf24390
+   2500: global: [IU] Not ready to wakeup 0x56270cf24390
+   2500: global: [IU] Calling wakeup 0x56270cf2ca20
+   2500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   3000: global: [IU] Calling wakeup 0x56270cf13f20
+   3000: global: [IU] Not ready to wakeup 0x56270cf13f20
+   3000: global: [IU] Calling wakeup 0x56270cf18010
+   3000: global: [IU] Not ready to wakeup 0x56270cf18010
+   3000: global: [IU] Calling wakeup 0x56270cf24390
+   3000: global: [IU] Not ready to wakeup 0x56270cf24390
+   3000: global: [IU] Calling wakeup 0x56270cf2ca20
+   3000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   3500: global: [IU] Calling wakeup 0x56270cf13f20
+   3500: global: [IU] Calling wakeup 0x56270cf18010
+   3500: global: [IU] Not ready to wakeup 0x56270cf18010
+   3500: global: [IU] Calling wakeup 0x56270cf24390
+   3500: global: [IU] Not ready to wakeup 0x56270cf24390
+   3500: global: [IU] Calling wakeup 0x56270cf2ca20
+   3500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   4000: global: [IU] Calling wakeup 0x56270cf13f20
+   4000: global: [IU] Not ready to wakeup 0x56270cf13f20
+   4000: global: [IU] Calling wakeup 0x56270cf18010
+   4000: global: [IU] Not ready to wakeup 0x56270cf18010
+   4000: global: [IU] Calling wakeup 0x56270cf24390
+   4000: global: [IU] Not ready to wakeup 0x56270cf24390
+   4000: global: [IU] Calling wakeup 0x56270cf2ca20
+   4000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   4000: global: [IU] Calling wakeup 0x56270cf14700
+   4000: global: [IU] Not ready to wakeup 0x56270cf14700
+   4000: global: [IU] Calling wakeup 0x56270cf1ca70
+   4000: global: [IU] Not ready to wakeup 0x56270cf1ca70
+   4000: global: [IU] Calling wakeup 0x56270cf13e00
+   4000: global: [IU] Calling wakeup 0x56270cf267a0
+   4000: global: [IU] Not ready to wakeup 0x56270cf267a0
+   4000: global: [IU] Calling wakeup 0x56270cf2ed20
+   4000: global: [IU] Not ready to wakeup 0x56270cf2ed20
+   4500: global: [IU] Calling wakeup 0x56270cf14700
+   4500: global: [IU] Not ready to wakeup 0x56270cf14700
+   4500: global: [IU] Calling wakeup 0x56270cf1ca70
+   4500: global: [IU] Not ready to wakeup 0x56270cf1ca70
+   4500: global: [IU] Calling wakeup 0x56270cf13e00
+   4500: global: [IU] Not ready to wakeup 0x56270cf13e00
+   4500: global: [IU] Calling wakeup 0x56270cf267a0
+   4500: global: [IU] Not ready to wakeup 0x56270cf267a0
+   4500: global: [IU] Calling wakeup 0x56270cf2ed20
+   4500: global: [IU] Not ready to wakeup 0x56270cf2ed20
+   5000: global: [IU] Calling wakeup 0x56270cf14700
+   5000: global: [IU] Not ready to wakeup 0x56270cf14700
+   5000: global: [IU] Calling wakeup 0x56270cf1ca70
+   5000: global: [IU] Not ready to wakeup 0x56270cf1ca70
+   5000: global: [IU] Calling wakeup 0x56270cf13e00
+   5000: global: [IU] Calling wakeup 0x56270cf267a0
+   5000: global: [IU] Not ready to wakeup 0x56270cf267a0
+   5000: global: [IU] Calling wakeup 0x56270cf2ed20
+   5000: global: [IU] Not ready to wakeup 0x56270cf2ed20
+   5000: global: [IU] Calling wakeup 0x56270cf13f20
+   5000: global: [IU] Not ready to wakeup 0x56270cf13f20
+   5000: global: [IU] Calling wakeup 0x56270cf18010
+   5000: global: [IU] Not ready to wakeup 0x56270cf18010
+   5000: global: [IU] Calling wakeup 0x56270cf24390
+   5000: global: [IU] Not ready to wakeup 0x56270cf24390
+   5000: global: [IU] Calling wakeup 0x56270cf2ca20
+   5000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   5000: global: [NI wakeup] Increment Credit for flit [credit:: PID=0 Id=0 ] credit=1
+   5500: global: [IU] Calling wakeup 0x56270cf167b0
+   5500: global: [IU] Not ready to wakeup 0x56270cf167b0
+   5500: global: [IU] Calling wakeup 0x56270cf1e930
+   5500: global: [IU] Not ready to wakeup 0x56270cf1e930
+   5500: global: [IU] Calling wakeup 0x56270cf287b0
+   5500: global: [IU] Calling wakeup 0x56270cf2f2d0
+   5500: global: [IU] Not ready to wakeup 0x56270cf2f2d0
+   5500: global: [IU] Calling wakeup 0x56270cf361a0
+   5500: global: [IU] Not ready to wakeup 0x56270cf361a0
+   5500: global: [IU] Calling wakeup 0x56270cf3cfb0
+   5500: global: [IU] Not ready to wakeup 0x56270cf3cfb0
+   5500: global: [IU] Calling wakeup 0x56270cf14700
+   5500: global: [IU] Not ready to wakeup 0x56270cf14700
+   5500: global: [IU] Calling wakeup 0x56270cf1ca70
+   5500: global: [IU] Not ready to wakeup 0x56270cf1ca70
+   5500: global: [IU] Calling wakeup 0x56270cf13e00
+   5500: global: [IU] Not ready to wakeup 0x56270cf13e00
+   5500: global: [IU] Calling wakeup 0x56270cf267a0
+   5500: global: [IU] Not ready to wakeup 0x56270cf267a0
+   5500: global: [IU] Calling wakeup 0x56270cf2ed20
+   5500: global: [IU] Not ready to wakeup 0x56270cf2ed20
+   6000: global: [IU] Calling wakeup 0x56270cf13f20
+   6000: global: [IU] Not ready to wakeup 0x56270cf13f20
+   6000: global: [IU] Calling wakeup 0x56270cf18010
+   6000: global: [IU] Not ready to wakeup 0x56270cf18010
+   6000: global: [IU] Calling wakeup 0x56270cf24390
+   6000: global: [IU] Not ready to wakeup 0x56270cf24390
+   6000: global: [IU] Calling wakeup 0x56270cf2ca20
+   6000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   6000: global: [NI wakeup] Increment Credit for flit [credit:: PID=1 Id=0 ] credit=1
+   6000: global: [IU] Calling wakeup 0x56270cf167b0
+   6000: global: [IU] Not ready to wakeup 0x56270cf167b0
+   6000: global: [IU] Calling wakeup 0x56270cf1e930
+   6000: global: [IU] Not ready to wakeup 0x56270cf1e930
+   6000: global: [IU] Calling wakeup 0x56270cf287b0
+   6000: global: [IU] Not ready to wakeup 0x56270cf287b0
+   6000: global: [IU] Calling wakeup 0x56270cf2f2d0
+   6000: global: [IU] Not ready to wakeup 0x56270cf2f2d0
+   6000: global: [IU] Calling wakeup 0x56270cf361a0
+   6000: global: [IU] Not ready to wakeup 0x56270cf361a0
+   6000: global: [IU] Calling wakeup 0x56270cf3cfb0
+   6000: global: [IU] Not ready to wakeup 0x56270cf3cfb0
+   6500: global: [IU] Calling wakeup 0x56270cf14700
+   6500: global: [IU] Not ready to wakeup 0x56270cf14700
+   6500: global: [IU] Calling wakeup 0x56270cf1ca70
+   6500: global: [IU] Not ready to wakeup 0x56270cf1ca70
+   6500: global: [IU] Calling wakeup 0x56270cf13e00
+   6500: global: [IU] Not ready to wakeup 0x56270cf13e00
+   6500: global: [IU] Calling wakeup 0x56270cf267a0
+   6500: global: [IU] Not ready to wakeup 0x56270cf267a0
+   6500: global: [IU] Calling wakeup 0x56270cf2ed20
+   6500: global: [IU] Not ready to wakeup 0x56270cf2ed20
+   6500: global: [NI wakeup] Increment Credit for flit [credit:: PID=0 Id=0 ] credit=1
+   6500: global: [IU] Calling wakeup 0x56270cf167b0
+   6500: global: [IU] Not ready to wakeup 0x56270cf167b0
+   6500: global: [IU] Calling wakeup 0x56270cf1e930
+   6500: global: [IU] Not ready to wakeup 0x56270cf1e930
+   6500: global: [IU] Calling wakeup 0x56270cf287b0
+   6500: global: [IU] Calling wakeup 0x56270cf2f2d0
+   6500: global: [IU] Not ready to wakeup 0x56270cf2f2d0
+   6500: global: [IU] Calling wakeup 0x56270cf361a0
+   6500: global: [IU] Not ready to wakeup 0x56270cf361a0
+   6500: global: [IU] Calling wakeup 0x56270cf3cfb0
+   6500: global: [IU] Not ready to wakeup 0x56270cf3cfb0
+   7000: global: [IU] Calling wakeup 0x56270cf167b0
+   7000: global: [IU] Not ready to wakeup 0x56270cf167b0
+   7000: global: [IU] Calling wakeup 0x56270cf1e930
+   7000: global: [IU] Not ready to wakeup 0x56270cf1e930
+   7000: global: [IU] Calling wakeup 0x56270cf287b0
+   7000: global: [IU] Not ready to wakeup 0x56270cf287b0
+   7000: global: [IU] Calling wakeup 0x56270cf2f2d0
+   7000: global: [IU] Not ready to wakeup 0x56270cf2f2d0
+   7000: global: [IU] Calling wakeup 0x56270cf361a0
+   7000: global: [IU] Not ready to wakeup 0x56270cf361a0
+   7000: global: [IU] Calling wakeup 0x56270cf3cfb0
+   7000: global: [IU] Not ready to wakeup 0x56270cf3cfb0
+   7000: system.ruby.network.netifs21: At Router 5, [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=0 Src Router=0 Dest NI=21 Dest Router=5 Enqueue Time=3 Valid Time=14 ]
+   7000: system.ruby.network.netifs21: Credit send for [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=0 Src Router=0 Dest NI=21 Dest Router=5 Enqueue Time=3 Valid Time=14 ] at Router 5
+   7000: system.ruby.network.netifs21: flit [flit:: PID=0 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=0 Src Router=0 Dest NI=21 Dest Router=5 Enqueue Time=3 Valid Time=14 ] is deleted at Router 5
+   7000: global: [IU] Calling wakeup 0x56270cf13f20
+   7000: global: [IU] Calling wakeup 0x56270cf18010
+   7000: global: [IU] Not ready to wakeup 0x56270cf18010
+   7000: global: [IU] Calling wakeup 0x56270cf24390
+   7000: global: [IU] Not ready to wakeup 0x56270cf24390
+   7000: global: [IU] Calling wakeup 0x56270cf2ca20
+   7000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   7500: global: [IU] Calling wakeup 0x56270cf13f20
+   7500: global: [IU] Calling wakeup 0x56270cf18010
+   7500: global: [IU] Not ready to wakeup 0x56270cf18010
+   7500: global: [IU] Calling wakeup 0x56270cf24390
+   7500: global: [IU] Not ready to wakeup 0x56270cf24390
+   7500: global: [IU] Calling wakeup 0x56270cf2ca20
+   7500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   7500: global: [IU] Calling wakeup 0x56270cf14700
+   7500: global: [IU] Not ready to wakeup 0x56270cf14700
+   7500: global: [IU] Calling wakeup 0x56270cf1ca70
+   7500: global: [IU] Not ready to wakeup 0x56270cf1ca70
+   7500: global: [IU] Calling wakeup 0x56270cf13e00
+   7500: global: [IU] Not ready to wakeup 0x56270cf13e00
+   7500: global: [IU] Calling wakeup 0x56270cf267a0
+   7500: global: [IU] Not ready to wakeup 0x56270cf267a0
+   7500: global: [IU] Calling wakeup 0x56270cf2ed20
+   7500: global: [IU] Not ready to wakeup 0x56270cf2ed20
+   7500: global: [NI wakeup] Increment Credit for flit [credit:: PID=1 Id=0 ] credit=1
+   8000: system.ruby.network.netifs21: At Router 5, [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=0 Src Router=0 Dest NI=21 Dest Router=5 Enqueue Time=5 Valid Time=16 ]
+   8000: system.ruby.network.netifs21: Credit send for [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=0 Src Router=0 Dest NI=21 Dest Router=5 Enqueue Time=5 Valid Time=16 ] at Router 5
+   8000: system.ruby.network.netifs21: flit [flit:: PID=1 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=5 Src NI=0 Src Router=0 Dest NI=21 Dest Router=5 Enqueue Time=5 Valid Time=16 ] is deleted at Router 5
+   8000: global: [IU] Calling wakeup 0x56270cf167b0
+   8000: global: [IU] Not ready to wakeup 0x56270cf167b0
+   8000: global: [IU] Calling wakeup 0x56270cf1e930
+   8000: global: [IU] Not ready to wakeup 0x56270cf1e930
+   8000: global: [IU] Calling wakeup 0x56270cf287b0
+   8000: global: [IU] Not ready to wakeup 0x56270cf287b0
+   8000: global: [IU] Calling wakeup 0x56270cf2f2d0
+   8000: global: [IU] Not ready to wakeup 0x56270cf2f2d0
+   8000: global: [IU] Calling wakeup 0x56270cf361a0
+   8000: global: [IU] Not ready to wakeup 0x56270cf361a0
+   8000: global: [IU] Calling wakeup 0x56270cf3cfb0
+   8000: global: [IU] Not ready to wakeup 0x56270cf3cfb0
+   8000: global: [NI wakeup] Increment Credit for flit [credit:: PID=0 Id=0 ] credit=1
+   8000: global: [IU] Calling wakeup 0x56270cf13f20
+   8000: global: [IU] Calling wakeup 0x56270cf18010
+   8000: global: [IU] Not ready to wakeup 0x56270cf18010
+   8000: global: [IU] Calling wakeup 0x56270cf24390
+   8000: global: [IU] Not ready to wakeup 0x56270cf24390
+   8000: global: [IU] Calling wakeup 0x56270cf2ca20
+   8000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   8500: global: [IU] Calling wakeup 0x56270cf13f20
+   8500: global: [IU] Calling wakeup 0x56270cf18010
+   8500: global: [IU] Not ready to wakeup 0x56270cf18010
+   8500: global: [IU] Calling wakeup 0x56270cf24390
+   8500: global: [IU] Not ready to wakeup 0x56270cf24390
+   8500: global: [IU] Calling wakeup 0x56270cf2ca20
+   8500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   8500: system.ruby.network.netifs16: At Router 0, [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=17 ]
+   8500: system.ruby.network.netifs16: Credit send for [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=17 ] at Router 0
+   8500: system.ruby.network.netifs16: flit [flit:: PID=2 Id=0 Type= HEAD_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=17 ] is deleted at Router 0
+   9000: global: [IU] Calling wakeup 0x56270cf167b0
+   9000: global: [IU] Not ready to wakeup 0x56270cf167b0
+   9000: global: [IU] Calling wakeup 0x56270cf1e930
+   9000: global: [IU] Not ready to wakeup 0x56270cf1e930
+   9000: global: [IU] Calling wakeup 0x56270cf287b0
+   9000: global: [IU] Not ready to wakeup 0x56270cf287b0
+   9000: global: [IU] Calling wakeup 0x56270cf2f2d0
+   9000: global: [IU] Not ready to wakeup 0x56270cf2f2d0
+   9000: global: [IU] Calling wakeup 0x56270cf361a0
+   9000: global: [IU] Not ready to wakeup 0x56270cf361a0
+   9000: global: [IU] Calling wakeup 0x56270cf3cfb0
+   9000: global: [IU] Not ready to wakeup 0x56270cf3cfb0
+   9000: global: [NI wakeup] Increment Credit for flit [credit:: PID=1 Id=0 ] credit=1
+   9000: global: [IU] Calling wakeup 0x56270cf13f20
+   9000: global: [IU] Not ready to wakeup 0x56270cf13f20
+   9000: global: [IU] Calling wakeup 0x56270cf18010
+   9000: global: [IU] Not ready to wakeup 0x56270cf18010
+   9000: global: [IU] Calling wakeup 0x56270cf24390
+   9000: global: [IU] Not ready to wakeup 0x56270cf24390
+   9000: global: [IU] Calling wakeup 0x56270cf2ca20
+   9000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   9000: system.ruby.network.netifs16: At Router 0, [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=18 ]
+   9000: system.ruby.network.netifs16: Credit send for [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=18 ] at Router 0
+   9000: system.ruby.network.netifs16: flit [flit:: PID=2 Id=1 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=18 ] is deleted at Router 0
+   9500: system.ruby.network.netifs16: At Router 0, [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=19 ]
+   9500: system.ruby.network.netifs16: Credit send for [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=19 ] at Router 0
+   9500: system.ruby.network.netifs16: flit [flit:: PID=2 Id=2 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=19 ] is deleted at Router 0
+   9500: global: [IU] Calling wakeup 0x56270cf13f20
+   9500: global: [IU] Calling wakeup 0x56270cf18010
+   9500: global: [IU] Not ready to wakeup 0x56270cf18010
+   9500: global: [IU] Calling wakeup 0x56270cf24390
+   9500: global: [IU] Not ready to wakeup 0x56270cf24390
+   9500: global: [IU] Calling wakeup 0x56270cf2ca20
+   9500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+   9500: global: [NI wakeup] Increment Credit for flit [credit:: PID=2 Id=0 ] credit=1
+  10000: system.ruby.network.netifs16: At Router 0, [flit:: PID=2 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=20 ]
+  10000: system.ruby.network.netifs16: Credit send for [flit:: PID=2 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=20 ] at Router 0
+  10000: system.ruby.network.netifs16: flit [flit:: PID=2 Id=3 Type= BODY_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=20 ] is deleted at Router 0
+  10000: global: [IU] Calling wakeup 0x56270cf13f20
+  10000: global: [IU] Calling wakeup 0x56270cf18010
+  10000: global: [IU] Not ready to wakeup 0x56270cf18010
+  10000: global: [IU] Calling wakeup 0x56270cf24390
+  10000: global: [IU] Not ready to wakeup 0x56270cf24390
+  10000: global: [IU] Calling wakeup 0x56270cf2ca20
+  10000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  10000: global: [NI wakeup] Increment Credit for flit [credit:: PID=2 Id=1 ] credit=1
+  10000: system.ruby.network.netifs00: [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=21 ] is inserted into vc 9 credit = 3
+  10500: system.ruby.network.ext_links00.network_links0: [NL] flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=22 ] inserted in linkbuffer, set_time: 22, conumser: 0x56270cb04b58
+  10500: global: [IU] Calling wakeup 0x56270cf14700
+  10500: global: [IU] Not ready to wakeup 0x56270cf14700
+  10500: global: [IU] Calling wakeup 0x56270cf1ca70
+  10500: global: [IU] Not ready to wakeup 0x56270cf1ca70
+  10500: global: [IU] Calling wakeup 0x56270cf13e00
+  10500: global: [IU] Not ready to wakeup 0x56270cf13e00
+  10500: global: [IU] Calling wakeup 0x56270cf267a0
+  10500: global: [IU] Not ready to wakeup 0x56270cf267a0
+  10500: global: [IU] Calling wakeup 0x56270cf2ed20
+  10500: global: [IU] Not ready to wakeup 0x56270cf2ed20
+  10500: global: [IU] Calling wakeup 0x56270cf13f20
+  10500: global: [IU] Not ready to wakeup 0x56270cf13f20
+  10500: global: [IU] Calling wakeup 0x56270cf18010
+  10500: global: [IU] Not ready to wakeup 0x56270cf18010
+  10500: global: [IU] Calling wakeup 0x56270cf24390
+  10500: global: [IU] Not ready to wakeup 0x56270cf24390
+  10500: global: [IU] Calling wakeup 0x56270cf2ca20
+  10500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  10500: global: [NI wakeup] Increment Credit for flit [credit:: PID=2 Id=2 ] credit=2
+  10500: system.ruby.network.netifs00: [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=22 ] is inserted into vc 9 credit = 2
+  11000: system.ruby.network.ext_links00.network_links0: [NL] flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=23 ] inserted in linkbuffer, set_time: 23, conumser: 0x56270cb04b58
+  11000: system.ruby.network.netifs00: [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=23 ] is inserted into vc 9 credit = 1
+  11000: system.ruby.network.netifs16: At Router 0, [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=22 ]
+  11000: system.ruby.network.netifs16: Credit send for [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=22 ] at Router 0
+  11000: system.ruby.network.netifs16: flit [flit:: PID=2 Id=4 Type= TAIL_ Vnet=2 VC=8 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=12 Valid Time=22 ] is deleted at Router 0
+  11000: global: [IU] Calling wakeup 0x56270cf13f20
+  11000: global: [IU] we peek [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=22 ], current packet -1
+  11000: global: [IU] Calling wakeup 0x56270cf18010
+  11000: global: [IU] Not ready to wakeup 0x56270cf18010
+  11000: global: [IU] Calling wakeup 0x56270cf24390
+  11000: global: [IU] Not ready to wakeup 0x56270cf24390
+  11000: global: [IU] Calling wakeup 0x56270cf2ca20
+  11000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  11000: global: [NI wakeup] Increment Credit for flit [credit:: PID=2 Id=3 ] credit=3
+  11500: system.ruby.network.ext_links00.network_links0: [NL] flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=24 ] inserted in linkbuffer, set_time: 24, conumser: 0x56270cb04b58
+  11500: global: [IU] Calling wakeup 0x56270cf14700
+  11500: global: [IU] Not ready to wakeup 0x56270cf14700
+  11500: global: [IU] Calling wakeup 0x56270cf1ca70
+  11500: global: [IU] Not ready to wakeup 0x56270cf1ca70
+  11500: global: [IU] Calling wakeup 0x56270cf13e00
+  11500: global: [IU] Calling wakeup 0x56270cf267a0
+  11500: global: [IU] Not ready to wakeup 0x56270cf267a0
+  11500: global: [IU] Calling wakeup 0x56270cf2ed20
+  11500: global: [IU] Not ready to wakeup 0x56270cf2ed20
+  11500: global: [IU] Calling wakeup 0x56270cf13f20
+  11500: global: [IU] we peek [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=23 ], current packet 4
+  11500: global: [IU] Calling wakeup 0x56270cf18010
+  11500: global: [IU] Not ready to wakeup 0x56270cf18010
+  11500: global: [IU] Calling wakeup 0x56270cf24390
+  11500: global: [IU] Not ready to wakeup 0x56270cf24390
+  11500: global: [IU] Calling wakeup 0x56270cf2ca20
+  11500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  12000: system.ruby.network.ext_links16.network_links1: [NL] flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=25 ] inserted in linkbuffer, set_time: 25, conumser: 0x56270cbabd20
+  12000: global: [IU] Calling wakeup 0x56270cf14700
+  12000: global: [IU] Not ready to wakeup 0x56270cf14700
+  12000: global: [IU] Calling wakeup 0x56270cf1ca70
+  12000: global: [IU] Not ready to wakeup 0x56270cf1ca70
+  12000: global: [IU] Calling wakeup 0x56270cf13e00
+  12000: global: [IU] Not ready to wakeup 0x56270cf13e00
+  12000: global: [IU] Calling wakeup 0x56270cf267a0
+  12000: global: [IU] Not ready to wakeup 0x56270cf267a0
+  12000: global: [IU] Calling wakeup 0x56270cf2ed20
+  12000: global: [IU] Not ready to wakeup 0x56270cf2ed20
+  12000: global: [IU] Calling wakeup 0x56270cf13f20
+  12000: global: [IU] we peek [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=24 ], current packet 4
+  12000: global: [IU] Calling wakeup 0x56270cf18010
+  12000: global: [IU] Not ready to wakeup 0x56270cf18010
+  12000: global: [IU] Calling wakeup 0x56270cf24390
+  12000: global: [IU] Not ready to wakeup 0x56270cf24390
+  12000: global: [IU] Calling wakeup 0x56270cf2ca20
+  12000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  12000: global: [NI wakeup] Increment Credit for flit [credit:: PID=2 Id=4 ] credit=4
+  12000: system.ruby.network.netifs00: [flit:: PID=4 Id=3 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=25 ] is inserted into vc 9 credit = 0
+  12000: system.ruby.network.netifs00: [OU wakeup] [credit:: PID=4 Id=0 ] received credit at 9 credit = 1
+  12500: system.ruby.network.ext_links00.network_links0: [NL] flit [flit:: PID=4 Id=3 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=26 ] inserted in linkbuffer, set_time: 26, conumser: 0x56270cb04b58
+  12500: system.ruby.network.ext_links16.network_links1: [NL] flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=26 ] inserted in linkbuffer, set_time: 26, conumser: 0x56270cbabd20
+  12500: system.ruby.network.netifs00: [OU wakeup] [credit:: PID=4 Id=1 ] received credit at 9 credit = 2
+  12500: system.ruby.network.netifs16: At Router 0, [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=25 ]
+  12500: system.ruby.network.netifs16: Credit send for [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=25 ] at Router 0
+  12500: system.ruby.network.netifs16: flit [flit:: PID=4 Id=0 Type= HEAD_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=25 ] is deleted at Router 0
+  12500: global: [IU] Calling wakeup 0x56270cf13f20
+  12500: global: [IU] Calling wakeup 0x56270cf18010
+  12500: global: [IU] Not ready to wakeup 0x56270cf18010
+  12500: global: [IU] Calling wakeup 0x56270cf24390
+  12500: global: [IU] Not ready to wakeup 0x56270cf24390
+  12500: global: [IU] Calling wakeup 0x56270cf2ca20
+  12500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  12500: global: [NI wakeup] Increment Credit for flit [credit:: PID=3 Id=0 ] credit=1
+  13000: system.ruby.network.ext_links16.network_links1: [NL] flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=27 ] inserted in linkbuffer, set_time: 27, conumser: 0x56270cbabd20
+  13000: global: [IU] Calling wakeup 0x56270cf14f50
+  13000: global: [IU] Not ready to wakeup 0x56270cf14f50
+  13000: global: [IU] Calling wakeup 0x56270cf1d220
+  13000: global: [IU] Not ready to wakeup 0x56270cf1d220
+  13000: global: [IU] Calling wakeup 0x56270cf26d50
+  13000: global: [IU] Calling wakeup 0x56270cf29970
+  13000: global: [IU] Not ready to wakeup 0x56270cf29970
+  13000: global: [IU] Calling wakeup 0x56270cf31ed0
+  13000: global: [IU] Not ready to wakeup 0x56270cf31ed0
+  13000: system.ruby.network.netifs16: At Router 0, [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=26 ]
+  13000: system.ruby.network.netifs16: Credit send for [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=26 ] at Router 0
+  13000: system.ruby.network.netifs16: flit [flit:: PID=4 Id=1 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=26 ] is deleted at Router 0
+  13000: global: [IU] Calling wakeup 0x56270cf13f20
+  13000: global: [IU] Calling wakeup 0x56270cf18010
+  13000: global: [IU] Not ready to wakeup 0x56270cf18010
+  13000: global: [IU] Calling wakeup 0x56270cf24390
+  13000: global: [IU] Not ready to wakeup 0x56270cf24390
+  13000: global: [IU] Calling wakeup 0x56270cf2ca20
+  13000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  13000: system.ruby.network.netifs00: [OU wakeup] [credit:: PID=4 Id=2 ] received credit at 9 credit = 3
+  13500: system.ruby.network.netifs00: [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=28 ] is inserted into vc 9 credit = 2
+  13500: global: [IU] Calling wakeup 0x56270cf14f50
+  13500: global: [IU] Not ready to wakeup 0x56270cf14f50
+  13500: global: [IU] Calling wakeup 0x56270cf1d220
+  13500: global: [IU] Not ready to wakeup 0x56270cf1d220
+  13500: global: [IU] Calling wakeup 0x56270cf26d50
+  13500: global: [IU] Not ready to wakeup 0x56270cf26d50
+  13500: global: [IU] Calling wakeup 0x56270cf29970
+  13500: global: [IU] Not ready to wakeup 0x56270cf29970
+  13500: global: [IU] Calling wakeup 0x56270cf31ed0
+  13500: global: [IU] Not ready to wakeup 0x56270cf31ed0
+  13500: global: [IU] Calling wakeup 0x56270cf13f20
+  13500: global: [IU] Calling wakeup 0x56270cf18010
+  13500: global: [IU] Not ready to wakeup 0x56270cf18010
+  13500: global: [IU] Calling wakeup 0x56270cf24390
+  13500: global: [IU] Not ready to wakeup 0x56270cf24390
+  13500: global: [IU] Calling wakeup 0x56270cf2ca20
+  13500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  13500: global: [NI wakeup] Increment Credit for flit [credit:: PID=4 Id=0 ] credit=2
+  13500: system.ruby.network.netifs16: At Router 0, [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=27 ]
+  13500: system.ruby.network.netifs16: Credit send for [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=27 ] at Router 0
+  13500: system.ruby.network.netifs16: flit [flit:: PID=4 Id=2 Type= BODY_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=27 ] is deleted at Router 0
+  14000: global: [IU] Calling wakeup 0x56270cf14700
+  14000: global: [IU] Not ready to wakeup 0x56270cf14700
+  14000: global: [IU] Calling wakeup 0x56270cf1ca70
+  14000: global: [IU] Not ready to wakeup 0x56270cf1ca70
+  14000: global: [IU] Calling wakeup 0x56270cf13e00
+  14000: global: [IU] Not ready to wakeup 0x56270cf13e00
+  14000: global: [IU] Calling wakeup 0x56270cf267a0
+  14000: global: [IU] Not ready to wakeup 0x56270cf267a0
+  14000: global: [IU] Calling wakeup 0x56270cf2ed20
+  14000: global: [IU] Not ready to wakeup 0x56270cf2ed20
+  14000: global: [NI wakeup] Increment Credit for flit [credit:: PID=3 Id=0 ] credit=1
+  14000: global: [IU] Calling wakeup 0x56270cf13f20
+  14000: global: [IU] Calling wakeup 0x56270cf18010
+  14000: global: [IU] Not ready to wakeup 0x56270cf18010
+  14000: global: [IU] Calling wakeup 0x56270cf24390
+  14000: global: [IU] Not ready to wakeup 0x56270cf24390
+  14000: global: [IU] Calling wakeup 0x56270cf2ca20
+  14000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  14000: global: [NI wakeup] Increment Credit for flit [credit:: PID=4 Id=1 ] credit=3
+  14000: system.ruby.network.ext_links00.network_links0: [NL] flit [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=29 ] inserted in linkbuffer, set_time: 29, conumser: 0x56270cb04b58
+  14500: global: [IU] Calling wakeup 0x56270cf16fd0
+  14500: global: [IU] Not ready to wakeup 0x56270cf16fd0
+  14500: global: [IU] Calling wakeup 0x56270cf1f0e0
+  14500: global: [IU] Not ready to wakeup 0x56270cf1f0e0
+  14500: global: [IU] Calling wakeup 0x56270cf2b860
+  14500: global: [IU] Calling wakeup 0x56270cf33e30
+  14500: global: [IU] Not ready to wakeup 0x56270cf33e30
+  14500: global: [IU] Calling wakeup 0x56270cf3a390
+  14500: global: [IU] Not ready to wakeup 0x56270cf3a390
+  14500: global: [IU] Calling wakeup 0x56270cf400d0
+  14500: global: [IU] Not ready to wakeup 0x56270cf400d0
+  14500: global: [IU] Calling wakeup 0x56270cf13f20
+  14500: global: [IU] Calling wakeup 0x56270cf18010
+  14500: global: [IU] Not ready to wakeup 0x56270cf18010
+  14500: global: [IU] Calling wakeup 0x56270cf24390
+  14500: global: [IU] Not ready to wakeup 0x56270cf24390
+  14500: global: [IU] Calling wakeup 0x56270cf2ca20
+  14500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  14500: global: [NI wakeup] Increment Credit for flit [credit:: PID=4 Id=2 ] credit=4
+  15000: global: [IU] Calling wakeup 0x56270cf16fd0
+  15000: global: [IU] Not ready to wakeup 0x56270cf16fd0
+  15000: global: [IU] Calling wakeup 0x56270cf1f0e0
+  15000: global: [IU] Not ready to wakeup 0x56270cf1f0e0
+  15000: global: [IU] Calling wakeup 0x56270cf2b860
+  15000: global: [IU] Not ready to wakeup 0x56270cf2b860
+  15000: global: [IU] Calling wakeup 0x56270cf33e30
+  15000: global: [IU] Not ready to wakeup 0x56270cf33e30
+  15000: global: [IU] Calling wakeup 0x56270cf3a390
+  15000: global: [IU] Not ready to wakeup 0x56270cf3a390
+  15000: global: [IU] Calling wakeup 0x56270cf400d0
+  15000: global: [IU] Not ready to wakeup 0x56270cf400d0
+  15000: global: [IU] Calling wakeup 0x56270cf13f20
+  15000: global: [IU] Calling wakeup 0x56270cf18010
+  15000: global: [IU] Not ready to wakeup 0x56270cf18010
+  15000: global: [IU] Calling wakeup 0x56270cf24390
+  15000: global: [IU] Not ready to wakeup 0x56270cf24390
+  15000: global: [IU] Calling wakeup 0x56270cf2ca20
+  15000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  15500: global: [IU] Calling wakeup 0x56270cf14f50
+  15500: global: [IU] Not ready to wakeup 0x56270cf14f50
+  15500: global: [IU] Calling wakeup 0x56270cf1d220
+  15500: global: [IU] Not ready to wakeup 0x56270cf1d220
+  15500: global: [IU] Calling wakeup 0x56270cf26d50
+  15500: global: [IU] Not ready to wakeup 0x56270cf26d50
+  15500: global: [IU] Calling wakeup 0x56270cf29970
+  15500: global: [IU] Not ready to wakeup 0x56270cf29970
+  15500: global: [IU] Calling wakeup 0x56270cf31ed0
+  15500: global: [IU] Not ready to wakeup 0x56270cf31ed0
+  15500: global: [NI wakeup] Increment Credit for flit [credit:: PID=3 Id=0 ] credit=1
+  15500: global: [IU] Calling wakeup 0x56270cf13f20
+  15500: global: [IU] Calling wakeup 0x56270cf18010
+  15500: global: [IU] Not ready to wakeup 0x56270cf18010
+  15500: global: [IU] Calling wakeup 0x56270cf24390
+  15500: global: [IU] Not ready to wakeup 0x56270cf24390
+  15500: global: [IU] Calling wakeup 0x56270cf2ca20
+  15500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  16000: global: [IU] Calling wakeup 0x56270cf13f20
+  16000: global: [IU] Calling wakeup 0x56270cf18010
+  16000: global: [IU] Not ready to wakeup 0x56270cf18010
+  16000: global: [IU] Calling wakeup 0x56270cf24390
+  16000: global: [IU] Not ready to wakeup 0x56270cf24390
+  16000: global: [IU] Calling wakeup 0x56270cf2ca20
+  16000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  16000: system.ruby.network.netifs22: At Router 6, [flit:: PID=3 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=0 Src Router=0 Dest NI=22 Dest Router=6 Enqueue Time=18 Valid Time=32 ]
+  16000: system.ruby.network.netifs22: Credit send for [flit:: PID=3 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=0 Src Router=0 Dest NI=22 Dest Router=6 Enqueue Time=18 Valid Time=32 ] at Router 6
+  16000: system.ruby.network.netifs22: flit [flit:: PID=3 Id=0 Type= HEAD_TAIL_ Vnet=1 VC=4 Src NI=0 Src Router=0 Dest NI=22 Dest Router=6 Enqueue Time=18 Valid Time=32 ] is deleted at Router 6
+  16500: global: [IU] Calling wakeup 0x56270cf13f20
+  16500: global: [IU] Calling wakeup 0x56270cf18010
+  16500: global: [IU] Not ready to wakeup 0x56270cf18010
+  16500: global: [IU] Calling wakeup 0x56270cf24390
+  16500: global: [IU] Not ready to wakeup 0x56270cf24390
+  16500: global: [IU] Calling wakeup 0x56270cf2ca20
+  16500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  17000: global: [IU] Calling wakeup 0x56270cf16fd0
+  17000: global: [IU] Not ready to wakeup 0x56270cf16fd0
+  17000: global: [IU] Calling wakeup 0x56270cf1f0e0
+  17000: global: [IU] Not ready to wakeup 0x56270cf1f0e0
+  17000: global: [IU] Calling wakeup 0x56270cf2b860
+  17000: global: [IU] Not ready to wakeup 0x56270cf2b860
+  17000: global: [IU] Calling wakeup 0x56270cf33e30
+  17000: global: [IU] Not ready to wakeup 0x56270cf33e30
+  17000: global: [IU] Calling wakeup 0x56270cf3a390
+  17000: global: [IU] Not ready to wakeup 0x56270cf3a390
+  17000: global: [IU] Calling wakeup 0x56270cf400d0
+  17000: global: [IU] Not ready to wakeup 0x56270cf400d0
+  17000: global: [NI wakeup] Increment Credit for flit [credit:: PID=3 Id=0 ] credit=1
+  17000: global: [IU] Calling wakeup 0x56270cf13f20
+  17000: global: [IU] Calling wakeup 0x56270cf18010
+  17000: global: [IU] Not ready to wakeup 0x56270cf18010
+  17000: global: [IU] Calling wakeup 0x56270cf24390
+  17000: global: [IU] Not ready to wakeup 0x56270cf24390
+  17000: global: [IU] Calling wakeup 0x56270cf2ca20
+  17000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  17500: global: [IU] Calling wakeup 0x56270cf13f20
+  17500: global: [IU] Calling wakeup 0x56270cf18010
+  17500: global: [IU] Not ready to wakeup 0x56270cf18010
+  17500: global: [IU] Calling wakeup 0x56270cf24390
+  17500: global: [IU] Not ready to wakeup 0x56270cf24390
+  17500: global: [IU] Calling wakeup 0x56270cf2ca20
+  17500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  18000: global: [IU] Calling wakeup 0x56270cf13f20
+  18000: global: [IU] Calling wakeup 0x56270cf18010
+  18000: global: [IU] Not ready to wakeup 0x56270cf18010
+  18000: global: [IU] Calling wakeup 0x56270cf24390
+  18000: global: [IU] Not ready to wakeup 0x56270cf24390
+  18000: global: [IU] Calling wakeup 0x56270cf2ca20
+  18000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  18500: global: [IU] Calling wakeup 0x56270cf13f20
+  18500: global: [IU] Calling wakeup 0x56270cf18010
+  18500: global: [IU] Not ready to wakeup 0x56270cf18010
+  18500: global: [IU] Calling wakeup 0x56270cf24390
+  18500: global: [IU] Not ready to wakeup 0x56270cf24390
+  18500: global: [IU] Calling wakeup 0x56270cf2ca20
+  18500: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  19000: global: [IU] Calling wakeup 0x56270cf13f20
+  19000: global: [IU] Calling wakeup 0x56270cf18010
+  19000: global: [IU] Not ready to wakeup 0x56270cf18010
+  19000: global: [IU] Calling wakeup 0x56270cf24390
+  19000: global: [IU] Not ready to wakeup 0x56270cf24390
+  19000: global: [IU] Calling wakeup 0x56270cf2ca20
+  19000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  46000: global: [IU] Calling wakeup 0x56270cf13f20
+  46000: global: [IU] Calling wakeup 0x56270cf18010
+  46000: global: [IU] Not ready to wakeup 0x56270cf18010
+  46000: global: [IU] Calling wakeup 0x56270cf24390
+  46000: global: [IU] Not ready to wakeup 0x56270cf24390
+  46000: global: [IU] Calling wakeup 0x56270cf2ca20
+  46000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+  94000: global: [IU] Calling wakeup 0x56270cf13f20
+  94000: global: [IU] Calling wakeup 0x56270cf18010
+  94000: global: [IU] Not ready to wakeup 0x56270cf18010
+  94000: global: [IU] Calling wakeup 0x56270cf24390
+  94000: global: [IU] Not ready to wakeup 0x56270cf24390
+  94000: global: [IU] Calling wakeup 0x56270cf2ca20
+  94000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+ 142000: global: [IU] Calling wakeup 0x56270cf13f20
+ 142000: global: [IU] Calling wakeup 0x56270cf18010
+ 142000: global: [IU] Not ready to wakeup 0x56270cf18010
+ 142000: global: [IU] Calling wakeup 0x56270cf24390
+ 142000: global: [IU] Not ready to wakeup 0x56270cf24390
+ 142000: global: [IU] Calling wakeup 0x56270cf2ca20
+ 142000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+ 190000: global: [IU] Calling wakeup 0x56270cf13f20
+ 190000: global: [IU] Calling wakeup 0x56270cf18010
+ 190000: global: [IU] Not ready to wakeup 0x56270cf18010
+ 190000: global: [IU] Calling wakeup 0x56270cf24390
+ 190000: global: [IU] Not ready to wakeup 0x56270cf24390
+ 190000: global: [IU] Calling wakeup 0x56270cf2ca20
+ 190000: global: [IU] Not ready to wakeup 0x56270cf2ca20
+25016000: system.ruby.network.netifs00: [NI:calculateVC] flit [flit:: PID=4 Id=4 Type= TAIL_ Vnet=2 VC=9 Src NI=0 Src Router=0 Dest NI=16 Dest Router=0 Enqueue Time=20 Valid Time=29 ] credit = 2 

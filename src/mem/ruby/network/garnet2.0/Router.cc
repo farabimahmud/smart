@@ -225,6 +225,10 @@ Router::insertSSR(PortDirection inport_dirn, SSR* t_ssr)
 bool
 Router::smart_vc_select(int inport, int outport, flit *t_flit)
 {
+    DPRINTF(FlitOrder, "RT flit %d-%d smart_vc_select at R%d\n",
+            t_flit->get_pid(),
+            t_flit->get_id(),
+            get_id());
     // VC Selection
     DPRINTF(SMART, "[Router] smart_vc_select(%d, %d, %s\n",
             inport, outport, *t_flit);
@@ -243,7 +247,6 @@ Router::smart_vc_select(int inport, int outport, flit *t_flit)
         t_flit->set_vc(outvc);
     }
 
-    DPRINTF(SMART, "[Router] Out VC %d In VC %d %s\n", outvc, invc, *t_flit);
     m_output_unit[outport]->decrement_credit(outvc);
 
     // Send credit for VCid flit came with
@@ -254,9 +257,11 @@ Router::smart_vc_select(int inport, int outport, flit *t_flit)
     // Send credit for VCid flit came with
     if ((t_flit->get_type() == HEAD_TAIL_ ) ||
             (t_flit->get_type() == TAIL_))
-        m_input_unit[inport]->increment_credit(invc, true, curCycle());
+        m_input_unit[inport]->increment_credit(
+                invc, true, curCycle(), t_flit);
     else
-        m_input_unit[inport]->increment_credit(invc, false, curCycle());
+        m_input_unit[inport]->increment_credit(
+                invc, false, curCycle(), t_flit);
 
     DPRINTF(RubyNetwork, "[Router] Smart VC Select is returned\n");
     return true;
@@ -284,9 +289,18 @@ Router::try_smart_bypass(int inport, PortDirection outport_dirn, flit *t_flit)
 
     // Update VC
     bool has_vc = smart_vc_select(inport, outport, t_flit);
-    if (!has_vc)
+    if (!has_vc){
+        DPRINTF(FlitOrder, "RT flit %d-%d is did not have vc R%d\n",
+            t_flit->get_pid(), t_flit->get_id(),
+            get_id());
         return false;
+    }
+    else{
+        DPRINTF(FlitOrder, "RT flit %d-%d is have vc R%d\n",
+            t_flit->get_pid(), t_flit->get_id(),
+            get_id());
 
+    }
     // Update Route
     smart_route_update(inport, outport, t_flit);
 

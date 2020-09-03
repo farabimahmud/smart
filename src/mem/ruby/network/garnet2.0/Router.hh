@@ -42,8 +42,8 @@
 #include "mem/ruby/network/BasicRouter.hh"
 #include "mem/ruby/network/garnet2.0/CommonTypes.hh"
 #include "mem/ruby/network/garnet2.0/GarnetNetwork.hh"
-#include "mem/ruby/network/garnet2.0/flit.hh"
 #include "mem/ruby/network/garnet2.0/SSR.hh"
+#include "mem/ruby/network/garnet2.0/flit.hh"
 #include "params/GarnetRouter.hh"
 
 class NetworkLink;
